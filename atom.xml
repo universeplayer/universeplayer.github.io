@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Yufeng He</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://universeplayer.github.io/</id>
+  <link href="https://universeplayer.github.io/" rel="alternate"/>
+  <link href="https://universeplayer.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Yufeng He</rights>
+  <subtitle>
+    <![CDATA[AI Engineer & Competitive Programmer]]>
+  </subtitle>
+  <title>Yufeng He | 何宇峰</title>
+  <updated>2026-03-01T19:13:38.354Z</updated>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Internship" scheme="https://universeplayer.github.io/categories/Internship/"/>
+    <category term="Machine Learning" scheme="https://universeplayer.github.io/tags/Machine-Learning/"/>
+    <category term="推荐系统" scheme="https://universeplayer.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    <category term="广告算法" scheme="https://universeplayer.github.io/tags/%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95/"/>
+    <category term="百度" scheme="https://universeplayer.github.io/tags/%E7%99%BE%E5%BA%A6/"/>
+    <content>
+      <![CDATA[<h2 id="钱钱钱钱"><a href="#钱钱钱钱" class="headerlink" title="钱钱钱钱"></a>钱钱钱钱</h2><p>但百度广告组的画风和脉脉完全不一样。脉脉做的是偏内容推荐的东西，用户喜不喜欢、留存好不好是核心指标。到了百度广告组，所有指标最后都指向一个字：钱。ROI、消费、出价、转化成本……</p><h2 id="ROI-质量分：给出价装个脑子"><a href="#ROI-质量分：给出价装个脑子" class="headerlink" title="ROI+质量分：给出价装个脑子"></a>ROI+质量分：给出价装个脑子</h2><p>我接到的第一个核心任务是做”首日ROI+质量分”联合出价策略。之前百度搜索广告的出价主要靠oCPC，也就是按转化成本来约束。但问题是广告主真正关心的不是”我花了多少钱”，而是”我花的钱赚回来了多少”——这就是ROI。</p><p>所以我们做的事情，用人话说就是：让系统不光看转化成本，还要看这个广告能不能赚钱，赚多少钱。再加上广告本身的质量分（创意好不好、落地页体验怎么样），综合起来决定出多少钱去竞价。</p><p>效果就是系统会自动”看人下菜碟”——广告表现好的，自动放开预算让你买更多流量；表现拉跨的，自动收紧出价保护你的钱包。听起来简单对吧？但这个”自动化反馈上界”的参数调起来真的让我掉了不少头发。</p><h2 id="“极致链路”：名字很百度，活很硬"><a href="#“极致链路”：名字很百度，活很硬" class="headerlink" title="“极致链路”：名字很百度，活很硬"></a>“极致链路”：名字很百度，活很硬</h2><p>然后就是重头戏——极致链路（Frictionless Funnel）。</p><p>第一次听到这个项目名我就绷不住了，”极致链路”，多百度啊这名字。但做起来才发现名字一点都不虚。这个项目说白了就是把百度搜索广告从创建到投放到转化的整条链路全部打通优化。</p><p>最后的成绩单：137款产品全部接入，覆盖广告主数量58%，对应消费占比71%。也就是说百度搜索广告超过七成的钱是通过我们优化后的链路花出去的。写周报的时候写到这个数字，属于是手都在抖。</p><h2 id="看板的魔力"><a href="#看板的魔力" class="headerlink" title="看板的魔力"></a>看板的魔力</h2><p>为了让策略效果能被量化追踪，我搭了一套ROI与漏斗看板。从”展示→点击→转化→付费”全链路追踪每个环节的流失，然后按行业、客户层级等维度下钻。</p><p>特别是”万元户”扶持模块。百度有很多月消费万元级别的中小广告主，他们不像大客户有专业优化团队，投放效果经常一塌糊涂。看板发现问题后自动触发扶持策略：智能出价建议、创意优化提示、预算分配建议。HR不用一个一个打电话教了，系统自动搞定。</p><h2 id="短剧的意外惊喜"><a href="#短剧的意外惊喜" class="headerlink" title="短剧的意外惊喜"></a>短剧的意外惊喜</h2><p>最后还做了个短剧快应用的整改项目。短剧广告是那段时间增长最猛的品类，但质量参差不齐，用户看两秒就走人的情况很常见。</p><p>我做了投放人群定向优化、出价策略调整，再加了个内容质量预估模型。结果出来的时候我自己都不敢信——用户平均观看时长+37%。三成七啊！就是说之前看30秒就走的人，现在能看41秒了。ROI还没掉。我当时第一反应是”数据是不是算错了”，反复check了三遍才敢写进报告 😂</p><h2 id="回头看这三个月"><a href="#回头看这三个月" class="headerlink" title="回头看这三个月"></a>回头看这三个月</h2><p>在百度的日子虽然只有三个月，但体验到了大厂做广告推荐的完整流程：从策略设计、AB实验、灰度放量到全量上线，每一步都有严格的review和数据验证。说白了就是——你不能拍脑袋，数据说了算。</p><p>还有一点，广告推荐和内容推荐最大的区别是：广告推荐你优化错了，亏的是真金白银。这种压力是之前做推荐系统的时候完全感受不到的。</p><p>三个月，从”推荐算法工程师”变成了”闻到钱味的推荐算法工程师”。属于是进化了（大概）。</p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2025/10/15/baidu-ads-recommendation/</id>
+    <link href="https://universeplayer.github.io/2025/10/15/baidu-ads-recommendation/"/>
+    <published>2025-10-14T16:00:00.000Z</published>
+    <summary>在百度做广告推荐的三个月，终于理解了为什么说广告是互联网的印钞机</summary>
+    <title>百度三个月：在广告算法里闻到钱的味道</title>
+    <updated>2026-03-01T19:13:38.354Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Internship" scheme="https://universeplayer.github.io/categories/Internship/"/>
+    <category term="LLM" scheme="https://universeplayer.github.io/tags/LLM/"/>
+    <category term="NLP" scheme="https://universeplayer.github.io/tags/NLP/"/>
+    <category term="Backend" scheme="https://universeplayer.github.io/tags/Backend/"/>
+    <category term="GenAI" scheme="https://universeplayer.github.io/tags/GenAI/"/>
+    <category term="脉脉" scheme="https://universeplayer.github.io/tags/%E8%84%89%E8%84%89/"/>
+    <content>
+      <![CDATA[<h2 id="“让AI学会面试别人”"><a href="#“让AI学会面试别人”" class="headerlink" title="“让AI学会面试别人”"></a>“让AI学会面试别人”</h2><p>我的主要任务是搭建一套AI面试评估系统。说白了就是：让LLM学会面试候选人，然后给出评分报告。</p><p>第一反应是——这能行吗？人类面试官看人都经常翻车，LLM能行？但仔细想想，脉脉作为职场社交平台手握海量的简历数据和岗位JD，这个场景确实是LLM的甜点区。关键不是让AI完全替代面试官，而是先做标准化的初筛评估。</p><p>整套Pipeline分五步：题库生成→模拟作答→双评分→分布校准→综合报告。</p><p>听起来很丝滑对吧？做起来可太不丝滑了。</p><h2 id="LLM：我自己面试自己"><a href="#LLM：我自己面试自己" class="headerlink" title="LLM：我自己面试自己"></a>LLM：我自己面试自己</h2><p>最搞笑的bug出现在题库生成阶段。我让LLM根据岗位JD和候选人简历生成面试题，结果它特别贴心地把参考答案也一起生成了，而且直接拼在了题目后面。</p><p>就是说，面试题发给候选人的时候，下面自带标准答案 😂</p><p>Debug的时候发现是prompt里少了一句”不要生成参考答案”。LLM就是这样，你不说的它会自己脑补，而且脑补得特别认真。后来我加了约束，还额外做了个后处理把可能泄露的答案过滤掉，才算解决。</p><p>双评分机制也很有意思。每份回答让两个独立的LLM评分器分别从”技术准确性”和”表达与逻辑”打分，分差太大就触发第三方仲裁。借鉴的是论文审稿那套peer review逻辑——事实证明LLM评分也会有”心情波动”，不做校准的话有时候分数分布飘得离谱。</p><h2 id="五级技能标签：HR小姐姐终于不用手动标了"><a href="#五级技能标签：HR小姐姐终于不用手动标了" class="headerlink" title="五级技能标签：HR小姐姐终于不用手动标了"></a>五级技能标签：HR小姐姐终于不用手动标了</h2><p>另一个大模块是技能标签自动生成与评分系统。脉脉上用户的能力信息分散在简历、项目经历、动态等各种地方，之前全靠HR小姐姐们人肉看简历打标签。你能想象一天看几百份简历然后给每个人的每个技能打1-5分的痛苦吗？</p><p>我设计了一套LLM方案：自动从多个数据源提取技能标签，然后用五级评分体系量化熟练度。Level 1是”了解概念”，Level 5是”行业专家”。评分依据包括相关项目的复杂度、工作年限、成果等。</p><p>技术上最头疼的是增量更新。用户数据天天在变——今天发了个新项目、明天更新了简历——不可能每次都全量重跑。我做了个断点续传的增量补齐策略，记录上次处理到哪了，新增数据只需要增量处理。LLM调用成本直接降了一大截。</p><p>标签库本身也需要维护。我写了一套自动化流程：聚合平台上的海量JD，让LLM分析行业技能需求分布，自动发现新兴标签（比如”RAG”、”Prompt Engineering”这种一两年前还不存在的技能），然后去重、分层、下线过时标签。保证标签库和行业发展同步。</p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2025/07/20/maimai-ai-interview/</id>
+    <link href="https://universeplayer.github.io/2025/07/20/maimai-ai-interview/"/>
+    <published>2025-07-19T16:00:00.000Z</published>
+    <summary>让AI学会面试别人</summary>
+    <title>在脉脉给LLM当面试官的面试官</title>
+    <updated>2026-03-01T19:15:09.112Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Research" scheme="https://universeplayer.github.io/categories/Research/"/>
+    <category term="GAN" scheme="https://universeplayer.github.io/tags/GAN/"/>
+    <category term="Time Series" scheme="https://universeplayer.github.io/tags/Time-Series/"/>
+    <category term="Deep Learning" scheme="https://universeplayer.github.io/tags/Deep-Learning/"/>
+    <category term="PyTorch" scheme="https://universeplayer.github.io/tags/PyTorch/"/>
+    <category term="毕设" scheme="https://universeplayer.github.io/tags/%E6%AF%95%E8%AE%BE/"/>
+    <content>
+      <![CDATA[<h2 id="选题：导师说我在找死"><a href="#选题：导师说我在找死" class="headerlink" title="选题：导师说我在找死"></a>选题：导师说我在找死</h2><p>大四选毕设题目的时候，我跟导师说想做 GAN 做时间序列缺失值填补。</p><p>导师看了我一眼，原话是：”用GAN做时序？你是在找死。”</p><p>说实话当时我心里也没底。GAN 训练不稳定这事在 CV 圈子里都是老生常谈了，更别提拿到时序数据上用——这玩意儿不像图片，你生成的东西好不好人眼一看就知道，时序数据你得靠指标说话，中间出了问题你连 debug 的抓手都没有。</p><p>但我还是选了这个题。原因很简单：当时看了一圈文献，发现做多变量时间序列填补（MTSI）的工作要么是 RNN 那一套确定性回归，要么是 VAE 系列，GAN 方向几乎没人能跑稳。越是没人做成的东西越让我手痒——大概是打 ACM 打多了，看到 hard problem 就想冲 😂</p><p>后来想想，这个选择差点要了我的命。</p><h2 id="前两个月：Mode-Collapse-地狱"><a href="#前两个月：Mode-Collapse-地狱" class="headerlink" title="前两个月：Mode Collapse 地狱"></a>前两个月：Mode Collapse 地狱</h2><p>我的方案核心思路是这样的：先把多变量时间序列通过 Patching（类似 ViT 的 patch embedding）从 1D 映射到 2D，这样就能用成熟的 CNN 架构了。然后生成器和判别器都用深层 ResNet（20 多个残差块），输入是数据矩阵、掩码矩阵、时间间隔矩阵三个拼在一起——让模型知道哪里缺了、缺了多久。</p><p>听起来很美对吧？</p><p>实际跑起来就是另一个世界了。</p><p>前两个月，我几乎把所有时间都耗在了训练上。loss 曲线我到现在都记得——像心电图一样上蹿下跳，判别器 loss 一路往下冲到零，生成器直接摆烂，输出全是同一个值。经典的 mode collapse。</p><p>我试了各种骚操作：改 learning rate schedule、加 spectral normalization、换不同的 GAN loss（WGAN-GP、LSGAN、hinge loss）……两百多次实验，Wandb 上的 run 密密麻麻的，没有一次是能看的。</p><p>那段时间每天的生活就是：起床 → 开跑实验 → 盯着 loss 曲线发呆 → 崩了 → 改参数 → 再跑 → 再崩。周围同学的毕设都在稳步推进，有几个做 NLP 微调的已经开始写论文了，我这边连个 baseline 都跑不出来。</p><p>讲真，有段时间我是真的想换题。</p><p>凌晨两点的实验室就剩我一个人，盯着屏幕上又一次 collapse 的 loss 曲线，整个人都是麻的。</p><h2 id="顿悟时刻：Fixup-初始化"><a href="#顿悟时刻：Fixup-初始化" class="headerlink" title="顿悟时刻：Fixup 初始化"></a>顿悟时刻：Fixup 初始化</h2><p>转折发生在一个很普通的晚上。</p><p>我当时在翻一篇 ICLR 的论文，讲的是图像生成里深层 ResNet 的训练技巧。里面提到一个叫 Fixup 初始化 的东西——核心思想简单到离谱：把残差分支最后一层卷积的权重初始化为零。就这样。没了。</p><p>我当时第一反应是”就这？？？”这不就是让网络一开始表现成恒等映射嘛，然后慢慢学残差修正。原理我都懂，但这也太简单了吧，能管用？</p><p>抱着试试看的心态加上去了。</p><p>然后配合 RpGAN（相对判别 GAN，让判别器比较”真实样本比生成样本更真”的概率而不是直接判真假）和 R1&#x2F;R2 梯度正则化（约束判别器的梯度别太离谱），三个东西一起上——</p><p>loss 曲线它稳住了。</p><p>我盯着屏幕看了五分钟，不敢动。因为之前也有过 loss 看起来稳了然后突然崩的情况。一个 epoch 过去了，两个 epoch 过去了，十个 epoch 过去了……生成器和判别器的 loss 在一个合理的范围内交替震荡，没有 collapse 的迹象。</p><p>我记得我当时站起来在实验室走了两圈，回来又看了看曲线，确认自己不是在做梦。</p><p>那种感觉怎么说呢——你调了两个月的东西，最后发现答案是这么一个简单到让人想骂人的初始化策略。就像你找了两个月的 bug，最后发现是少了个分号。属于是又想哭又想笑 😭</p><h2 id="跑通的那一夜"><a href="#跑通的那一夜" class="headerlink" title="跑通的那一夜"></a>跑通的那一夜</h2><p>确认训练能稳定之后，我开始疯狂跑实验。PhysioNet Challenge 2012（ICU 的多变量生理信号，35 个变量，80% 自然缺失率）和北京空气质量数据集，在 10% 到 70% 的不同缺失率设定下全面对比。</p><p>结果出来的那天晚上，我看到 MAE&#x2F;RMSE 比之前的 SOTA（BRITS、SAITS、GP-VAE 那些）平均低了 11%，收敛速度快了 40%，而且整个训练过程几乎没有出现 mode collapse。</p><p>我在宿舍里喊了一声”卧槽”，把已经睡着的室友吵醒了。他翻了个身问我咋了，我说我毕设跑通了。他说”哦”然后继续睡了。</p><p>……行吧，室友不懂 GAN 的痛苦也不懂 GAN 跑通的快乐，这很合理 🥲</p><p>消融实验也很漂亮：Patching 策略和三矩阵条件输入各贡献了 3-4% 的误差下降，但最关键的还是 Fixup + RpGAN + 梯度正则化这套组合拳——没有它们，深层 ResNet 架构根本跑不起来，前两个月的血泪就是证明。</p><h2 id="答辩：全院最高分"><a href="#答辩：全院最高分" class="headerlink" title="答辩：全院最高分"></a>答辩：全院最高分</h2><p>答辩那天我紧张到手心出汗。</p><p>因为这个方向太偏了——做 GAN 的老师不一定懂时序，做时序的老师不一定懂 GAN，万一评委觉得”你搞这么花哨有什么必要”就完蛋了。</p><p>但讲到训练稳定性那块的时候，我能感觉到台下有几个老师眼睛亮了。因为 GAN 训练不稳定是个所有做过生成模型的人都痛过的问题，我的方案确实给出了一个看得见的解法。一个评委当场问我 Fixup 初始化的理论基础是什么，我解释完之后他点了点头，说”这个想法比较 elegant”。</p><p>成绩出来的时候我整个人是懵的——全院最高分，优秀毕业论文。</p><p>那一刻我真的绷不住了。前两个月 mode collapse 的绝望、凌晨空荡荡的实验室、想换题的念头、Fixup 跑通那一瞬间的不真实感……全部涌上来了。</p><p>打电话给我妈说了这个消息，她说”哦那你记得吃饭”。</p><p>好吧，这大概就是中国家长 😂</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>代码已经全部开源了：<a href="https://github.com/universeplayer/MTSIR3-GAN">MTSIR3-GAN GitHub</a>，有兴趣的可以去看看。</p><p>回头看这段经历，我最大的感受是：深度学习很多时候不是你不够聪明，是你还没找到那个对的组合。Fixup 初始化、RpGAN、梯度正则化，这几个技术单拎出来都不是什么新东西，但放在一起就是能让一个之前怎么都跑不动的架构突然 work 了。</p><p>还有就是，做研究真的需要一点”不信邪”的劲头。导师说找死的时候，如果我真的换了题，大概率也能毕业，但绝对不会有这种”我靠我真的做出来了”的感觉。</p><p>当然了，代价就是我的发际线在那两个月明显后移了。</p><p>值不值得？我觉得值。毕竟秃头在 CS 圈子里也算是一种勋章了吧（不是</p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2025/06/15/mtsir3-gan/</id>
+    <link href="https://universeplayer.github.io/2025/06/15/mtsir3-gan/"/>
+    <published>2025-06-14T16:00:00.000Z</published>
+    <summary>MTSIR3-GAN：一个差点让我放弃的毕设项目，最后居然拿了全院最高分</summary>
+    <title>毕设答辩拿了全院最高分，但过程差点让我秃头</title>
+    <updated>2026-03-01T19:18:10.816Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Internship" scheme="https://universeplayer.github.io/categories/Internship/"/>
+    <category term="Machine Learning" scheme="https://universeplayer.github.io/tags/Machine-Learning/"/>
+    <category term="XGBoost" scheme="https://universeplayer.github.io/tags/XGBoost/"/>
+    <category term="A/B Testing" scheme="https://universeplayer.github.io/tags/A-B-Testing/"/>
+    <category term="推荐系统" scheme="https://universeplayer.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    <category term="快手" scheme="https://universeplayer.github.io/tags/%E5%BF%AB%E6%89%8B/"/>
+    <content>
+      <![CDATA[<h2 id="第一天：代码库比我整个大学写的都多"><a href="#第一天：代码库比我整个大学写的都多" class="headerlink" title="第一天：代码库比我整个大学写的都多"></a>第一天：代码库比我整个大学写的都多</h2><p>2024 年 7 月，我入职快手音视频架构部，做视频转码的分发策略算法。</p><p>第一天 mentor 跟我说：”先熟悉下代码。” 然后给我指了个 GitLab 仓库。</p><p>我点进去一看——好家伙，几万行代码，目录结构嵌了七八层，光 feature engineering 的文件就有几十个。我当时的表情大概和第一次打开 Linux 内核源码的人差不多：表面镇定，内心在尖叫。</p><p>在学校的时候我以为自己写过不少代码了（ACM 选手嘛，刷题刷了几千道），但那些都是几百行解决一个问题的东西。工业级代码库是另一个次元——你不光要看懂逻辑，还要搞清楚每个模块跟上下游系统怎么通信，特征从哪来的，数据流怎么走的，线上服务延迟要求是多少……</p><p>第一周我基本在读代码 + 问蠢问题中度过的 😅</p><h2 id="54万核：数字大到失去实感"><a href="#54万核：数字大到失去实感" class="headerlink" title="54万核：数字大到失去实感"></a>54万核：数字大到失去实感</h2><p>然后 mentor 给我讲了下业务背景，我就被震住了。</p><p>快手的视频转码集群有超过 50 万核，分发带宽峰值超过 50Tbps。</p><p>这是什么概念？说白了就是，你做的每一个决策——这条视频要不要转高清——背后都是成百上千台机器在跑。一个百分点的优化就是几百万人民币的成本变化。一个 bug 上线可能导致几千万用户看到模糊视频或者公司多花几百万带宽费。</p><p>我当时心想：我一个实习生，真的能碰这个吗？？？</p><p>但很快我就被扔到了具体的活上——优化 XGBoost 模型，决定”对哪些视频该转高清”。核心思路是预估每条视频转高清后的净收益（体验提升的商业价值减去转码和带宽成本），然后按阈值做决策。</p><h2 id="调参地狱"><a href="#调参地狱" class="headerlink" title="调参地狱"></a>调参地狱</h2><p>说到 XGBoost 调参，我真的有段 PTSD。</p><p>特征工程倒还好——用户设备分辨率、网络环境（WiFi 还是 4G）、视频垂类（风景旅拍对清晰度敏感，对话类就还好）、作者历史热度、视频发布后前几分钟的播放增速……这些维度我理解得还算快。</p><p>但调参是真的折磨人。learning rate、max_depth、min_child_weight、subsample、colsample_bytree……每个参数都有一堆讲究，组合起来就是指数级的搜索空间。</p><p>我前前后后调了两百多组参数。Wandb 上的 run 从 exp_001 一路排到 exp_250，每跑一组都要等好一会儿，然后盯着 AUC 的变化。有时候 AUC 涨了 0.1%，你不知道是真的涨了还是噪音。有时候换了个参数 AUC 掉了但线上可能反而好——因为你优化的真正目标是净收益，不是 AUC。</p><p>那段时间我最常做的动作就是：提交实验 → 等结果 → 叹气 → 改参数 → 再提交。属于是薛定谔的调参，不看结果之前每组参数都充满希望 🎰</p><h2 id="那次尴尬的-A-B-Test"><a href="#那次尴尬的-A-B-Test" class="headerlink" title="那次尴尬的 A&#x2F;B Test"></a>那次尴尬的 A&#x2F;B Test</h2><p>最让我印象深刻的教训来自一次 A&#x2F;B test。</p><p>我改了特征工程，加了几个新特征，离线评估上 AUC 涨了 5%——这在离线指标里已经是很大的提升了。我兴奋地跟 mentor 说可以上线了。</p><p>上线跑了一周 A&#x2F;B test，结果出来：完全没有显著差异。</p><p>啊？？？</p><p>排查了好久才发现原因：我新加的一个特征在离线训练数据里是完整的，但在线上的实时特征服务里有几分钟的延迟。也就是说模型训练的时候用的是”未来信息”，但线上推理的时候用的是过时数据。经典的 offline-online gap。</p><p>Mentor 拍了拍我的肩说：”这种坑，每个做推荐系统的人都要踩一遍。”</p><p>说实话那个时候挺受打击的。但后来想想，这种教训在课本上是怎么都学不到的。从那以后我每次加新特征第一件事就是确认线上能不能实时拿到，延迟是多少。听起来很基础对吧？但真的，只有踩过坑的人才会养成这个习惯。</p><h2 id="删-1000-PB-数据：小心翼翼如履薄冰"><a href="#删-1000-PB-数据：小心翼翼如履薄冰" class="headerlink" title="删 1000 PB 数据：小心翼翼如履薄冰"></a>删 1000 PB 数据：小心翼翼如履薄冰</h2><p>实习后期我还参与了存储治理项目——清理历史冗余的转码文件。</p><p>快手每天产生海量的视频转码产物，同一个视频可能有好几个分辨率、好几种编码格式的副本，很多早就没人看了。我们的任务是把这些冗余数据安全地清掉。</p><p>最终清理了超过 1000PB。</p><p>这个数字听着很爽，但过程是真的提心吊胆。我们设计了三步走的策略：先标记超过 N 天没人看的副本，然后从热存储迁到冷存储观察一周，确认没有回源请求才真正删除——而且只删转码副本，原始视频永远不动（最坏情况可以重新转码）。</p><p>每次执行删除脚本之前我都要检查三遍 SQL 条件，生怕把不该删的删了。Mentor 说”删错一批数据你就知道什么叫写事故报告了”。这句话现在想起来都后背发凉 😨</p><h2 id="快手教会我的"><a href="#快手教会我的" class="headerlink" title="快手教会我的"></a>快手教会我的</h2><p>半年时间不长，但这段实习彻底改变了我对”做 ML”的理解。</p><p>在学校里做 ML 是这样的：找数据集 → 跑模型 → 看指标 → 写论文。clean and simple。</p><p>在快手做 ML 是这样的：理解业务 → 搞清楚特征从哪来 → 确认线上服务能不能用 → 调参 → 离线评估 → 上 A&#x2F;B test → 分析结果 → 排除噪音 → 可能发现离线涨了线上没涨 → 排查原因 → 重新来 → 终于显著了 → 灰度发布 → 全量上线 → 继续监控……</p><p>模型本身可能只占整个工作量的 20%，剩下 80% 是工程、是数据、是对业务的理解。</p><p>以前觉得”ML Engineering”就是个 title，现在才知道这是一个完整的、复杂的、和纯粹的”ML Research”截然不同的技能体系。</p><p>在快手我终于理解了什么叫工业级 ML。 不是你的模型多花哨，而是你的整个系统在 54 万核的集群上、56 Tbps 的带宽里、3 亿日活用户面前，能稳定、高效、可靠地运行。这才是真功夫。</p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2024/12/01/kuaishou-transcoding/</id>
+    <link href="https://universeplayer.github.io/2024/12/01/kuaishou-transcoding/"/>
+    <published>2024-11-30T16:00:00.000Z</published>
+    <summary>在快手实习半年，从一个只会跑notebook的学生变成了能独立AB test的工程师</summary>
+    <title>在快手做ML：54万核集群教会我的事</title>
+    <updated>2026-03-01T19:18:04.741Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Projects" scheme="https://universeplayer.github.io/categories/Projects/"/>
+    <category term="LLM" scheme="https://universeplayer.github.io/tags/LLM/"/>
+    <category term="创业" scheme="https://universeplayer.github.io/tags/%E5%88%9B%E4%B8%9A/"/>
+    <category term="AI Agent" scheme="https://universeplayer.github.io/tags/AI-Agent/"/>
+    <category term="Medical AI" scheme="https://universeplayer.github.io/tags/Medical-AI/"/>
+    <content>
+      <![CDATA[<h2 id="第一次走进医院后台"><a href="#第一次走进医院后台" class="headerlink" title="第一次走进医院后台"></a>第一次走进医院后台</h2><p>之前，我对医院的认知还停留在”挂号→排队→看病→拿药”的患者视角。第一次跟着导师去同济医院的病历数据中心，说实话，震撼到我了。</p><p>那个系统里存着几十万糖尿病患者的随诊记录：血糖、用药、并发症、生活方式……量大到一个医生根本不可能全部看完。一位内分泌科的主治医师跟我说，他一个人管着200多个慢病患者，每次电话随诊5-10分钟，一轮完整回访下来要几十个小时。</p><p>“你们能不能做个东西帮我们打电话？”他半开玩笑地说。</p><p>我们真的做了。</p><h2 id="医学生教我的事"><a href="#医学生教我的事" class="headerlink" title="医学生教我的事"></a>医学生教我的事</h2><p>团队里有几个同济医学院的研究生，不会写代码但对临床太了解了。合作初期我犯了一个典型的工科生错误——觉得数据嘛，血糖值、HbA1c这些数字不就完了？</p><p>结果医学生小王（化名）拉着我看了半天病历，跟我说：”你看这个患者说’最近有时候头晕’，你觉得这是什么意思？”</p><p>我：”头晕？贫血？没休息好？”</p><p>她：”有可能是低血糖事件。你不问清楚发生在什么时候、持续多久、当时有没有吃东西、血糖测了多少，这条信息就是废的。”</p><p>就这一个例子让我明白了：医疗数据不是你觉得有用就有用的，得让懂临床的人告诉你什么信息才有意义。从那以后，所有的对话模板、数据字段、评估标准全部是和医学生们一条一条对着临床指南敲出来的。</p><h2 id="三层Agent：灵感来自打游戏"><a href="#三层Agent：灵感来自打游戏" class="headerlink" title="三层Agent：灵感来自打游戏"></a>三层Agent：灵感来自打游戏</h2><p>系统架构设计的时候我们讨论了很久。最后定的三层Agent架构，说出来有点不好意思——灵感其实来自我玩游戏时的阵容搭配 😂</p><p>打RPG的时候，前排是肉盾负责抗伤害和收集信息，中排是辅助负责buff和资源调配，后排是输出负责最终决策。我们的三层Agent也是这个逻辑：</p><p>交互Agent（前排）：直接面对患者，通过微信小程序或电话（ASR转文本）进行多轮对话。核心任务是按照随诊模板收集信息——空腹血糖多少、吃了什么药、有没有低血糖、运动情况等等。患者说”早上血糖一般七点几，有时候八点多”，它要能提取出”空腹血糖7.x-8.x mmol&#x2F;L”这个结构化信息，然后继续问下一项。遇到患者说话含糊（”血糖挺好的但有时候头晕”），要主动追问消歧。</p><p>这一层最头疼的是对话状态管理。糖尿病随诊一轮下来要问十几项，对话可能长达10-15轮。LLM的上下文窗口有限，中间还不能丢信息。我们用Prompt Engineering加少量Fine-tuning，再配一个checklist机制确保所有字段都覆盖到了。</p><p>查找Agent（中排）：交互Agent收完信息后触发。它去患者的历史病历库里翻记录——“这个患者近三个月空腹血糖的变化趋势”、”上次调药之后血糖有没有改善”之类的。用的是ChatDB的思路，把自然语言查询转成SQL去查结构化数据库，而不是纯向量检索。这样结果精确可控，还能做均值、趋势这种聚合计算。</p><p>诊断Agent（后排）：拿到当前随诊信息+历史数据，生成评估报告和调整建议。这层用的是基于临床指南微调的LLM，训练数据全是同济医院提供的脱敏病例。输出包括风险分级（稳定&#x2F;需关注&#x2F;需紧急干预）、异常指标标注、用药调整建议等。</p><p>最关键的设计是——诊断Agent不能自己做主。只有风险分级为”稳定”的才自动归档，”需关注”及以上全部转人工审核。医生做最终决定。</p><h2 id="第一次和真实患者对话"><a href="#第一次和真实患者对话" class="headerlink" title="第一次和真实患者对话"></a>第一次和真实患者对话</h2><p>交互Agent第一次上线测试跑真实患者的时候，我紧张得手心全是汗。</p><p>万一它理解错了患者的意思怎么办？万一它问了不该问的问题怎么办？万一患者说了个方言它听不懂怎么办？</p><p>结果第一个患者是个六十多岁的阿姨，武汉口音，说话又快又含糊。我坐在监控屏幕前看对话记录一条一条弹出来，心跳都加速了。</p><p>但Agent居然稳住了。遇到没听清的地方会礼貌地追问，该收集的字段一项一项推进，语气温和不生硬。阿姨最后还回了个”谢谢小助手”。</p><p>那一刻属于是，整个人都松了一口气，然后莫名其妙地鼻子有点酸。</p><h2 id="F1-90-，但10-意味着什么"><a href="#F1-90-，但10-意味着什么" class="headerlink" title="F1&#x3D;90%，但10%意味着什么"></a>F1&#x3D;90%，但10%意味着什么</h2><p>在同济医院提供的真实临床数据上，系统信息提取准确率F1达到了90%，随诊完整度87%，风险分级准确率92%，”需紧急干预”类别召回率96%。</p><p>数字挺好看的对吧？但有一次组会上，合作的主治医师说了一句话让我沉默了很久：</p><p>“90%很好。但你想想，如果有100个患者用这个系统，10个人的信息被提取错了。如果其中有一个人因此错过了紧急干预的窗口期……”</p><p>他没说完，但所有人都懂了。这就是医疗AI和其他AI应用最本质的区别——你的错误不是”推荐了一个用户不喜欢的视频”，而是可能关乎一个人的健康甚至生命。</p><p>也是因为这句话，我们在诊断Agent的设计上始终坚持”有限自主性”原则。AI只在有把握的简单case上自动处理，稍有不确定就交给人。宁可多给医生一些工作量，也不能让系统自作主张。</p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2024/04/01/uniccloud-medical-ai/</id>
+    <link href="https://universeplayer.github.io/2024/04/01/uniccloud-medical-ai/"/>
+    <published>2024-03-31T16:00:00.000Z</published>
+    <summary>三层LLM Agent做糖尿病随诊，F1=90%，但医疗AI的故事远不止指标</summary>
+    <title>和医院一起做AI：当代码遇上听诊器</title>
+    <updated>2026-03-01T19:19:35.248Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Yufeng He</name>
+    </author>
+    <category term="Startup" scheme="https://universeplayer.github.io/categories/Startup/"/>
+    <category term="Deep Learning" scheme="https://universeplayer.github.io/tags/Deep-Learning/"/>
+    <category term="AI Music" scheme="https://universeplayer.github.io/tags/AI-Music/"/>
+    <category term="AIGC" scheme="https://universeplayer.github.io/tags/AIGC/"/>
+    <category term="创业" scheme="https://universeplayer.github.io/tags/%E5%88%9B%E4%B8%9A/"/>
+    <category term="期音科技" scheme="https://universeplayer.github.io/tags/%E6%9C%9F%E9%9F%B3%E7%A7%91%E6%8A%80/"/>
+    <content>
+      <![CDATA[<h2 id="大一的秋天，我连创业是啥都没搞懂"><a href="#大一的秋天，我连创业是啥都没搞懂" class="headerlink" title="大一的秋天，我连创业是啥都没搞懂"></a>大一的秋天，我连创业是啥都没搞懂</h2><p>2021 年 9 月，我刚进北邮，连校园都还没逛完，就被几个学长拉进了一个”AI 音乐”的项目组。</p><p>当时我对创业的全部理解来自综艺节目和知乎帖子。什么商业模式、融资估值、股权架构，一概不懂。我唯一的底气就是代码写得还行——高中打 NOI，大一刚拿了北邮程序设计竞赛金牌，觉得自己技术上能 hold 住。</p><p>现在回头看，那时候的自信简直是无知者无畏的典范 😂</p><p>我们想做的事情是：用 AI 帮普通人做音乐。很多人脑子里有旋律，能哼出来，但不会编曲、不会混音、不懂乐理，没法把灵感变成一首完整的歌。我们想让 AI 把这个门槛踩平。</p><p>说白了就是——你哼一段旋律，AI 帮你配上鼓点、贝斯、和弦、pad，直接输出一首能听的歌。</p><h2 id="第一版-AI-做的音乐有多难听"><a href="#第一版-AI-做的音乐有多难听" class="headerlink" title="第一版 AI 做的音乐有多难听"></a>第一版 AI 做的音乐有多难听</h2><p>我负责的是核心算法引擎，分两块：旋律生成和自动编曲混音（我们内部叫 Alremix）。</p><p>旋律生成用的是 Transformer 自回归，加条件控制（用户给标签，比如”欢快””电子””120BPM”），然后层级化生成——先出和弦走向，再填旋律线，最后加装饰音。原理讲起来很清晰，做起来全是坑。</p><p>我到现在都记得第一次把 AI 生成的音乐放给全组听的场景。</p><p>大家围在一台笔记本电脑前，我按下播放键，电脑发出了一段……怎么说呢，一段介于噪音和实验音乐之间的东西。节奏忽快忽慢，和弦像是随机在钢琴上砸的，旋律在两个八度之间反复横跳。</p><p>但我们所有人听完之后的反应是：”诶，能听出来是音乐了！”</p><p>然后大家就很兴奋地开始讨论怎么改进。</p><p>现在想想，那种盲目乐观也是一种很珍贵的东西。如果当时我们客观评价一下那段音乐的质量，大概率会觉得”这 TM 能行？”然后项目直接散了。但我们就是觉得，再迭代几个版本就好了。</p><p>事实证明确实需要迭代很多很多个版本。</p><p>后来去快手做 ML、去脉脉做 LLM、去百度做推荐、去月之暗面做 AI Agent——每一段经历里我都会想起大一创业时那种从 0 到 1 的感觉。它教会我的不是某个具体的技术，而是一种面对完全未知问题时的勇气和方法论：不懂就学，学了就干，干了再改。</p><p>创业最后没有继续做下去，我也不觉得遗憾。人生不是只有一条路。那段经历给了我足够的底气去面对后来的每一个新挑战。</p><p>我有时候会打开网易云，随机听到一首 AI 生成的音乐，想到那是自己在宿舍里写的算法生成的。</p><p>然后笑一下，继续写作业。</p><hr><p><em>大一那年的我大概想不到，几年后我会在香港读硕士，在月之暗面做 AI Agent。但我很庆幸那个什么都不懂的我选择了冲出去。</em></p><p><em>哪怕最后又选择了回来。</em></p>]]>
+    </content>
+    <id>https://universeplayer.github.io/2022/06/01/qiyin-ai-music/</id>
+    <link href="https://universeplayer.github.io/2022/06/01/qiyin-ai-music/"/>
+    <published>2022-05-31T16:00:00.000Z</published>
+    <summary>从0到1造AI音乐引擎，10亿播放，30万美元融资，然后我选择了回学校</summary>
+    <title>我选择回去上课</title>
+    <updated>2026-03-01T19:21:02.301Z</updated>
+  </entry>
+</feed>
