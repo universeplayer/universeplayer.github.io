@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Nim游戏：我靠异或赢了队友一顿烧烤</title>
+      <link href="/2026/03/02/nim-game/"/>
+      <url>/2026/03/02/nim-game/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因是一顿烧烤"><a href="#起因是一顿烧烤" class="headerlink" title="起因是一顿烧烤"></a>起因是一顿烧烤</h2><p>ACM训练的时候我们队有个传统：吃饭的时候用筷子玩取石子。三堆花生米摆桌上，两个人轮流从任意一堆里拿，每次至少拿一颗最多拿完整堆，谁拿走最后一颗谁赢，输的人请客。</p><p>一开始我跟队友都是凭感觉拿，输赢全靠运气。直到有一天我在OI Wiki上看到了Nim游戏的必胜策略，从此队友再也没赢过我，白嫖了一个学期的烧烤。</p><p>队友：”你是不是开了？”</p><p>我：”我开的是数学。”</p><h2 id="规则很简单"><a href="#规则很简单" class="headerlink" title="规则很简单"></a>规则很简单</h2><p>地上有 n 堆石子，数量分别是 a1, a2, …, an。两个人轮流操作，每次选一堆，从里面拿走至少1个至多全部。谁拿走最后一个石子谁赢。</p><p>就这么简单。但”谁必胜”这个问题困扰了数学家几百年，直到1901年哈佛的Charles Bouton一巴掌拍出了答案。</p><h2 id="结论：异或为0就输了"><a href="#结论：异或为0就输了" class="headerlink" title="结论：异或为0就输了"></a>结论：异或为0就输了</h2><p>把所有堆的数量异或起来：</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nim_value</span> = a1<span class="regexp"> ^</span> a2<span class="regexp"> ^</span> a3<span class="regexp"> ^</span> ...<span class="regexp"> ^</span> an</span><br></pre></td></tr></table></figure><p>如果 <code>nim_value == 0</code>，当前这个人必输（后手必胜）。</p><p>如果 <code>nim_value != 0</code>，当前这个人必赢（先手必胜）。</p><p>就这？就这。</p><p>代码写出来也就几行的事：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> t; <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="type">int</span> n, x = <span class="number">0</span>, a;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">            x ^= a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(x ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>洛谷 P2197 模板题，直接交就过。</p><h2 id="为什么是异或？"><a href="#为什么是异或？" class="headerlink" title="为什么是异或？"></a>为什么是异或？</h2><p>这个部分你可以选择”信了就完事”然后跳到下一节，也可以跟我一起想明白为什么。</p><p>先定义两种局面：</p><ul><li>P局面（Previous，上一个人赢了）&#x3D; 当前玩家必输</li><li>N局面（Next，下一个人赢了）&#x3D; 当前玩家必赢</li></ul><p>三条公理：</p><ol><li>所有终止局面（没石子可拿了）是P局面</li><li>能走到P局面的局面是N局面（你能把对手逼到必输，你就赢了）</li><li>只能走到N局面的局面是P局面（怎么走都是把对手送到必赢，你就输了）</li></ol><p>现在考虑异或值：</p><p>终止局面所有堆都是0，异或值是0 → P局面。符合规则1。</p><p>异或值不为0的时候，一定存在某种操作让异或值变成0。怎么操作？找到异或值最高位的那个1，一定有某堆在这一位上也是1（不然异或出来这位不可能是1）。把这堆的数量改成”这堆原来的值 XOR 整体异或值”，新值一定比原值小（因为最高位从1变成了0），所以这是一个合法操作。操作完之后整体异或值变成0。符合规则2。</p><p>异或值为0的时候，任何操作都会让异或值变成非0（你改了一堆的值，异或值不可能还是0，除非你没改，但你至少要拿一个）。符合规则3。</p><p>三条规则都满足。证毕。</p><p>你看，不需要什么高深数学，就是把”什么时候赢什么时候输”的条件一条一条验证过去。</p><h2 id="一个堆的时候更直观"><a href="#一个堆的时候更直观" class="headerlink" title="一个堆的时候更直观"></a>一个堆的时候更直观</h2><p>一堆石子，n个。你先手。</p><p>n &#x3D; 0：没得拿，你输了。<br>n &gt;&#x3D; 1：你全拿走，你赢了。</p><p>所以一堆的时候先手永远赢（n &gt; 0时）。异或值就是n本身，确实非0。没毛病。</p><h2 id="两堆的时候开始有意思"><a href="#两堆的时候开始有意思" class="headerlink" title="两堆的时候开始有意思"></a>两堆的时候开始有意思</h2><p>两堆：a和b。</p><p>如果 a &#x3D;&#x3D; b，先手必输。因为不管你在哪堆拿多少，对手在另一堆也拿同样多就行了。你们一直”镜像”操作，最后一个石子一定是对手拿的。</p><p>如果 a !&#x3D; b，先手必赢。先从多的那堆拿，拿到跟少的那堆一样多，然后进入 a &#x3D;&#x3D; b 的局面，对手就输了。</p><p>a &#x3D;&#x3D; b 的时候 a ^ b &#x3D;&#x3D; 0，a !&#x3D; b 的时候 a ^ b !&#x3D; 0。跟结论完全吻合。</p><h2 id="回到烧烤现场"><a href="#回到烧烤现场" class="headerlink" title="回到烧烤现场"></a>回到烧烤现场</h2><p>知道了这个之后，花生米博弈就变成了纯计算题。</p><p>比如三堆花生米：3, 5, 7。</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  011  (3)</span></span><br><span class="line"><span class="code">  101  (5)</span></span><br><span class="line"><span class="section">  111  (7)</span></span><br><span class="line"><span class="section">---------</span></span><br><span class="line">XOR = 001  ≠ 0，先手赢</span><br></pre></td></tr></table></figure><p>我要做的就是找一堆改掉让异或值变0。当前异或值是1，我可以把3变成 3^1&#x3D;2，也就是从第一堆拿走1颗。局面变成2, 5, 7，异或值 010^101^111 &#x3D; 000。对手怎么拿都是非0局面，我再异或回0。</p><p>队友：”你拿花生米之前为什么总要愣一下？”</p><p>我：在心里算异或。</p><h2 id="Sprague-Grundy定理：万能博弈分析框架"><a href="#Sprague-Grundy定理：万能博弈分析框架" class="headerlink" title="Sprague-Grundy定理：万能博弈分析框架"></a>Sprague-Grundy定理：万能博弈分析框架</h2><p>Nim游戏好懂，但竞赛里的博弈题通常不是标准Nim。比如”每次最多拿k个”、”石子分成两堆”、”在图上走棋子”之类的变种。</p><p>这时候就需要Sprague-Grundy定理了。核心思想：任何公平组合游戏（两个人交替操作、信息完全公开、不能操作的人输）都等价于Nim游戏。</p><p>具体做法是给每个局面算一个SG值：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">SG</span><span class="params">(x)</span></span> = <span class="built_in">mex</span>(&#123; <span class="built_in">SG</span>(<span class="attribute">y</span>) | y是x能转移到的所有局面 &#125;)</span><br></pre></td></tr></table></figure><p>mex是”最小排除值”——一个集合里最小的不在集合中的非负整数。比如 mex({0,1,3}) &#x3D; 2，mex({1,2}) &#x3D; 0，mex({}) &#x3D; 0。</p><p>如果游戏由多个独立子游戏组成，总SG值就是各子游戏SG值的异或：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">SG</span><span class="params">(总)</span></span> = <span class="built_in">SG</span>(G1) ^ <span class="built_in">SG</span>(G2) ^ ... ^ <span class="built_in">SG</span>(Gn)</span><br></pre></td></tr></table></figure><p>SG值为0就输，非0就赢。跟Nim一模一样。</p><h2 id="例子：每次最多拿k个"><a href="#例子：每次最多拿k个" class="headerlink" title="例子：每次最多拿k个"></a>例子：每次最多拿k个</h2><p>一堆n个石子，每次最多拿k个。这不是标准Nim了，但用SG函数秒解：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">SG</span><span class="params">(<span class="number">0</span>)</span></span> = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="title">SG</span><span class="params">(<span class="number">1</span>)</span></span> = <span class="built_in">mex</span>(&#123;<span class="built_in">SG</span>(<span class="number">0</span>)&#125;) = <span class="built_in">mex</span>(&#123;<span class="number">0</span>&#125;) = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="title">SG</span><span class="params">(<span class="number">2</span>)</span></span> = <span class="built_in">mex</span>(&#123;<span class="built_in">SG</span>(<span class="number">0</span>), <span class="built_in">SG</span>(<span class="number">1</span>)&#125;) = <span class="built_in">mex</span>(&#123;<span class="number">0</span>,<span class="number">1</span>&#125;) = <span class="number">2</span></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="title">SG</span><span class="params">(k)</span></span> = <span class="built_in">mex</span>(&#123;<span class="number">0</span>,<span class="number">1</span>,...,k-<span class="number">1</span>&#125;) = k</span><br><span class="line"><span class="function"><span class="title">SG</span><span class="params">(k+<span class="number">1</span>)</span></span> = <span class="built_in">mex</span>(&#123;<span class="built_in">SG</span>(<span class="number">1</span>),...,<span class="built_in">SG</span>(k)&#125;) = <span class="built_in">mex</span>(&#123;<span class="number">1</span>,<span class="number">2</span>,...,k&#125;) = <span class="number">0</span></span><br></pre></td></tr></table></figure><p>规律：SG(n) &#x3D; n % (k+1)。</p><p>多堆的时候异或各堆的 SG 值就行。一堆 n 个石子每次最多拿 k 个，等价于一堆 n%(k+1) 个石子的标准 Nim。</p><h2 id="例子：阶梯Nim"><a href="#例子：阶梯Nim" class="headerlink" title="例子：阶梯Nim"></a>例子：阶梯Nim</h2><p>n级阶梯，每级上有若干石子，每次可以把某一级上任意多颗石子移到下一级。地面是第0级，移到地面上的石子移出游戏。不能操作的人输。</p><p>结论：只看奇数级的石子，对奇数级做标准Nim。</p><p>为什么偶数级不用管？因为对手在偶数级的任何操作（把偶数级石子移到奇数级），你都可以立刻把那些石子再移到下一个偶数级去”还原”，相当于对手白操作了一轮。</p><p>这种”某些石子是废棋”的洞察在竞赛里非常常见。</p><h2 id="反Nim：最后拿的人输"><a href="#反Nim：最后拿的人输" class="headerlink" title="反Nim：最后拿的人输"></a>反Nim：最后拿的人输</h2><p>如果规则变成”拿到最后一颗石子的人输”（Misère Nim），结论微调一下：</p><ul><li>所有堆都是0或1 → 堆数为奇数时后手赢（异或值为1但先手输）</li><li>存在大于1的堆 → 跟正常Nim一样看异或值</li></ul><p>实现的时候加一个特判就行：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> all_one = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (a[i] &gt; <span class="number">1</span>) all_one = <span class="literal">false</span>;</span><br><span class="line">    x ^= a[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (all_one) <span class="built_in">puts</span>(x ? <span class="string">&quot;No&quot;</span> : <span class="string">&quot;Yes&quot;</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">puts</span>(x ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>);</span><br></pre></td></tr></table></figure><h2 id="打表大法"><a href="#打表大法" class="headerlink" title="打表大法"></a>打表大法</h2><p>现实中的竞赛博弈题，很多时候SG函数的规律不是一眼能看出来的。这时候最实用的方法是暴力算前几十个SG值然后找规律：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力算SG值</span></span><br><span class="line"><span class="type">int</span> sg[MAXN];</span><br><span class="line"><span class="type">bool</span> vis[MAXN];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">calc_sg</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">        <span class="comment">// 枚举所有能转移到的状态j</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="comment">/* j : 所有后继状态 */</span>) &#123;</span><br><span class="line">            vis[sg[j]] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; ; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j]) &#123; sg[i] = j; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>打出来的SG值经常会出现周期性规律（这叫Sprague-Grundy周期猜想，虽然没被完全证明但竞赛里基本都成立），找到周期就能O(1)回答。</p><h2 id="做题checklist"><a href="#做题checklist" class="headerlink" title="做题checklist"></a>做题checklist</h2><p>碰到博弈题的时候按这个顺序想：</p><ol><li>是不是标准Nim？→ 异或判</li><li>能不能转化成标准Nim？→ 找等价关系</li><li>能拆成独立子游戏吗？→ 各自算SG值然后异或</li><li>以上都不行？→ 打表找规律</li><li>打表也看不出规律？→ 考虑是不是读错题了</li></ol><p>最后一条不是开玩笑。ICPC里我见过不止一次有队伍博弈题WA了十几发最后发现规则理解错了。</p><hr><p><em>BGM：当年跟队友用花生米博弈的烧烤店现在已经倒闭了。但异或的知识永远不会倒闭。</em></p><p><em>练习题推荐：<a href="https://www.luogu.com.cn/problem/P2197">洛谷P2197 Nim游戏</a>、<a href="https://oi-wiki.org/math/game-theory/impartial-game/">OI Wiki 公平组合游戏</a></em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博弈论 </tag>
+            
+            <tag> Nim </tag>
+            
+            <tag> 异或 </tag>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> Sprague-Grundy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>提瓦特阶级论：七国打工人血泪史</title>
       <link href="/2026/03/02/genshin-class-analysis/"/>
       <url>/2026/03/02/genshin-class-analysis/</url>
@@ -20,11 +53,11 @@
       
         <tags>
             
+            <tag> 动漫 </tag>
+            
             <tag> 原神 </tag>
             
             <tag> 芙宁娜 </tag>
-            
-            <tag> 动漫 </tag>
             
             <tag> 整活 </tag>
             
@@ -51,13 +84,13 @@
       
         <tags>
             
-            <tag> 动漫 </tag>
-            
             <tag> BanG Dream </tag>
             
             <tag> MyGO </tag>
             
             <tag> 千早爱音 </tag>
+            
+            <tag> 动漫 </tag>
             
             <tag> 社会观察 </tag>
             
@@ -148,11 +181,11 @@
       
         <tags>
             
-            <tag> Deep Learning </tag>
-            
             <tag> GAN </tag>
             
             <tag> Time Series </tag>
+            
+            <tag> Deep Learning </tag>
             
             <tag> PyTorch </tag>
             
@@ -245,13 +278,13 @@
       
         <tags>
             
+            <tag> Deep Learning </tag>
+            
             <tag> AI Music </tag>
             
             <tag> AIGC </tag>
             
             <tag> 创业 </tag>
-            
-            <tag> Deep Learning </tag>
             
             <tag> 期音科技 </tag>
             
