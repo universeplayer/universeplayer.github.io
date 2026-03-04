@@ -1,0 +1,922 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Yufeng He | 何宇峰 - AI Engineer &amp; Competitive Programmer</title><meta name="author" content="Yufeng He"><meta name="copyright" content="Yufeng He"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0a0e27"><meta name="description" content="AI Engineer, ACM-ICPC Medalist, HKU MSc CS. Building scalable AI systems.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yufeng He | 何宇峰">
+<meta property="og:url" content="https://universeplayer.github.io/page/2/index.html">
+<meta property="og:site_name" content="Yufeng He | 何宇峰">
+<meta property="og:description" content="AI Engineer, ACM-ICPC Medalist, HKU MSc CS. Building scalable AI systems.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/universeplayer">
+<meta property="article:author" content="Yufeng He">
+<meta property="article:tag" content="ACM-ICPC">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Competitive Programming">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/universeplayer"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://raw.githubusercontent.com/universeplayer/universeplayer.github.io/main/img/favicon.png"><link rel="canonical" href="https://universeplayer.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0a0e27')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8f9fa')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Yufeng He","link":"链接: ","source":"来源: Yufeng He | 何宇峰","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#39C5BB","bgDark":"#1a237e","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Yufeng He | 何宇峰',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+  /* 二次元 × 科技风 Custom CSS */
+
+  /* 全局背景增强 */
+  #web_bg {
+    background: linear-gradient(180deg, #0a0e27 0%, #131842 50%, #1a1f4e 100%) !important;
+  }
+
+  /* 导航栏毛玻璃 */
+  #nav {
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    background: rgba(10, 14, 39, 0.75) !important;
+    border-bottom: 1px solid rgba(57, 197, 187, 0.15) !important;
+  }
+
+  /* 卡片样式 - 半透明毛玻璃 */
+  #aside-content .card-widget,
+  .recent-post-item,
+  #post,
+  #page,
+  .layout > div {
+    background: rgba(20, 24, 60, 0.8) !important;
+    backdrop-filter: blur(12px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+    border: 1px solid rgba(57, 197, 187, 0.12) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* 文章标题霓虹发光效果 */
+  #post-info h1, .post-title {
+    text-shadow: 0 0 20px rgba(57, 197, 187, 0.5), 0 0 40px rgba(74, 144, 217, 0.3) !important;
+  }
+
+  /* 链接颜色 */
+  a:not(.btn):not([class*="tag"]) {
+    color: #6EC6FF !important;
+    transition: all 0.3s ease;
+  }
+  a:not(.btn):not([class*="tag"]):hover {
+    color: #39C5BB !important;
+    text-shadow: 0 0 10px rgba(57, 197, 187, 0.5);
+  }
+
+  /* 标签云 - 霓虹色 */
+  .tag-cloud-list a {
+    transition: all 0.3s ease !important;
+  }
+  .tag-cloud-list a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(57, 197, 187, 0.8) !important;
+  }
+
+  /* 侧边栏作者卡片 */
+  #aside-content .card-widget .author-info__name {
+    color: #39C5BB !important;
+    font-weight: 700;
+  }
+
+  /* 滚动条 - 科技风 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #39C5BB, #4A90D9);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0e27;
+  }
+
+  /* 代码块增强 */
+  figure.highlight {
+    border: 1px solid rgba(57, 197, 187, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* 首页文章卡片 hover 效果 */
+  .recent-post-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(57, 197, 187, 0.4) !important;
+    box-shadow: 0 12px 40px rgba(57, 197, 187, 0.15) !important;
+    transition: all 0.3s ease;
+  }
+
+  /* Footer 科技感 */
+  #footer {
+    background: linear-gradient(180deg, transparent, rgba(10, 14, 39, 0.9)) !important;
+    border-top: 1px solid rgba(57, 197, 187, 0.1);
+  }
+
+  /* 搜索框 */
+  .search-dialog .search-nav {
+    background: rgba(20, 24, 60, 0.95) !important;
+  }
+
+  /* 分页器 */
+  #pagination .page-number.current {
+    background: linear-gradient(135deg, #39C5BB, #4A90D9) !important;
+  }
+
+  /* 头图字幕区域 */
+  #site-info .site-name {
+    font-family: 'JetBrains Mono', 'Noto Sans SC', monospace !important;
+    text-shadow: 0 0 30px rgba(57, 197, 187, 0.6), 0 0 60px rgba(74, 144, 217, 0.4) !important;
+  }
+
+  /* ====== 角色主题装饰 ====== */
+
+  /* 侧边栏底部 - 角色语录轮播 */
+  .card-widget.card-announcement .content {
+    font-style: italic;
+    border-left: 3px solid #39C5BB;
+    padding-left: 10px;
+  }
+
+  /* 文章封面图样式增强 */
+  .recent-post-item .post-bg {
+    transition: transform 0.6s ease !important;
+  }
+  .recent-post-item:hover .post-bg {
+    transform: scale(1.05) !important;
+  }
+
+  /* About页角色表格 - 霓虹边框 */
+  #page table {
+    border-collapse: collapse;
+  }
+  #page table th {
+    background: linear-gradient(135deg, rgba(57, 197, 187, 0.3), rgba(74, 144, 217, 0.3)) !important;
+    color: #39C5BB !important;
+  }
+  #page table td, #page table th {
+    border-color: rgba(57, 197, 187, 0.2) !important;
+    padding: 10px 14px !important;
+  }
+  #page table tr:hover td {
+    background: rgba(57, 197, 187, 0.08) !important;
+  }
+
+  /* About页代码块（升级路线图）特殊样式 */
+  #page figure.highlight, #page pre {
+    background: rgba(10, 14, 39, 0.9) !important;
+    border: 1px solid rgba(57, 197, 187, 0.3) !important;
+    border-radius: 12px !important;
+    color: #39C5BB !important;
+  }
+
+  /* 侧边栏头像光环 */
+  #aside-content .card-widget.card-info .avatar-img {
+    border: 3px solid #39C5BB !important;
+    box-shadow: 0 0 15px rgba(57, 197, 187, 0.4), 0 0 30px rgba(57, 197, 187, 0.2) !important;
+    animation: avatarGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes avatarGlow {
+    0% { box-shadow: 0 0 15px rgba(57, 197, 187, 0.4), 0 0 30px rgba(57, 197, 187, 0.2); }
+    100% { box-shadow: 0 0 20px rgba(74, 144, 217, 0.5), 0 0 40px rgba(110, 198, 255, 0.3); }
+  }
+
+  /* 打字机副标题增强 */
+  #site-info .typed-cursor {
+    color: #39C5BB !important;
+  }
+
+  /* 角色主题色彩标记 */
+  .post-meta-categories a {
+    background: linear-gradient(135deg, #39C5BB, #4A90D9) !important;
+    color: #fff !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+</style>
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Yufeng He | 何宇峰" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="bg-animation" id="web_bg" style="background: linear-gradient(180deg, #0a0e27 0%, #131842 50%, #1a1f4e 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/universeplayer" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background: linear-gradient(135deg, #0c1445 0%, #1a237e 25%, #1565c0 50%, #39C5BB 75%, #4A90D9 100%);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Yufeng He | 何宇峰</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Yufeng He | 何宇峰</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/universeplayer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://linkedin.com/in/yufenghe" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a><a class="social-icon" href="mailto:heyufeng03@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="javascript:void(0)" target="_blank" title="WeChat:universeplayer"><i class="fab fa-weixin" style="color: #07c160;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/12/01/kuaishou-transcoding/" title="在快手做ML：54万核集群教会我的事"><img class="post-bg" src="https://i.pinimg.com/originals/1b/9b/46/1b9b46e3b30c3e13e4f0d9ea6deebb21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在快手做ML：54万核集群教会我的事" loading='lazy'></a></div><div class="recent-post-info"><a class="article-title" href="/2024/12/01/kuaishou-transcoding/" title="在快手做ML：54万核集群教会我的事">在快手做ML：54万核集群教会我的事</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-30T16:00:00.000Z" title="发表于 2024-12-01 00:00:00">2024-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Internship/">Internship</a></span></div><div class="content">在快手实习半年，从一个只会跑notebook的学生变成了能独立AB test的工程师</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/04/01/uniccloud-medical-ai/" title="和医院一起做AI：当代码遇上听诊器"><img class="post-bg" src="https://i.pinimg.com/736x/6e/ca/48/6eca489f75a1d91fcb41da1a30dcb6e7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="和医院一起做AI：当代码遇上听诊器" loading='lazy'></a></div><div class="recent-post-info"><a class="article-title" href="/2024/04/01/uniccloud-medical-ai/" title="和医院一起做AI：当代码遇上听诊器">和医院一起做AI：当代码遇上听诊器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-31T16:00:00.000Z" title="发表于 2024-04-01 00:00:00">2024-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Projects/">Projects</a></span></div><div class="content">三层LLM Agent做糖尿病随诊，F1=90%，但医疗AI的故事远不止指标</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/01/qiyin-ai-music/" title="我选择回去上课"><img class="post-bg" src="https://i.pinimg.com/originals/e6/2c/0c/e62c0c27d2a24c44b1b51de6a04b4af8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我选择回去上课" loading='lazy'></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/01/qiyin-ai-music/" title="我选择回去上课">我选择回去上课</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-31T16:00:00.000Z" title="发表于 2022-06-01 00:00:00">2022-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Startup/">Startup</a></span></div><div class="content">从0到1造AI音乐引擎，10亿播放，30万美元融资，然后我选择了回学校</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/universeplayer" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">Yufeng He</div><div class="author-info-description">AI Engineer | ACM-ICPC 3× Silver | HKU MSc CS</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/universeplayer"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/universeplayer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://linkedin.com/in/yufenghe" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a><a class="social-icon" href="mailto:heyufeng03@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="javascript:void(0)" target="_blank" title="WeChat:universeplayer"><i class="fab fa-weixin" style="color: #07c160;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">「これが、私の最後の、電磁砲（レールガン）だ。」—— 御坂美琴 ⚡</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/04/segment-tree/" title="线段树：暴力美学的极致"><img src="https://t.mwm.moe/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线段树：暴力美学的极致"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/04/segment-tree/" title="线段树：暴力美学的极致">线段树：暴力美学的极致</a><time datetime="2026-03-04T05:00:00.000Z" title="发表于 2026-03-04 13:00:00">2026-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/04/weiqi-and-acm/" title="围棋和算法竞赛是同一件事"><img src="https://t.mwm.moe/ycy/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="围棋和算法竞赛是同一件事"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/04/weiqi-and-acm/" title="围棋和算法竞赛是同一件事">围棋和算法竞赛是同一件事</a><time datetime="2026-03-04T04:00:00.000Z" title="发表于 2026-03-04 12:00:00">2026-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/04/rag-engineering/" title="RAG工程实践：从召回到生成的每个坑"><img src="https://t.mwm.moe/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RAG工程实践：从召回到生成的每个坑"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/04/rag-engineering/" title="RAG工程实践：从召回到生成的每个坑">RAG工程实践：从召回到生成的每个坑</a><time datetime="2026-03-04T03:00:00.000Z" title="发表于 2026-03-04 11:00:00">2026-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/04/ai-industry-disillusion/" title="大厂AI实习祛魅录"><img src="https://t.mwm.moe/ycy/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大厂AI实习祛魅录"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/04/ai-industry-disillusion/" title="大厂AI实习祛魅录">大厂AI实习祛魅录</a><time datetime="2026-03-04T02:00:00.000Z" title="发表于 2026-03-04 10:00:00">2026-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/02/nim-game/" title="Nim游戏：异或的胜利，数学的暴力"><img src="https://t.mwm.moe/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nim游戏：异或的胜利，数学的暴力"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/02/nim-game/" title="Nim游戏：异或的胜利，数学的暴力">Nim游戏：异或的胜利，数学的暴力</a><time datetime="2026-03-01T22:00:00.000Z" title="发表于 2026-03-02 06:00:00">2026-03-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Internship/"><span class="card-category-list-name">Internship</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Projects/"><span class="card-category-list-name">Projects</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Research/"><span class="card-category-list-name">Research</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Startup/"><span class="card-category-list-name">Startup</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%BC%AB%E8%B0%88/"><span class="card-category-list-name">漫谈</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.15em; color: rgb(169, 140, 200);">AI</a><a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 1.15em; color: rgb(72, 119, 50);">实习</a><a href="/tags/%E8%A1%8C%E4%B8%9A%E8%A7%82%E5%AF%9F/" style="font-size: 1.15em; color: rgb(181, 188, 126);">行业观察</a><a href="/tags/BanG-Dream/" style="font-size: 1.15em; color: rgb(50, 123, 171);">BanG Dream</a><a href="/tags/MyGO/" style="font-size: 1.15em; color: rgb(87, 56, 77);">MyGO</a><a href="/tags/%E5%8D%83%E6%97%A9%E7%88%B1%E9%9F%B3/" style="font-size: 1.15em; color: rgb(81, 50, 186);">千早爱音</a><a href="/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 1.3em; color: rgb(118, 103, 74);">动漫</a><a href="/tags/%E7%A4%BE%E4%BC%9A%E8%A7%82%E5%AF%9F/" style="font-size: 1.15em; color: rgb(112, 50, 51);">社会观察</a><a href="/tags/%E5%8E%9F%E7%A5%9E/" style="font-size: 1.15em; color: rgb(50, 115, 192);">原神</a><a href="/tags/%E8%8A%99%E5%AE%81%E5%A8%9C/" style="font-size: 1.15em; color: rgb(63, 171, 50);">芙宁娜</a><a href="/tags/%E6%95%B4%E6%B4%BB/" style="font-size: 1.15em; color: rgb(177, 97, 81);">整活</a><a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.3em; color: rgb(149, 54, 109);">推荐系统</a><a href="/tags/Machine-Learning/" style="font-size: 1.3em; color: rgb(81, 110, 50);">Machine Learning</a><a href="/tags/%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95/" style="font-size: 1.15em; color: rgb(182, 125, 157);">广告算法</a><a href="/tags/%E7%99%BE%E5%BA%A6/" style="font-size: 1.15em; color: rgb(52, 50, 50);">百度</a><a href="/tags/XGBoost/" style="font-size: 1.15em; color: rgb(55, 88, 123);">XGBoost</a><a href="/tags/A-B-Testing/" style="font-size: 1.15em; color: rgb(167, 90, 116);">A/B Testing</a><a href="/tags/%E5%BF%AB%E6%89%8B/" style="font-size: 1.15em; color: rgb(123, 148, 63);">快手</a><a href="/tags/LLM/" style="font-size: 1.45em; color: rgb(72, 50, 141);">LLM</a><a href="/tags/NLP/" style="font-size: 1.15em; color: rgb(55, 50, 105);">NLP</a><a href="/tags/Backend/" style="font-size: 1.15em; color: rgb(70, 185, 50);">Backend</a><a href="/tags/GenAI/" style="font-size: 1.15em; color: rgb(102, 200, 50);">GenAI</a><a href="/tags/%E8%84%89%E8%84%89/" style="font-size: 1.15em; color: rgb(52, 50, 104);">脉脉</a><a href="/tags/GAN/" style="font-size: 1.15em; color: rgb(169, 101, 105);">GAN</a><a href="/tags/Time-Series/" style="font-size: 1.15em; color: rgb(67, 164, 86);">Time Series</a><a href="/tags/Deep-Learning/" style="font-size: 1.3em; color: rgb(189, 50, 72);">Deep Learning</a><a href="/tags/PyTorch/" style="font-size: 1.15em; color: rgb(200, 50, 50);">PyTorch</a><a href="/tags/%E6%AF%95%E8%AE%BE/" style="font-size: 1.15em; color: rgb(74, 126, 61);">毕设</a><a href="/tags/RAG/" style="font-size: 1.15em; color: rgb(97, 139, 96);">RAG</a><a href="/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/" style="font-size: 1.15em; color: rgb(194, 50, 50);">工程实践</a><a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.15em; color: rgb(105, 50, 50);">搜索</a><a href="/tags/AI-Music/" style="font-size: 1.15em; color: rgb(107, 157, 50);">AI Music</a><a href="/tags/AIGC/" style="font-size: 1.15em; color: rgb(111, 50, 50);">AIGC</a><a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 1.3em; color: rgb(80, 50, 124);">创业</a><a href="/tags/%E6%9C%9F%E9%9F%B3%E7%A7%91%E6%8A%80/" style="font-size: 1.15em; color: rgb(73, 83, 50);">期音科技</a><a href="/tags/AI-Agent/" style="font-size: 1.15em; color: rgb(72, 88, 125);">AI Agent</a><a href="/tags/Medical-AI/" style="font-size: 1.15em; color: rgb(50, 50, 108);">Medical AI</a><a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 1.15em; color: rgb(50, 146, 158);">博弈论</a><a href="/tags/Nim/" style="font-size: 1.15em; color: rgb(80, 50, 53);">Nim</a><a href="/tags/%E5%BC%82%E6%88%96/" style="font-size: 1.15em; color: rgb(50, 70, 50);">异或</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              2026年03月
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              2025年10月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              2025年07月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              2025年06月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              2024年12月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/04/">
+            <span class="card-archive-list-date">
+              2024年04月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/06/">
+            <span class="card-archive-list-date">
+              2022年06月
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2026-03-01T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">22.3k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-04T09:28:56.308Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Yufeng He</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text"><span style="color:#39C5BB">Powered by Hexo & Butterfly</span> | <span style="color:#6EC6FF">何宇峰 Yufeng He</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, {"typeSpeed":50,"backSpeed":30,"loop":true}))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["写代码听Miku，debug看咲夜，上线祈祷芙宁娜保佑 🙏","ACM-ICPC 3× Silver | 月之暗面 Kimi | HKU MSc CS","御坂美琴の電撃使い ⚡ 用代码释放超电磁炮","千早爱音教会我：努力了不一定成功，但不努力一定很舒服（不是）","咲夜が時を止めても、デバッグは終わらない 🔪"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["写代码听Miku，debug看咲夜，上线祈祷芙宁娜保佑 🙏","ACM-ICPC 3× Silver | 月之暗面 Kimi | HKU MSc CS","御坂美琴の電撃使い ⚡ 用代码释放超电磁炮","千早爱音教会我：努力了不一定成功，但不努力一定很舒服（不是）","咲夜が時を止めても、デバッグは終わらない 🔪"])
+}
+typedJSFn.run(subtitleType)</script><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script>
+  (function() {
+    var sakuraCount = 20;
+    var style = document.createElement('style');
+    style.textContent = `
+      .sakura-petal {
+        position: fixed;
+        top: -10px;
+        z-index: 9998;
+        pointer-events: none;
+        opacity: 0.6;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      @keyframes sakuraFall {
+        0% { top: -5%; transform: translateX(0px) rotate(0deg); opacity: 0.7; }
+        25% { transform: translateX(30px) rotate(90deg); opacity: 0.6; }
+        50% { transform: translateX(-20px) rotate(180deg); opacity: 0.5; }
+        75% { transform: translateX(40px) rotate(270deg); opacity: 0.4; }
+        100% { top: 105%; transform: translateX(10px) rotate(360deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    function createPetal() {
+      var petal = document.createElement('div');
+      petal.className = 'sakura-petal';
+      petal.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0C6 0 8 4 12 6C8 8 6 12 6 12C6 12 4 8 0 6C4 4 6 0 6 0Z" fill="rgba(255,183,197,0.7)"/></svg>';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationName = 'sakuraFall';
+      petal.style.animationDuration = (8 + Math.random() * 12) + 's';
+      petal.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(petal);
+      setTimeout(function() { petal.remove(); }, 25000);
+    }
+
+    for (var i = 0; i < sakuraCount; i++) {
+      setTimeout(createPetal, i * 500);
+    }
+    setInterval(function() { createPetal(); }, 3000);
+  })();
+</script>
+<script>
+  (function() {
+    var quotes = [
+      '「これが、私の最後の、電磁砲（レールガン）だ。」—— 御坂美琴 ⚡',
+      '「我想要传达的心意，一定能到达的吧。」—— 千早爱音 🎸',
+      '「我不会消失的，因为我活在大家的心中。」—— 初音未来 🎵',
+      '「世界，请停下来吧。」—— 十六夜咲夜 🔪',
+      '「无论如何，审判将继续。」—— 芙宁娜 💧',
+      '「誰も、もう二度と傷つけさせない。」—— 御坂美琴 ⚡',
+      '「就算迷茫也要继续走下去。」—— 千早爱音 🎸',
+    ];
+    var idx = 0;
+    function rotateQuote() {
+      var el = document.querySelector('.card-announcement .content');
+      if (el) {
+        el.style.opacity = '0';
+        setTimeout(function() {
+          idx = (idx + 1) % quotes.length;
+          el.textContent = quotes[idx];
+          el.style.opacity = '1';
+        }, 500);
+      }
+    }
+    setInterval(rotateQuote, 8000);
+    // 为公告card添加过渡动画
+    var style = document.createElement('style');
+    style.textContent = '.card-announcement .content { transition: opacity 0.5s ease; }';
+    document.head.appendChild(style);
+  })();
+</script>
+<script>
+  (function() {
+    var clickTexts = ['⚡超电磁炮!', '🎸MyGO!!!!!', '🎵ミク♪', '🔪咲夜の世界', '💧芙宁娜审判', '❤', 'かわいい!', 'すごい!'];
+    var idx = 0;
+    document.addEventListener('click', function(e) {
+      var span = document.createElement('span');
+      span.textContent = clickTexts[idx];
+      idx = (idx + 1) % clickTexts.length;
+      span.style.cssText = 'position:fixed;z-index:99999;left:' + e.clientX + 'px;top:' + e.clientY + 'px;color:#39C5BB;font-size:16px;font-weight:bold;pointer-events:none;user-select:none;animation:clickTextFade 1.5s ease forwards;text-shadow:0 0 10px rgba(57,197,187,0.8);';
+      document.body.appendChild(span);
+      setTimeout(function() { span.remove(); }, 1500);
+    });
+    var style = document.createElement('style');
+    style.textContent = '@keyframes clickTextFade { 0% { opacity:1; transform:translateY(0) scale(1); } 100% { opacity:0; transform:translateY(-60px) scale(1.3); } }';
+    document.head.appendChild(style);
+  })();
+</script>
+<canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="57,197,187" opacity="0.5" zIndex="-1" count="80" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
