@@ -1,0 +1,868 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>KMP：字符串匹配界的Dijkstra | Yufeng He | 何宇峰</title><meta name="author" content="Yufeng He"><meta name="copyright" content="Yufeng He"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0a0e27"><meta name="description" content="O(n+m)的字符串匹配，next数组的本质是前缀函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KMP：字符串匹配界的Dijkstra">
+<meta property="og:url" content="https://universeplayer.github.io/2026/03/14/kmp/index.html">
+<meta property="og:site_name" content="Yufeng He | 何宇峰">
+<meta property="og:description" content="O(n+m)的字符串匹配，next数组的本质是前缀函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://t.mwm.moe/fj/">
+<meta property="article:published_time" content="2026-03-14T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-05T04:43:31.157Z">
+<meta property="article:author" content="Yufeng He">
+<meta property="article:tag" content="ACM-ICPC">
+<meta property="article:tag" content="KMP">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="模式匹配">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://t.mwm.moe/fj/"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "KMP：字符串匹配界的Dijkstra",
+  "url": "https://universeplayer.github.io/2026/03/14/kmp/",
+  "image": "https://t.mwm.moe/fj/",
+  "datePublished": "2026-03-14T02:00:00.000Z",
+  "dateModified": "2026-03-05T04:43:31.157Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yufeng He",
+      "url": "https://github.com/universeplayer"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://raw.githubusercontent.com/universeplayer/universeplayer.github.io/main/img/favicon.png"><link rel="canonical" href="https://universeplayer.github.io/2026/03/14/kmp/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0a0e27')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8f9fa')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Yufeng He","link":"链接: ","source":"来源: Yufeng He | 何宇峰","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#39C5BB","bgDark":"#1a237e","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'KMP：字符串匹配界的Dijkstra',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+  /* 二次元 × 科技风 Custom CSS */
+
+  /* 全局背景增强 */
+  #web_bg {
+    background: linear-gradient(180deg, #0a0e27 0%, #131842 50%, #1a1f4e 100%) !important;
+  }
+
+  /* 导航栏毛玻璃 */
+  #nav {
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    background: rgba(10, 14, 39, 0.75) !important;
+    border-bottom: 1px solid rgba(57, 197, 187, 0.15) !important;
+  }
+
+  /* 卡片样式 - 半透明毛玻璃 */
+  #aside-content .card-widget,
+  .recent-post-item,
+  #post,
+  #page,
+  .layout > div {
+    background: rgba(20, 24, 60, 0.8) !important;
+    backdrop-filter: blur(12px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+    border: 1px solid rgba(57, 197, 187, 0.12) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* 文章标题霓虹发光效果 */
+  #post-info h1, .post-title {
+    text-shadow: 0 0 20px rgba(57, 197, 187, 0.5), 0 0 40px rgba(74, 144, 217, 0.3) !important;
+  }
+
+  /* 链接颜色 */
+  a:not(.btn):not([class*="tag"]) {
+    color: #6EC6FF !important;
+    transition: all 0.3s ease;
+  }
+  a:not(.btn):not([class*="tag"]):hover {
+    color: #39C5BB !important;
+    text-shadow: 0 0 10px rgba(57, 197, 187, 0.5);
+  }
+
+  /* 标签云 - 霓虹色 */
+  .tag-cloud-list a {
+    transition: all 0.3s ease !important;
+  }
+  .tag-cloud-list a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(57, 197, 187, 0.8) !important;
+  }
+
+  /* 侧边栏作者卡片 */
+  #aside-content .card-widget .author-info__name {
+    color: #39C5BB !important;
+    font-weight: 700;
+  }
+
+  /* 滚动条 - 科技风 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #39C5BB, #4A90D9);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0e27;
+  }
+
+  /* 代码块增强 */
+  figure.highlight {
+    border: 1px solid rgba(57, 197, 187, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* 首页文章卡片 hover 效果 */
+  .recent-post-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(57, 197, 187, 0.4) !important;
+    box-shadow: 0 12px 40px rgba(57, 197, 187, 0.15) !important;
+    transition: all 0.3s ease;
+  }
+
+  /* Footer 科技感 */
+  #footer {
+    background: linear-gradient(180deg, transparent, rgba(10, 14, 39, 0.9)) !important;
+    border-top: 1px solid rgba(57, 197, 187, 0.1);
+  }
+
+  /* 搜索框 */
+  .search-dialog .search-nav {
+    background: rgba(20, 24, 60, 0.95) !important;
+  }
+
+  /* 分页器 */
+  #pagination .page-number.current {
+    background: linear-gradient(135deg, #39C5BB, #4A90D9) !important;
+  }
+
+  /* 头图字幕区域 */
+  #site-info .site-name {
+    font-family: 'JetBrains Mono', 'Noto Sans SC', monospace !important;
+    text-shadow: 0 0 30px rgba(57, 197, 187, 0.6), 0 0 60px rgba(74, 144, 217, 0.4) !important;
+  }
+
+  /* ====== 角色主题装饰 ====== */
+
+  /* 侧边栏底部 - 角色语录轮播 */
+  .card-widget.card-announcement .content {
+    font-style: italic;
+    border-left: 3px solid #39C5BB;
+    padding-left: 10px;
+  }
+
+  /* 文章封面图样式增强 */
+  .recent-post-item .post-bg {
+    transition: transform 0.6s ease !important;
+  }
+  .recent-post-item:hover .post-bg {
+    transform: scale(1.05) !important;
+  }
+
+  /* About页角色表格 - 霓虹边框 */
+  #page table {
+    border-collapse: collapse;
+  }
+  #page table th {
+    background: linear-gradient(135deg, rgba(57, 197, 187, 0.3), rgba(74, 144, 217, 0.3)) !important;
+    color: #39C5BB !important;
+  }
+  #page table td, #page table th {
+    border-color: rgba(57, 197, 187, 0.2) !important;
+    padding: 10px 14px !important;
+  }
+  #page table tr:hover td {
+    background: rgba(57, 197, 187, 0.08) !important;
+  }
+
+  /* About页代码块（升级路线图）特殊样式 */
+  #page figure.highlight, #page pre {
+    background: rgba(10, 14, 39, 0.9) !important;
+    border: 1px solid rgba(57, 197, 187, 0.3) !important;
+    border-radius: 12px !important;
+    color: #39C5BB !important;
+  }
+
+  /* 侧边栏头像光环 */
+  #aside-content .card-widget.card-info .avatar-img {
+    border: 3px solid #39C5BB !important;
+    box-shadow: 0 0 15px rgba(57, 197, 187, 0.4), 0 0 30px rgba(57, 197, 187, 0.2) !important;
+    animation: avatarGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes avatarGlow {
+    0% { box-shadow: 0 0 15px rgba(57, 197, 187, 0.4), 0 0 30px rgba(57, 197, 187, 0.2); }
+    100% { box-shadow: 0 0 20px rgba(74, 144, 217, 0.5), 0 0 40px rgba(110, 198, 255, 0.3); }
+  }
+
+  /* 打字机副标题增强 */
+  #site-info .typed-cursor {
+    color: #39C5BB !important;
+  }
+
+  /* 角色主题色彩标记 */
+  .post-meta-categories a {
+    background: linear-gradient(135deg, #39C5BB, #4A90D9) !important;
+    color: #fff !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+</style>
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Yufeng He | 何宇峰" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="bg-animation" id="web_bg" style="background: linear-gradient(180deg, #0a0e27 0%, #131842 50%, #1a1f4e 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/universeplayer" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">126</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://t.mwm.moe/fj/);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Yufeng He | 何宇峰</span></a><a class="nav-page-title" href="/"><span class="site-name">KMP：字符串匹配界的Dijkstra</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">KMP：字符串匹配界的Dijkstra</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-14T02:00:00.000Z" title="发表于 2026-03-14 10:00:00">2026-03-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-05T04:43:31.157Z" title="更新于 2026-03-05 12:43:31">2026-03-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>字符串匹配是个听起来很简单的问题：给你一个文本串 <code>s</code>，一个模式串 <code>p</code>，问 <code>p</code> 在 <code>s</code> 里哪里出现过。</p>
+<p>朴素解法显而易见：枚举 <code>s</code> 的每个位置，试着从那里开始匹配 <code>p</code>，失败了就从下一个位置重新来。时间复杂度 O(nm)，<code>n</code> 是文本串长度，<code>m</code> 是模式串长度。</p>
+<p>朴素解法不是不对，是浪费了。每次失配之后，你丢掉了所有已经匹配过的信息，从头再来。这是典型的”做了重复工作”的问题。KMP 的核心思想就是：失配时不要扔掉那些信息，利用它跳过不必要的比较。</p>
+<p>这个算法由 Knuth、Morris 和 Pratt 在 1977 年正式发表 [Knuth, Morris, Pratt, “Fast Pattern Matching in Strings”, SIAM Journal on Computing, 1977]。Knuth 后来在 TAOCP 里说，这是他见过的最优雅的线性时间算法之一。</p>
+<h2 id="失配时到底发生了什么"><a href="#失配时到底发生了什么" class="headerlink" title="失配时到底发生了什么"></a>失配时到底发生了什么</h2><p>假设 <code>s = &quot;abababc&quot;</code>，<code>p = &quot;ababc&quot;</code>。</p>
+<p>我们从 <code>s[0]</code> 开始匹配 <code>p</code>：</p>
+<ul>
+<li><code>s[0..3] = &quot;abab&quot;</code> 匹配了 <code>p[0..3] = &quot;abab&quot;</code></li>
+<li><code>s[4] = &#39;a&#39;</code> vs <code>p[4] = &#39;c&#39;</code>，失配</li>
+</ul>
+<p>朴素算法：从 <code>s[1]</code> 重新开始。但 <code>s[1] = &#39;b&#39;</code>，<code>p[0] = &#39;a&#39;</code>，一比就不行，再从 <code>s[2]</code> 开始。</p>
+<p>等一下。我们已经知道 <code>s[0..3] = &quot;abab&quot;</code>，所以 <code>s[2..3] = &quot;ab&quot;</code> &#x3D; <code>p[0..1]</code>。也就是说，我们可以直接把 <code>p</code> 滑到 <code>s[2]</code> 的位置，从 <code>p[2]</code> 继续比，而不是从头开始。已经匹配的 <code>&quot;ab&quot;</code> 不需要再比一次。</p>
+<p>这就是 KMP 的精髓：失配时，主串指针 <code>i</code> 不回退，只移动模式串指针 <code>j</code>，跳回到某个更早的位置继续比。跳到哪里，由”前缀函数”告诉你。</p>
+<h2 id="前缀函数（failure-function）"><a href="#前缀函数（failure-function）" class="headerlink" title="前缀函数（failure function）"></a>前缀函数（failure function）</h2><p>前缀函数 $\pi[i]$ 的定义：对于模式串 <code>p[0..i]</code>，最长的”真前缀 &#x3D; 真后缀”的长度。</p>
+<p>真前缀是除了整个字符串本身的前缀，真后缀同理。</p>
+<p>以 <code>p = &quot;ababc&quot;</code> 为例：</p>
+<ul>
+<li><code>p[0] = &quot;a&quot;</code>：没有真前缀，$\pi[0] &#x3D; 0$</li>
+<li><code>p[0..1] = &quot;ab&quot;</code>：真前缀 <code>&quot;a&quot;</code>，真后缀 <code>&quot;b&quot;</code>，不等，$\pi[1] &#x3D; 0$</li>
+<li><code>p[0..2] = &quot;aba&quot;</code>：真前缀 <code>{&quot;a&quot;, &quot;ab&quot;}</code>，真后缀 <code>{&quot;a&quot;, &quot;ba&quot;}</code>，公共部分是 <code>&quot;a&quot;</code>，$\pi[2] &#x3D; 1$</li>
+<li><code>p[0..3] = &quot;abab&quot;</code>：公共最长是 <code>&quot;ab&quot;</code>，$\pi[3] &#x3D; 2$</li>
+<li><code>p[0..4] = &quot;ababc&quot;</code>：没有公共部分，$\pi[4] &#x3D; 0$</li>
+</ul>
+<p>所以 $\pi &#x3D; [0, 0, 1, 2, 0]$。</p>
+<p>失配时，如果 <code>s[i] != p[j]</code>，把 <code>j</code> 更新为 $\pi[j-1]$，继续比较 <code>s[i]</code> 和 <code>p[j]</code>。这等价于：模式串已经匹配的 <code>p[0..j-1]</code> 里，它的最长公共前后缀就是下次可以直接继承的”已知信息”。</p>
+<h2 id="计算-π-数组：O-m-的自我匹配"><a href="#计算-π-数组：O-m-的自我匹配" class="headerlink" title="计算 π 数组：O(m) 的自我匹配"></a>计算 π 数组：O(m) 的自我匹配</h2><p>计算 $\pi$ 的算法很妙，本质是让模式串和自身做 KMP 匹配：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">compute_pi</span><span class="params">(<span class="type">const</span> string&amp; p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> m = p.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pi</span><span class="params">(m, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;  <span class="comment">// 当前已匹配的最长前后缀长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; p[i] != p[j]) j = pi[j - <span class="number">1</span>];  <span class="comment">// 失配，回退</span></span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j]) j++;</span><br><span class="line">        pi[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pi;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码的复杂度分析：<code>j</code> 每次循环最多增加 1，总共增加不超过 m 次；while 循环每次让 <code>j</code> 严格减小，所以总减小次数也不超过 m 次；合计 O(m)。</p>
+<h2 id="KMP-匹配：O-n-m"><a href="#KMP-匹配：O-n-m" class="headerlink" title="KMP 匹配：O(n+m)"></a>KMP 匹配：O(n+m)</h2><p>有了 $\pi$ 数组，主匹配过程是对称的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回 p 在 s 中所有出现位置的起始下标</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">kmp_search</span><span class="params">(<span class="type">const</span> string&amp; s, <span class="type">const</span> string&amp; p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">size</span>(), m = p.<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; pi = <span class="built_in">compute_pi</span>(p);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;  <span class="comment">// p 中当前匹配到的位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; s[i] != p[j]) j = pi[j - <span class="number">1</span>];  <span class="comment">// 失配，回退</span></span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j]) j++;</span><br><span class="line">        <span class="keyword">if</span> (j == m) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(i - m + <span class="number">1</span>);  <span class="comment">// 找到一次出现</span></span><br><span class="line">            j = pi[j - <span class="number">1</span>];  <span class="comment">// 继续找下一个，允许重叠</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析和 π 数组计算完全对称：主串指针 <code>i</code> 只增不减，<code>j</code> 的总增减次数均不超过 n，所以主匹配 O(n)，加上预处理 O(m)，总共 O(n+m)。</p>
+<h2 id="应用：字符串的最小周期"><a href="#应用：字符串的最小周期" class="headerlink" title="应用：字符串的最小周期"></a>应用：字符串的最小周期</h2><p>KMP 有一个很好看的推论，涉及到字符串的周期性。</p>
+<p>定义：如果字符串 <code>s</code> 满足 <code>s[i] = s[i mod T]</code> 对所有 <code>i</code> 成立，则 <code>T</code> 是 <code>s</code> 的一个周期。</p>
+<p>定理：长度为 <code>m</code> 的字符串 <code>s</code>，$m - \pi[m-1]$ 是 <code>s</code> 的最小周期，当且仅当 <code>m</code> 能被 $m - \pi[m-1]$ 整除。[Knuth, Morris, Pratt, 1977，推论]</p>
+<p>举例：<code>p = &quot;abababab&quot;</code>，$\pi[7] &#x3D; 6$，所以最小周期候选是 $8 - 6 &#x3D; 2$，确实 <code>&quot;ab&quot;</code> 重复 4 次，整除成立，最小周期是 2。</p>
+<p>这就是初音未来的”循环采样”——她的 VOCALOID 合成里大量使用周期性的音素，一段音频如果能被分解成最短的循环单元，存储和处理的成本就大幅下降。字符串的最小周期，本质上是在问”这段序列可以被压缩成多短的重复单元”，和音频的周期性分析在概念上完全对应。</p>
+<h2 id="next-数组-vs-π-数组：一个会踩的坑"><a href="#next-数组-vs-π-数组：一个会踩的坑" class="headerlink" title="next 数组 vs π 数组：一个会踩的坑"></a>next 数组 vs π 数组：一个会踩的坑</h2><p>很多教材（包括部分 OI 教材和国内竞赛圈）用的是 <code>next</code> 数组而不是 $\pi$ 数组，但两者的定义不一样：</p>
+<ul>
+<li>$\pi[i]$：<code>p[0..i]</code> 最长公共真前后缀的长度，范围 <code>[0, i]</code></li>
+<li><code>next[i]</code>（某些定义）：<code>p[0..i-1]</code> 最长公共真前后缀的长度，下标偏移了 1</li>
+<li><code>next[j]</code>（另一些定义）：失配时 <code>j</code> 应该跳到的位置，等于 $\pi[j-1]$，且通常 <code>next[0] = -1</code></li>
+</ul>
+<p>这三种定义在代码里差了一个下标，混了就是 WA 或者 RE。</p>
+<p>建议：竞赛时选定一种写法（我用上面的 $\pi$ 定义），确认完全理解后只用这一种，不要在比赛中临时换定义。</p>
+<h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><p>拿到字符串匹配题，判断是否需要 KMP：</p>
+<ol>
+<li>需要找模式串在文本串中的所有出现位置→KMP</li>
+<li>需要找最长公共前后缀→直接利用 $\pi$ 数组</li>
+<li>需要最小周期→$m - \pi[m-1]$，注意整除条件</li>
+<li>多模式匹配→考虑 Aho-Corasick 自动机（KMP 的扩展）</li>
+<li>只需要判断是否存在→KMP 也行，但 C++ STL 的 <code>string::find()</code> 也够用（底层可能是不同算法，但不用手写）</li>
+</ol>
+<p>最后：π 数组的计算过程本质上是让模式串和自己做一次 KMP。理解了这一点，$\pi$ 的计算和主匹配的代码结构完全一致，只需要记一套逻辑。</p>
+<p>KMP 好在什么地方？不是它快——O(nm) 对大多数实际数据已经够了。好在它是个干净的算法，利用了问题结构的所有信息，没有浪费任何一次比较的结果。这种感觉在算法里不多见。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/universeplayer">Yufeng He</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://universeplayer.github.io/2026/03/14/kmp/">https://universeplayer.github.io/2026/03/14/kmp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://universeplayer.github.io" target="_blank">Yufeng He | 何宇峰</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ACM-ICPC/">ACM-ICPC</a><a class="post-meta__tags" href="/tags/KMP/">KMP</a><a class="post-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a><a class="post-meta__tags" href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/03/14/offer-selection/" title="怎么选offer：一个没有标准答案的问题"><img class="cover" src="https://t.mwm.moe/ycy/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">怎么选offer：一个没有标准答案的问题</div></div><div class="info-2"><div class="info-item-1">平台、钱、技术、城市——排列组合算不出答案</div></div></div></a><a class="pagination-related" href="/2026/03/13/vector-database/" title="向量数据库原理：HNSW和IVF-PQ"><img class="cover" src="https://t.mwm.moe/fj/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">向量数据库原理：HNSW和IVF-PQ</div></div><div class="info-2"><div class="info-item-1">ANN近似最近邻的核心算法，以及工程上怎么选</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/03/05/union-find/" title="并查集：最优雅的数据结构没有之一"><img class="cover" src="https://t.mwm.moe/fj/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-05</div><div class="info-item-2">并查集：最优雅的数据结构没有之一</div></div><div class="info-2"><div class="info-item-1">三行代码，摊还O(α(n))，解决图连通性的所有问题</div></div></div></a><a class="pagination-related" href="/2026/03/05/acm-in-ai-era/" title="LLM能写代码之后，算法竞赛还有意义吗"><img class="cover" src="https://t.mwm.moe/ycy/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-05</div><div class="info-item-2">LLM能写代码之后，算法竞赛还有意义吗</div></div><div class="info-2"><div class="info-item-1">GPT-4能做LeetCode Hard，Claude能过Codeforces Div.2，这个问题值得认真想</div></div></div></a><a class="pagination-related" href="/2026/03/04/weiqi-and-acm/" title="围棋和算法竞赛是同一件事"><img class="cover" src="https://t.mwm.moe/ycy/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-04</div><div class="info-item-2">围棋和算法竞赛是同一件事</div></div><div class="info-2"><div class="info-item-1">一个曾经下围棋、后来打ACM的人，发现这两件事骨子里是同一回事</div></div></div></a><a class="pagination-related" href="/2026/03/04/segment-tree/" title="线段树：暴力美学的极致"><img class="cover" src="https://t.mwm.moe/fj/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-04</div><div class="info-item-2">线段树：暴力美学的极致</div></div><div class="info-2"><div class="info-item-1">从区间求和到懒标记，线段树是竞赛数据结构里最有工程感的存在</div></div></div></a><a class="pagination-related" href="/2026/03/17/topological-sort/" title="拓扑排序：有向无环图的线性化"><img class="cover" src="https://t.mwm.moe/fj/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-17</div><div class="info-item-2">拓扑排序：有向无环图的线性化</div></div><div class="info-2"><div class="info-item-1">Kahn算法和DFS两种实现，以及拓扑排序在DAG DP中的应用</div></div></div></a><a class="pagination-related" href="/2026/03/11/max-flow/" title="最大流：图论里最好玩的问题"><img class="cover" src="https://t.mwm.moe/fj/" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-11</div><div class="info-item-2">最大流：图论里最好玩的问题</div></div><div class="info-2"><div class="info-item-1">Ford-Fulkerson到Dinic，以及最大流=最小割这个迷人的定理</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/universeplayer" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">Yufeng He</div><div class="author-info-description">AI Engineer | ACM-ICPC 3× Silver | HKU MSc CS</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">126</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/universeplayer"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/universeplayer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://linkedin.com/in/yufenghe" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a><a class="social-icon" href="mailto:heyufeng03@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="javascript:void(0)" target="_blank" title="WeChat:universeplayer"><i class="fab fa-weixin" style="color: #07c160;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">「これが、私の最後の、電磁砲（レールガン）だ。」—— 御坂美琴 ⚡</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B1%E9%85%8D%E6%97%B6%E5%88%B0%E5%BA%95%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">失配时到底发生了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%87%BD%E6%95%B0%EF%BC%88failure-function%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">前缀函数（failure function）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97-%CF%80-%E6%95%B0%E7%BB%84%EF%BC%9AO-m-%E7%9A%84%E8%87%AA%E6%88%91%E5%8C%B9%E9%85%8D"><span class="toc-number">3.</span> <span class="toc-text">计算 π 数组：O(m) 的自我匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KMP-%E5%8C%B9%E9%85%8D%EF%BC%9AO-n-m"><span class="toc-number">4.</span> <span class="toc-text">KMP 匹配：O(n+m)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%B0%8F%E5%91%A8%E6%9C%9F"><span class="toc-number">5.</span> <span class="toc-text">应用：字符串的最小周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#next-%E6%95%B0%E7%BB%84-vs-%CF%80-%E6%95%B0%E7%BB%84%EF%BC%9A%E4%B8%80%E4%B8%AA%E4%BC%9A%E8%B8%A9%E7%9A%84%E5%9D%91"><span class="toc-number">6.</span> <span class="toc-text">next 数组 vs π 数组：一个会踩的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E9%A2%98-Checklist"><span class="toc-number">7.</span> <span class="toc-text">做题 Checklist</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/ai-era-programmer/" title="AI时代的程序员：哪些能力在升值，哪些在贬值"><img src="https://t.mwm.moe/ycy/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI时代的程序员：哪些能力在升值，哪些在贬值"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/17/ai-era-programmer/" title="AI时代的程序员：哪些能力在升值，哪些在贬值">AI时代的程序员：哪些能力在升值，哪些在贬值</a><time datetime="2026-03-17T12:00:00.000Z" title="发表于 2026-03-17 20:00:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/electronic-music-vocaloid/" title="从VOCALOID到EDM：电子音乐审美的二十年"><img src="https://t.mwm.moe/ycy/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从VOCALOID到EDM：电子音乐审美的二十年"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/17/electronic-music-vocaloid/" title="从VOCALOID到EDM：电子音乐审美的二十年">从VOCALOID到EDM：电子音乐审美的二十年</a><time datetime="2026-03-17T07:00:00.000Z" title="发表于 2026-03-17 15:00:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/topological-sort/" title="拓扑排序：有向无环图的线性化"><img src="https://t.mwm.moe/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="拓扑排序：有向无环图的线性化"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/17/topological-sort/" title="拓扑排序：有向无环图的线性化">拓扑排序：有向无环图的线性化</a><time datetime="2026-03-17T02:00:00.000Z" title="发表于 2026-03-17 10:00:00">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/16/honkai-vs-genshin/" title="崩铁和原神的叙事差距在哪里"><img src="https://t.mwm.moe/ycy/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="崩铁和原神的叙事差距在哪里"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/16/honkai-vs-genshin/" title="崩铁和原神的叙事差距在哪里">崩铁和原神的叙事差距在哪里</a><time datetime="2026-03-16T12:00:00.000Z" title="发表于 2026-03-16 20:00:00">2026-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/16/embedding-models/" title="Embedding模型：把语义塞进一个向量"><img src="https://t.mwm.moe/fj/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Embedding模型：把语义塞进一个向量"/ loading='lazy'></a><div class="content"><a class="title" href="/2026/03/16/embedding-models/" title="Embedding模型：把语义塞进一个向量">Embedding模型：把语义塞进一个向量</a><time datetime="2026-03-16T06:00:00.000Z" title="发表于 2026-03-16 14:00:00">2026-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Yufeng He</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></span></div><div class="footer_custom_text"><span style="color:#39C5BB">Powered by Hexo & Butterfly</span> | <span style="color:#6EC6FF">何宇峰 Yufeng He</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script>
+  (function() {
+    var sakuraCount = 20;
+    var style = document.createElement('style');
+    style.textContent = `
+      .sakura-petal {
+        position: fixed;
+        top: -10px;
+        z-index: 9998;
+        pointer-events: none;
+        opacity: 0.6;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      @keyframes sakuraFall {
+        0% { top: -5%; transform: translateX(0px) rotate(0deg); opacity: 0.7; }
+        25% { transform: translateX(30px) rotate(90deg); opacity: 0.6; }
+        50% { transform: translateX(-20px) rotate(180deg); opacity: 0.5; }
+        75% { transform: translateX(40px) rotate(270deg); opacity: 0.4; }
+        100% { top: 105%; transform: translateX(10px) rotate(360deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    function createPetal() {
+      var petal = document.createElement('div');
+      petal.className = 'sakura-petal';
+      petal.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 0C6 0 8 4 12 6C8 8 6 12 6 12C6 12 4 8 0 6C4 4 6 0 6 0Z" fill="rgba(255,183,197,0.7)"/></svg>';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationName = 'sakuraFall';
+      petal.style.animationDuration = (8 + Math.random() * 12) + 's';
+      petal.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(petal);
+      setTimeout(function() { petal.remove(); }, 25000);
+    }
+
+    for (var i = 0; i < sakuraCount; i++) {
+      setTimeout(createPetal, i * 500);
+    }
+    setInterval(function() { createPetal(); }, 3000);
+  })();
+</script>
+<script>
+  (function() {
+    var quotes = [
+      '「これが、私の最後の、電磁砲（レールガン）だ。」—— 御坂美琴 ⚡',
+      '「我想要传达的心意，一定能到达的吧。」—— 千早爱音 🎸',
+      '「我不会消失的，因为我活在大家的心中。」—— 初音未来 🎵',
+      '「世界，请停下来吧。」—— 十六夜咲夜 🔪',
+      '「无论如何，审判将继续。」—— 芙宁娜 💧',
+      '「誰も、もう二度と傷つけさせない。」—— 御坂美琴 ⚡',
+      '「就算迷茫也要继续走下去。」—— 千早爱音 🎸',
+    ];
+    var idx = 0;
+    function rotateQuote() {
+      var el = document.querySelector('.card-announcement .content');
+      if (el) {
+        el.style.opacity = '0';
+        setTimeout(function() {
+          idx = (idx + 1) % quotes.length;
+          el.textContent = quotes[idx];
+          el.style.opacity = '1';
+        }, 500);
+      }
+    }
+    setInterval(rotateQuote, 8000);
+    // 为公告card添加过渡动画
+    var style = document.createElement('style');
+    style.textContent = '.card-announcement .content { transition: opacity 0.5s ease; }';
+    document.head.appendChild(style);
+  })();
+</script>
+<script>
+  (function() {
+    var clickTexts = ['⚡超电磁炮!', '🎸MyGO!!!!!', '🎵ミク♪', '🔪咲夜の世界', '💧芙宁娜审判', '❤', 'かわいい!', 'すごい!'];
+    var idx = 0;
+    document.addEventListener('click', function(e) {
+      var span = document.createElement('span');
+      span.textContent = clickTexts[idx];
+      idx = (idx + 1) % clickTexts.length;
+      span.style.cssText = 'position:fixed;z-index:99999;left:' + e.clientX + 'px;top:' + e.clientY + 'px;color:#39C5BB;font-size:16px;font-weight:bold;pointer-events:none;user-select:none;animation:clickTextFade 1.5s ease forwards;text-shadow:0 0 10px rgba(57,197,187,0.8);';
+      document.body.appendChild(span);
+      setTimeout(function() { span.remove(); }, 1500);
+    });
+    var style = document.createElement('style');
+    style.textContent = '@keyframes clickTextFade { 0% { opacity:1; transform:translateY(0) scale(1); } 100% { opacity:0; transform:translateY(-60px) scale(1.3); } }';
+    document.head.appendChild(style);
+  })();
+</script>
+<canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="57,197,187" opacity="0.5" zIndex="-1" count="80" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

@@ -4,6 +4,932 @@
   
     
     <entry>
+      <title>AI时代的程序员：哪些能力在升值，哪些在贬值</title>
+      <link href="/2026/03/17/ai-era-programmer/"/>
+      <url>/2026/03/17/ai-era-programmer/</url>
+      
+        <content type="html"><![CDATA[<p>我见过两种对这个话题的常见处理方式。</p><p>一种是危机论：LLM能写代码了，程序员要失业了，不转型就完了。另一种是乐观论：AI只是工具，真正有价值的工程师永远不可替代，放轻松。</p><p>两种都不是我想写的，因为两种都过于笼统。我想说的是一些更具体的观察，关于哪些能力在真实的工作中正在变得不那么值钱，哪些在变得更值钱，以及这背后的逻辑是什么。</p><p>我有两个视角：在AI公司实习，同时有竞赛背景。这两个视角不完全一致，有时候互相矛盾，我把矛盾也写出来。</p><hr><h2 id="在贬值的能力"><a href="#在贬值的能力" class="headerlink" title="在贬值的能力"></a>在贬值的能力</h2><p>写重复性的模板代码。这是最直接的。CRUD接口、配置文件、标准化的数据处理管道——这类代码的特点是模式固定、有大量范例、不需要深度理解业务逻辑。LLM在这件事上已经比大多数初级工程师快了，而且不会犯拼写错误。</p><p>查文档。这件事已经基本被LLM接管了。”这个库的API怎么用”、”这个函数的参数是什么”、”这个报错是什么意思”——这类问题曾经需要搜索、跳转、阅读，现在直接问就行了，而且LLM给的答案通常比搜索结果更直接。</p><p>基础语法本身。了解一门语言的基础语法仍然是必要的，但记住所有的边界语法、不常用的标准库函数这件事的价值在降低——你随时可以问。</p><p>简单的debugging。”这段代码为什么报错”、”这个null pointer exception从哪里来”——对于逻辑不复杂的代码，LLM的debugging能力已经相当实用。</p><hr><h2 id="在升值的能力"><a href="#在升值的能力" class="headerlink" title="在升值的能力"></a>在升值的能力</h2><p>系统设计。怎么拆解一个大问题，服务之间如何通信，数据如何流动，哪里是瓶颈，扩展性是否合理——这些问题LLM给不了答案，或者准确地说，LLM可以给很多答案，但判断哪个答案对当前具体情境是合适的，需要对系统的理解。</p><p>这种能力LLM没有，因为它没有你的系统上下文，也没有你的业务约束，它只能给通用建议。</p><p>需求拆解。一个模糊的业务需求，如何变成可以实现的技术规格？这个翻译过程依赖对业务的理解、对技术边界的认知、对trade-off的判断。这件事LLM做不好——不是因为它笨，而是因为它缺少信息，而那些信息很难完全传递给它。</p><p>代码review能力。这件事正在变得更重要，因为LLM生成的代码量在增加，而LLM会产生一类特定的问题：代码看起来正确，但有subtle的逻辑错误、边界情况遗漏、或者不符合当前codebase的架构约定。识别这类问题需要的是深度理解，不是生成能力。</p><p>理解而不是生成。这是最核心的转变。以前程序员的核心工作是”生成代码”，现在正在转向”理解代码、判断代码、修改代码、审查代码”。这两件事需要的能力结构不同：生成偏重语法和模式记忆，理解偏重抽象能力和系统视角。</p><hr><h2 id="一个值得认真想的观察"><a href="#一个值得认真想的观察" class="headerlink" title="一个值得认真想的观察"></a>一个值得认真想的观察</h2><p>LLM让”能写代码”这件事的门槛大幅降低了。一个没有编程背景的人，借助LLM可以搭出一个能跑的web app——以前做不到，现在可以。</p><p>但这件事的副作用是：”能设计好系统”这件事的稀缺性反而更高了。</p><p>以前，好的系统设计能力是”比普通程序员强很多”；现在，因为”普通程序员能做的事情”的边界被LLM往上推了一截，”系统设计”这件事和基础编码之间的能力差距变得更显眼了。真正能拿着需求设计出好架构的人，和能借助LLM快速写出实现的人，这两者的差距在扩大，因为前者的能力没有被替代，后者的能力门槛降低了。</p><p>这不是说基础编码能力不重要——没有足够的编码基础，你没法有效地使用LLM，因为你不知道它生成的东西是否正确。但这两件事的相对价值在调整。</p><hr><h2 id="算法竞赛在这个变化里的位置"><a href="#算法竞赛在这个变化里的位置" class="headerlink" title="算法竞赛在这个变化里的位置"></a>算法竞赛在这个变化里的位置</h2><p>这是我有偏见的地方，所以我尽量说清楚我的立场。</p><p>纯刷LeetCode的价值在下降，这一点我认同。模板题的解法LLM都会，如果你刷题的目的只是”背会这些模板然后面试时能写出来”，那这件事的价值在缩水——面试方式也在变，很多公司已经在改成更侧重系统设计和open-ended problem的形式。</p><p>但竞赛训练出来的系统思维，我不认为在贬值。能快速建立问题的数学模型，能识别复杂性的来源，能在不确定的条件下找到近似最优解——这些能力是竞赛高强度训练产生的副产品，它们在AI时代的用途没有变少。</p><p>我在Kimi做Search-v3的重构时，建模搜索意图识别的时候，那种”把模糊的业务问题转化成有明确边界的形式化问题”的能力是真实有用的。这不是直接的算法应用，而是竞赛思维方式的迁移。</p><p>但我也不会夸大这件事。竞赛背景不是护身符，不思考具体工作场景需要什么，在AI时代同样会被淘汰。</p><hr><h2 id="AI在补齐平均水平，天花板还是人在推"><a href="#AI在补齐平均水平，天花板还是人在推" class="headerlink" title="AI在补齐平均水平，天花板还是人在推"></a>AI在补齐平均水平，天花板还是人在推</h2><p>这是我认为最重要的观察，但也是最难表述清楚的一个。</p><p>LLM的能力提升，主要发生在”平均水平”这个维度上。它把”一般程序员能做的事”的质量上限提高了，因为任何人都可以借助它快速完成以前需要更长时间的工作。</p><p>但”最好的系统设计师能做出什么样的系统”、”最好的算法研究员能产出什么样的工作”，这个天花板仍然是人在决定的。LLM可以加速一个优秀研究员的工作，但不能替代那个优秀研究员的判断。</p><p>用更直接的方式说：AI在让差距收窄，同时在让优秀变得更稀缺。如果你是一个”差不多水平”的程序员，你受到的冲击更大，因为LLM补齐了你的优势；如果你是一个在某个方向上真正有深度的工程师，AI更像是放大器，让你能做更多事。</p><p>这个观察不是激励鸡汤，是对现状的描述。</p><hr><p>所以我的结论是什么？</p><p>没有统一结论，因为不同人在价值链上的位置不同。</p><p>但有一个问题值得每个写代码的人认真问自己：你现在在做的事情里，有多少是”LLM已经能做得不比你差”的？有多少是”需要你真正理解这个系统才能做出判断”的？</p><p>前者的比例越高，受冲击的可能性越大。后者的比例越高，相对来说越稳。这不是焦虑，是一个可以操作的判断框架。</p><p>我自己的判断是：搞清楚自己在价值链的哪个位置，然后往”需要真正理解”的方向走。不一定要变成系统架构师，但得让自己做的事情有足够深的context依赖——那是LLM最难替代的部分。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 思考 </tag>
+            
+            <tag> 程序员 </tag>
+            
+            <tag> 职业 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从VOCALOID到EDM：电子音乐审美的二十年</title>
+      <link href="/2026/03/17/electronic-music-vocaloid/"/>
+      <url>/2026/03/17/electronic-music-vocaloid/</url>
+      
+        <content type="html"><![CDATA[<p>2007年之前，如果你想做一首有人声的歌，你需要的东西不少：一个能唱歌的人、录音设备、隔音环境、混音软件的基础技能，还有那个人愿意配合你的档期。对大多数没有专业背景的人来说，”做一首有真人声音的歌”是一件门槛很高的事。</p><p>然后初音未来出现了，门槛变了。</p><hr><h2 id="工具民主化发生了什么"><a href="#工具民主化发生了什么" class="headerlink" title="工具民主化发生了什么"></a>工具民主化发生了什么</h2><p>VOCALOID技术把人声变成了一种可以调用的乐器。你输入音符和歌词，软件给你输出声音。调音调参数，反复改，直到你满意。没有人需要出现，没有档期，没有录音棚费用。</p><p>这是什么性质的事件？和GarageBand把专业级DAW（数字音频工作站）带给普通Mac用户是同一类事件，和FL Studio让卧室制作人成为可能是同一类事件。本质上是：原来需要专业设备+专业培训才能实现的事，现在普通人用普通电脑可以做了。</p><p>这类事件的共性是：它不让顶级作品变得更好，但它让”可以出现创作”的人群扩大了几个数量级。</p><p>Niconico上在2007年到2010年之间涌现出来的那批VOCALOID P主，很多是第一次认真创作音乐的人。他们没有学过正规的作曲理论，很多人甚至不认谱，但他们能用软件摸索出自己想要的声音。这种”没有正规训练但有强烈表达欲”的创作者群体，在VOCALOID工具出现之前是无法进入音乐制作这个领域的。</p><hr><h2 id="电子音乐审美的演化：二十年里发生了什么"><a href="#电子音乐审美的演化：二十年里发生了什么" class="headerlink" title="电子音乐审美的演化：二十年里发生了什么"></a>电子音乐审美的演化：二十年里发生了什么</h2><p>从模拟合成器的时代（80年代）说起。那时候电子音乐的审美核心是”warm”——模拟电路产生的声音有一种有机的、不完美的质感，这种不完美被认为是有价值的，因为它接近真实乐器的音色特征。Moog合成器的声音之所以有人喜欢，就是因为它的电路不完美。</p><p>数字采样技术普及之后（90年代到00年代），审美转向”clean”——采样声音更干净、更精确，可复现性更强，更适合工业化生产。CD音质成了标准，无损成了追求。这个时代EDM开始规模化，电子舞曲有了标准化的结构（intro-buildup-drop-breakdown），制作流程有了商业模版。</p><p>VOCALOID出现在这个转折点上，但它的声音审美走了另一条路：初音未来的声音是明亮的、锐利的、去肉身感的。不是在模拟真实人声，而是在发展出一种”合成器人声”的新美学。那种略微不自然的元音、发声方式的可塑性、去掉了生理限制之后的音域自由，这些东西不是bug，是风格。</p><p>VOCALOID美学的核心就是：它不假装是人类，它是另一种东西，然后用这种独特性建立了自己的审美体系。</p><hr><h2 id="千早爱音和这件事的关系"><a href="#千早爱音和这件事的关系" class="headerlink" title="千早爱音和这件事的关系"></a>千早爱音和这件事的关系</h2><p>MyGO!!!!!里，千早爱音玩的是插电吉他，做的是摇滚乐队。这和初音未来代表的电子音乐是完全不同的路线——前者依赖现场感和乐手之间的配合，后者依赖工具和个人创作。</p><p>但有趣的地方在于，这两种路线在MyGO里有一种隐性的张力。</p><p>CRYCHIC解散之后，燈子和爱音处理音乐的方式是完全不同的：燈子更接近把音乐当作情感连接的媒介，注重的是”和谁一起演奏”；爱音的摇滚风格里有一种更自我表达、更个人的东西，乐队是工具，核心还是那个声音的质感。</p><p>电子音乐的路线和插电吉他的路线在这里形成了有意思的对比：一边是”任何人都可以独立创作，工具民主化”，一边是”高质量的摇滚现场需要多年练习和真实的人在场”。这两件事都是真的，只是通往音乐的方式不同。</p><p>我自己没有明显的偏好，但我觉得这种对比本身是有意义的——它说明”音乐的民主化”是一个方向，不是终点，有些东西被工具解放了，有些东西恰好需要那个”不能被工具替代”的部分。</p><hr><h2 id="AI生成音乐把这条线推向哪里"><a href="#AI生成音乐把这条线推向哪里" class="headerlink" title="AI生成音乐把这条线推向哪里"></a>AI生成音乐把这条线推向哪里</h2><p>这是现在进行时的问题，所以我只能谈倾向，不能给定论。</p><p>Suno、Udio这类AI音乐生成工具，大概算是VOCALOID逻辑的下一步：连”调音”这个过程都省掉了，输入文字描述，直接输出完整的带人声歌曲。从制作门槛来说，它比VOCALOID更低。</p><p>这是”更多人能创作”这件事的极致——任何人都可以在几分钟内得到一首听起来像样的歌。</p><p>但”更多人能创作”和”创作更有价值”是两件完全不同的事，我觉得需要分开看。</p><p>VOCALOID时代，创作门槛降低了，但P主们仍然需要花大量时间在调音、编曲、歌词上——创作的成本降低了，但创作本身还在。很多优秀的VOCALOID曲子背后是几十个小时的打磨，只是这几十小时不再需要录音棚和乐手。</p><p>AI生成音乐如果把那几十小时也省掉了，剩下的是什么？</p><p>我的观察是：AI生成的音乐在”听起来像什么风格”这件事上做得很好，在”为什么要创作这首歌”这件事上完全是空的。这不是技术问题，是动机问题。所有让VOCALOID曲子有生命力的东西，是那个P主在创作时试图表达某件事，这件事可以是无聊的、幼稚的、不成熟的，但它是真实的。AI没有这个”试图表达”，它只有”生成符合描述的声音”。</p><p>所以AI生成音乐会让”能产出音频文件”这件事的成本趋近于零，但这不会让音乐这个概念消失，它只是让”音频文件”和”音乐”之间的区别变得更清晰了。</p><p>有一个作者在认真做某件事，这件事以声音的形式被记录下来——这是音乐。按提示词生成的音频，是另一个东西。我不是在说后者没有用，它有用，只是不是同一件事。</p><p>初音未来这条线会去哪里，我不知道。但我知道《Tell Your World》是一个真实的人在用一个工具表达某件他觉得重要的事，这件事本身不会被下一代工具替代。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 音乐 </tag>
+            
+            <tag> VOCALOID </tag>
+            
+            <tag> 初音未来 </tag>
+            
+            <tag> 电子音乐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>拓扑排序：有向无环图的线性化</title>
+      <link href="/2026/03/17/topological-sort/"/>
+      <url>/2026/03/17/topological-sort/</url>
+      
+        <content type="html"><![CDATA[<p>枫丹审判庭有一条不成文的规则：轻罪先判，重罪后判。毕竟你不能在一个人还没被定罪的情况下就对他施加依赖于定罪结果的附加刑罚——后面的判决依赖前面的判决。</p><p>这就是拓扑排序在做的事：给一堆有依赖关系的节点找一个合法的线性顺序，让每条”A必须在B前面”的约束都得到满足。</p><hr><h2 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h2><p>给定一个有向无环图（Directed Acyclic Graph，DAG），找一个节点的线性序列，使得对图中每条有向边 $u \rightarrow v$，$u$ 在序列中都出现在 $v$ 前面。</p><p>这样的序列叫做拓扑序（Topological Order）。</p><p>两个前提条件缺一不可：</p><p>有向：边有方向，$u \rightarrow v$ 不等于 $v \rightarrow u$。</p><p>无环：如果图里有环（$A \rightarrow B \rightarrow C \rightarrow A$），拓扑序不存在——三个节点互相依赖，谁也没法排在最前面。</p><p>现实中的典型场景：课程选修（先修 A 才能选 B）、任务调度（A 完成之后才能开始 B）、编译依赖（编译 A 需要先编译它依赖的库）。</p><hr><h2 id="Kahn算法（BFS思路）"><a href="#Kahn算法（BFS思路）" class="headerlink" title="Kahn算法（BFS思路）"></a>Kahn算法（BFS思路）</h2><p>Kahn算法的直觉非常自然：没有任何依赖的节点（入度为0的节点）可以最先处理。处理完一个节点后，它的所有后继节点的依赖数减一，如果某个后继的依赖数减为0，它也可以处理了。</p><p>算法步骤：</p><ol><li>计算所有节点的入度。</li><li>把所有入度为0的节点加入队列。</li><li>循环：取出队列头节点，加入结果序列，对它的所有邻居入度减1，如果某邻居入度变为0，加入队列。</li><li>循环结束，如果结果序列包含所有节点，拓扑排序成功；如果结果序列长度 &lt; 节点总数，说明图中有环。</li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">kahn</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; adj)</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">indegree</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">0</span>; u &lt; n; u++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> v : adj[u])</span><br><span class="line">            indegree[v]++;</span><br><span class="line"></span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (indegree[i] == <span class="number">0</span>) q.<span class="built_in">push</span>(i);</span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; order;</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> u = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">        order.<span class="built_in">push_back</span>(u);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> v : adj[u]) &#123;</span><br><span class="line">            indegree[v]--;</span><br><span class="line">            <span class="keyword">if</span> (indegree[v] == <span class="number">0</span>) q.<span class="built_in">push</span>(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((<span class="type">int</span>)order.<span class="built_in">size</span>() != n) <span class="keyword">return</span> &#123;&#125;;  <span class="comment">// 有环，返回空</span></span><br><span class="line">    <span class="keyword">return</span> order;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度 $O(V + E)$，空间复杂度 $O(V)$。</p><hr><h2 id="DFS实现"><a href="#DFS实现" class="headerlink" title="DFS实现"></a>DFS实现</h2><p>DFS的拓扑排序思路是：后序遍历（postorder traversal）的逆序就是拓扑序。</p><p>直觉：DFS访问一个节点时，先递归访问它的所有后继，后继都处理完之后，当前节点才入栈。最后把栈里的顺序反转，就是拓扑序。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; color;  <span class="comment">// 0: 未访问, 1: 访问中, 2: 已完成</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; adj)</span> </span>&#123;</span><br><span class="line">    color[u] = <span class="number">1</span>;  <span class="comment">// 访问中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v : adj[u]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (color[v] == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">// 发现环</span></span><br><span class="line">        <span class="keyword">if</span> (color[v] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">dfs</span>(v, adj)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    color[u] = <span class="number">2</span>;  <span class="comment">// 已完成</span></span><br><span class="line">    result.<span class="built_in">push_back</span>(u);  <span class="comment">// 后序入栈</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">topo_dfs</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; adj)</span> </span>&#123;</span><br><span class="line">    color.<span class="built_in">assign</span>(n, <span class="number">0</span>);</span><br><span class="line">    result.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (color[i] == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">dfs</span>(i, adj)) <span class="keyword">return</span> &#123;&#125;;  <span class="comment">// 有环</span></span><br><span class="line">    <span class="built_in">reverse</span>(result.<span class="built_in">begin</span>(), result.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>三色标记是关键：白色（未访问）、灰色（访问中，在当前DFS路径上）、黑色（已完成）。如果DFS从一个灰色节点走到另一个灰色节点，说明存在环。</p><hr><h2 id="检测环的方式"><a href="#检测环的方式" class="headerlink" title="检测环的方式"></a>检测环的方式</h2><p>两种算法都自带环检测：</p><p>Kahn算法：如果最后 <code>order.size() != n</code>，说明有节点的入度始终没降到0，即存在环。</p><p>DFS算法：如果访问到颜色为”访问中”（灰色）的节点，说明当前路径形成了环。</p><p>实战中，Kahn算法的环检测更容易理解，不容易搞错；DFS的实现更紧凑，但三色标记要写对。</p><hr><h2 id="DAG上的最短-最长路"><a href="#DAG上的最短-最长路" class="headerlink" title="DAG上的最短&#x2F;最长路"></a>DAG上的最短&#x2F;最长路</h2><p>这是拓扑排序最有价值的应用之一。</p><p>在一般有向图上，最短路需要Dijkstra（$O((V+E)\log V)$，要求边权非负）或Bellman-Ford（$O(VE)$，允许负权）。但在DAG上，按拓扑序处理节点，可以用DP在 $O(V+E)$ 内解决最短&#x2F;最长路问题。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DAG上从源点s出发的单源最短路</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dag_shortest</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> s, vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt;&amp; adj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// adj[u] = &#123;(v, w), ...&#125;</span></span><br><span class="line">    <span class="keyword">auto</span> order = <span class="built_in">kahn</span>(n, ...);  <span class="comment">// 先求拓扑序</span></span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> u : order) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dist[u] == INT_MAX) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> [v, w] : adj[u]) &#123;</span><br><span class="line">            dist[v] = <span class="built_in">min</span>(dist[v], dist[u] + w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最长路只需要把 <code>min</code> 改成 <code>max</code>，初始值改成 <code>INT_MIN</code>。一般有向图上最长路是NP-hard问题（旅行商问题的特例），但DAG上是多项式时间可解的。</p><hr><h2 id="关键路径（Critical-Path-Method）"><a href="#关键路径（Critical-Path-Method）" class="headerlink" title="关键路径（Critical Path Method）"></a>关键路径（Critical Path Method）</h2><p>工程项目管理里有一个经典方法叫关键路径法（CPM）。把项目的各个任务建模成DAG，每个节点是任务，边表示依赖关系，边权是任务持续时间，问”整个项目最少需要多久”。</p><p>答案就是DAG上的最长路。关键路径是从起点到终点的所有路径里最长的那条——这条路径上的任何任务延误都会直接影响项目总工期。关键路径外的任务有一定的float（浮动时间），延误不一定影响总工期。</p><p>这就是为什么同样的编译依赖，某些模块的优化能加速整体构建，某些模块的优化根本没效果——取决于它在不在关键路径上。</p><hr><h2 id="经典题目"><a href="#经典题目" class="headerlink" title="经典题目"></a>经典题目</h2><p>LeetCode 207（课程表）：给定若干课程依赖关系，判断能否完成所有课程（等价于判断有向图是否有环）。</p><p>LeetCode 210（课程表II）：输出一个合法的学习顺序（就是拓扑排序本身）。</p><p>这两道题是Kahn算法的直接应用，建议先拿这两道练手。</p><hr><h2 id="做题Checklist"><a href="#做题Checklist" class="headerlink" title="做题Checklist"></a>做题Checklist</h2><ol><li>图是否保证是DAG？如果不保证，要先用环检测处理有环的情况。</li><li>是Kahn（BFS）还是DFS实现？两者都行，但DFS版要把三色标记写对，不要用bool visited（两色不够）。</li><li>拓扑序是否唯一？不唯一——入度为0的节点可能有多个，选哪个先处理都合法，但结果序列可能不同。如果题目要求字典序最小，把队列换成优先队列。</li><li>DAG DP时，是先求拓扑序再DP，还是在Kahn过程中直接更新DP值？两种写法都行，后者稍微更紧凑。</li><li>节点编号从0开始还是1开始？别搞错边界。</li></ol><hr><p>回到枫丹审判庭。</p><p>芙宁娜的判决需要依赖先前所有相关证据的认定，证据认定依赖证人证词，证人证词依赖传唤程序……整个司法体系是一个精心设计的DAG，每个节点都有它的前置依赖。</p><p>能保证这套体系不出死锁（环）的方式，就是确保没有任何两个程序互为前置依赖——这在法律设计层面是一个拓扑性质的约束。</p><p>照这样看，写过拓扑排序的人，其实对法律逻辑的底层结构有一点点直觉。尽管枫丹的法律是虚构的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 拓扑排序 </tag>
+            
+            <tag> DAG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>崩铁和原神的叙事差距在哪里</title>
+      <link href="/2026/03/16/honkai-vs-genshin/"/>
+      <url>/2026/03/16/honkai-vs-genshin/</url>
+      
+        <content type="html"><![CDATA[<p>我不打算写游戏评测。画面、音乐、战斗系统，这些维度的比较网上已经够多了，而且通常没什么意思，因为两款游戏的目标受众本来就不完全一样。</p><p>我想讨论的是叙事结构，具体来说：同一家公司做的两款游戏，为什么讲故事的方式差这么多，这种差异背后是什么选择，以及这两种选择对应的情感效果有什么本质区别。</p><hr><h2 id="旅行者是空壳，开拓者不是"><a href="#旅行者是空壳，开拓者不是" class="headerlink" title="旅行者是空壳，开拓者不是"></a>旅行者是空壳，开拓者不是</h2><p>原神的主角旅行者是一个空壳设计（blank slate protagonist）。他&#x2F;她几乎没有个人欲望、没有固定立场、没有内部冲突，永远在问”发生了什么”、”这是谁”、”我能帮什么忙”。剧情推动力来自外部事件，旅行者是个催化剂，不是驱动力。</p><p>这种设计的好处是方便玩家代入——你就是那个旅行者，所以旅行者的性格越模糊，玩家的自我投影空间越大。</p><p>代价是：当剧情需要情感高潮时，那个情感不是来自旅行者，而是来自玩家对NPC命运的投射。你不是在为主角哭，你是在为某个NPC哭，主角只是个在场的摄像机。</p><p>这在某些剧情里效果很好，在另一些剧情里就很平了。效果好的时候，比如枫丹——芙宁娜作为一个有完整人格弧线的NPC，她的变化是真实的，她的痛苦有来由，她的解脱有重量。玩家在旁观这个过程时，情感是真实的，因为芙宁娜本身足够立体。</p><p>效果平的时候，比如蒙德早期——NPC们的冲突和命运虽然有设定，但角色弧线不够完整，结局也不够有代价感。旅行者作为旁观者完成了任务，玩家感受到的是”剧情过完了”，不是”我经历了某件事”。</p><hr><h2 id="崩铁的主角是真正的参与者"><a href="#崩铁的主角是真正的参与者" class="headerlink" title="崩铁的主角是真正的参与者"></a>崩铁的主角是真正的参与者</h2><p>开拓者有性格。他们会吐槽，会表达态度，有时候甚至会主动做出选择而不只是”顺着剧情走”。崩铁的剧情是有主角视角的，而不只是一个旁观视角。</p><p>这让崩铁能做到原神结构性做不到的事：主角和NPC之间的关系是双向的。不是主角帮助NPC成长，而是两个有各自立场的人在互动，这个互动本身产生张力。</p><p>崩铁在这件事上的另一个优势是文本密度。崩铁的对白量极高，角色说话有个性，有语气，有他们自己的思维方式。这是内地网文培养出来的叙事习惯——用大量的人物对话来立体化角色，而不是靠画面和音乐去补。这种方式的受众有明确的口味：他们愿意读文字，愿意花时间泡在剧情里，对”文字密度高”的内容不排斥。</p><p>代价是对另一部分玩家来说，崩铁的剧情太话唠了。</p><hr><h2 id="原神的真正优势在哪里"><a href="#原神的真正优势在哪里" class="headerlink" title="原神的真正优势在哪里"></a>原神的真正优势在哪里</h2><p>原神的世界观广度和单个国家的文化深度，是崩铁在结构上很难复制的。</p><p>每到一个新国家，原神花了大量的时间和资源构建那个国家的文化、历史、宗教、社会结构。璃月的仙人体系、稻妻的神意和人心的冲突、须弥的学术殿堂和知识垄断、枫丹的法律剧场——每一个国家都是一套独立的世界观逻辑，而且这些逻辑之间有内在联系。</p><p>这种世界构建的规模，需要巨大的投入，也需要一种特定的叙事策略：主角越空白，越不会打扰玩家对世界本身的注意力。旅行者的空壳设计，某种意义上是服务于世界观展示的。你来这里是为了看这个世界，不是看主角。</p><p>崩铁的叙事重心在”人”，原神的叙事重心在”世界”。这两种取向没有高下之分，但它们产生的情感类型不同：崩铁能给你角色情感的深度，原神能给你沉浸在一个庞大世界里的广度。</p><hr><h2 id="芙宁娜为什么是原神叙事的天花板"><a href="#芙宁娜为什么是原神叙事的天花板" class="headerlink" title="芙宁娜为什么是原神叙事的天花板"></a>芙宁娜为什么是原神叙事的天花板</h2><p>芙宁娜是原神叙事策略的一个特殊案例：她是一个有完整人格弧线的NPC，同时枫丹的世界观又和她的个人命运深度绑定在一起。</p><p>这意味着在芙宁娜这条线上，原神同时做到了”世界观展示”和”人物情感深度”这两件事——审判制度、舞台剧场、枫丹人的死亡诅咒，这些世界设定本身就是芙宁娜命运的背景，不是两条平行的线，而是一条编织在一起的线。</p><p>这很难。原神大多数剧情里，世界观和人物情感是两条分开走的线，玩家在某个时刻关注世界，某个时刻关注人物，很少同时。枫丹做到了让这两条线合一，这是为什么芙宁娜相关的剧情会让那么多人印象深刻。</p><p>这也说明原神的叙事短板不是”能不能写好角色”，而是”有没有在结构上给角色足够的空间”。</p><hr><h2 id="这两种风格对应的受众"><a href="#这两种风格对应的受众" class="headerlink" title="这两种风格对应的受众"></a>这两种风格对应的受众</h2><p>直说吧。</p><p>喜欢崩铁叙事的人，通常对角色塑造有更高的需求，对文字密度有更高的耐受度，愿意花时间在角色关系上，对”把剧情当小说读”这件事不排斥。这类玩家通常有更深的二次元背景，习惯了文字驱动的叙事。</p><p>喜欢原神叙事的人，通常对世界构建有更高的兴趣，喜欢探索一个庞大的、有内在逻辑的设定世界，对主角情感代入的需求反而不那么强烈，更享受的是”发现”的过程。</p><p>这两类人的重叠是有的，但核心需求不一样。米哈游同时做这两款游戏，某种意义上是在服务这两类受众，而不是在同一条赛道上打。</p><p>我自己是芙宁娜的粉丝，对枫丹剧情的评价很高。但这不代表我觉得崩铁的叙事更差，它们是两种不同的叙事策略，在各自的设计目标下都做到了相当高的水准。</p><p>真正的差距不是在”谁更好”，而是在”谁更适合你想要的那种情感体验”。这个问题没有统一答案，但值得想清楚，因为它决定了你玩哪个游戏时更容易进入状态。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 游戏 </tag>
+            
+            <tag> 原神 </tag>
+            
+            <tag> 崩铁 </tag>
+            
+            <tag> 叙事 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Embedding模型：把语义塞进一个向量</title>
+      <link href="/2026/03/16/embedding-models/"/>
+      <url>/2026/03/16/embedding-models/</url>
+      
+        <content type="html"><![CDATA[<p>初音未来有一首曲子叫《Tell Your World》。如果你问一个人”这首歌在表达什么情感”，他可能说：连接、希望、跨越边界。如果你让语言模型把这首歌的描述词压缩成一个768维的向量，它也能告诉你这个向量和”羁绊”、”pf曲”、”告白”等描述是相近的，和”死亡metal”是相远的。</p><p>这件事本质上很奇怪——你怎么把语义塞进一串数字里，然后让”相似意思”对应”相近数字”？这就是Embedding模型在做的事。</p><hr><h2 id="Word2Vec：第一个真正work的词向量"><a href="#Word2Vec：第一个真正work的词向量" class="headerlink" title="Word2Vec：第一个真正work的词向量"></a>Word2Vec：第一个真正work的词向量</h2><p>时间回到2013年。Mikolov等人提出Word2Vec，第一次让”词义相似度”在向量空间里变得可计算。[Mikolov et al., 2013, “Distributed Representations of Words and Phrases”]</p><p>Word2Vec有两种训练方式，直觉不同：</p><p>CBOW（Continuous Bag of Words）：给定一个词的上下文，预测这个词。比如”初音___演唱会”，填空。模型要学会”什么词经常出现在这个上下文里”。</p><p>Skip-gram：反过来，给定一个词，预测它的上下文。给你”演唱会”，模型要预测周围可能出现什么词。</p><p>两者训练目标不同，但都在逼模型学到”相似语境 → 相似词”这件事。训练完之后，你会发现”king - man + woman ≈ queen”这样的向量运算真的成立，这让2013年的AI圈非常兴奋。</p><p>实践中用的关键技巧是负采样（Negative Sampling）：对每个正样本词对，随机采若干个噪声词作为负样本，把多分类问题变成若干个二分类问题。这让训练效率大幅提升，Vocab几十万的模型能在几小时内训好。</p><p>Word2Vec有一个根本性的缺陷：每个词只有一个向量。”苹果”这个词，在”吃苹果”和”苹果公司”里被迫共享同一个表示。这在很多场景下是不够的。</p><hr><h2 id="BERT：上下文感知的表示"><a href="#BERT：上下文感知的表示" class="headerlink" title="BERT：上下文感知的表示"></a>BERT：上下文感知的表示</h2><p>2018年，BERT横空出世（Devlin et al., 2018）。核心改进是：同一个词，在不同上下文里，会得到不同的向量表示。</p><p>BERT用的是Transformer的双向Encoder。训练目标有两个：</p><p>Masked Language Model (MLM)：随机遮住输入里15%的词，让模型预测被遮住的词。这逼模型理解上下文的双向信息。</p><p>Next Sentence Prediction (NSP)：判断两句话是否连续出现。这给模型一些句子级别的语义理解。</p><p>“苹果很好吃”和”苹果市值破万亿”里，BERT给”苹果”生成的向量是不同的，因为它的上下文完全不同。这就是上下文感知表示的含义。</p><p>但BERT有一个工程上的大问题：它是一个Cross-Encoder结构。要比较两段文本的相似度，你必须把这两段文本拼起来扔进模型，才能得到相似度分数。如果你有100万条文档，要对一个query做检索，你需要跑100万次BERT——这不现实。</p><hr><h2 id="对比学习：把相似意思拉到一起"><a href="#对比学习：把相似意思拉到一起" class="headerlink" title="对比学习：把相似意思拉到一起"></a>对比学习：把相似意思拉到一起</h2><p>Sentence-BERT（Reimers &amp; Gurevych, 2019）把BERT改造成了双编码器（Bi-Encoder）结构：query和document分别单独过模型，得到各自的向量，然后用余弦相似度比较。这样100万条文档的向量可以预先计算好存起来，检索时只需要算query的向量，然后做向量相似度搜索，快得多。</p><p>但双编码器的精度不如交叉编码器。为了弥补这个差距，对比学习（Contrastive Learning）成了训练Sentence Embedding的主流范式。</p><p>核心思想：给模型正样本对（语义相似的两段文本）和负样本对（语义不相关的），训练目标是拉近正样本对的向量，推远负样本对的向量。</p><p>SimCSE（Gao et al., 2021）用了一个极其简单但有效的技巧：把同一句话喂给模型两次，因为dropout的随机性，两次得到的向量略有不同，把这两个向量作为正样本对。负样本就用同一个batch里的其他句子。这叫in-batch negatives。这个做法在NLI任务上超过了很多复杂的方法。</p><p>E5和BGE是这条路线更进一步的产物，在MTEB榜单上的表现已经很接近GPT-4 Embedding的水平，而且是开源的。</p><hr><h2 id="双编码器-vs-交叉编码器"><a href="#双编码器-vs-交叉编码器" class="headerlink" title="双编码器 vs 交叉编码器"></a>双编码器 vs 交叉编码器</h2><p>实际搜索系统里，这两者通常组合使用：</p><p>双编码器（Bi-Encoder）做召回：快，可以预计算向量，用近似最近邻搜索（FAISS、ScaNN等）从千万级文档里召回top-k候选，延迟可以压到毫秒级。</p><p>交叉编码器（Cross-Encoder）做精排：把query和每个候选文档拼起来，精确计算相似度，精度更高，但只能处理几十到几百个候选。</p><p>这个范式在工业界语义搜索系统里已经是standard practice了。Kimi Search的检索层也是类似的思路——用Embedding快速缩小候选集，再用更重的模型精确排序。</p><hr><h2 id="工程上容易踩的坑"><a href="#工程上容易踩的坑" class="headerlink" title="工程上容易踩的坑"></a>工程上容易踩的坑</h2><p>归一化：余弦相似度 &#x3D; 点积 &#x2F; (|a| * |b|)，如果你的向量都归一化成单位向量，余弦相似度就等于点积，计算更快。大多数FAISS索引默认用内积，不归一化会出问题。</p><p>维度选择：不是维度越高越好。768维BERT在大多数任务上已经足够，1536维的OpenAI Embedding在某些任务上更好，但向量库的内存和搜索速度会受影响。实际项目里要benchmark，不要盲目选高维。</p><p>批量大小对对比学习的影响：对比学习依赖in-batch negatives——batch越大，负样本越多，训练越有效。SimCSE的论文里batch size 64和batch size 512的性能差距是显著的。如果你在fine-tune Embedding模型，这个超参比学习率更重要。</p><p>长文本怎么处理：大多数Embedding模型有token长度限制（512或8k），长文档要分块，然后对块向量做pool或者取头部。不同文档，最好的pool策略不一样，要实验。</p><hr><p>回到最开头的类比。</p><p>初音未来把歌声压缩成数字波形，一首歌三分钟，采样率44100Hz，每个采样点16位，最后是一个几十MB的.wav文件。这是信号层面的压缩。</p><p>Embedding模型做的是语义层面的压缩：把一段文字的意思压缩成一个定长向量，然后让语义相似的文字对应空间上相近的向量。</p><p>压缩总是有损的。一首歌转成MP3会丢失细节，一段文字变成768维向量会丢失细节。但压缩之后能做的事，是原始信号无法直接做的——大规模的语义检索、聚类、相似度排序，这些都需要在向量空间里操作。</p><p>Miku的声音是采样数据压缩出来的，她唱出来的东西能触动人。这不矛盾。向量空间里的语义表示是有损压缩出来的，但它能做有用的事。这也不矛盾。</p><p>压缩的意义不在于保留所有细节，在于保留了对你有用的那部分。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> Embedding </tag>
+            
+            <tag> NLP </tag>
+            
+            <tag> 语义搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>研究生这一年应该用来干嘛</title>
+      <link href="/2026/03/16/masters-year/"/>
+      <url>/2026/03/16/masters-year/</url>
+      
+        <content type="html"><![CDATA[<p>HKU CS MSc是一年制的。这件事听起来很短，但在进来之前你不会真的明白它有多短——直到你发现第一个学期结束的时候，你才刚刚适应完这里的节奏，然后你的同学里就开始有人在讨论毕业后的去向了。</p><p>所以这一年用来干嘛，这个问题值得在早期认真想清楚，而不是随着环境漂。</p><hr><h2 id="要不要发论文"><a href="#要不要发论文" class="headerlink" title="要不要发论文"></a>要不要发论文</h2><p>先说结论：对绝大多数一年制MSc的学生来说，”发一篇正儿八经的学术论文”是一个不太现实的目标，但”做一个扎实的课题项目”是完全值得的。</p><p>这两件事听起来像，但差很远。发论文意味着你要在一个领域找到真实的贡献点，经历完整的投稿-审稿-修改循环——顶会的审稿周期有时候比你整个学位还长。你交论文的时候稿子可能还在第一轮审稿里躺着。</p><p>课题项目不一样。它不需要”贡献新知识”，它需要的是”扎实理解一个问题，并用代码+实验呈现出来”。这种项目放到简历上，面试时能讲清楚方法论、讲清楚实验设计、讲清楚局限性，效果比一篇挂名贡献模糊的会议论文要好。</p><p>如果你有明确想去做研究的意愿，一年制MSc不是最优路径，应该直接申PhD。但如果你目标是工业界，那把时间花在一个清晰、完整、能讲明白的项目上，比拼命追发论文这个目标有价值得多。</p><hr><h2 id="要不要疯狂实习"><a href="#要不要疯狂实习" class="headerlink" title="要不要疯狂实习"></a>要不要疯狂实习</h2><p>这是一年制研究生里最常见的争论。</p><p>有一种声音是：”来都来了，就好好上课，实习本科就可以做”。另一种声音是：”一年时间不利用起来积累工作经验太浪费了，尤其是香港这个地方能接触到的机会”。</p><p>我倾向于这两种声音都说了正确的一半，但都没说完。</p><p>一年制MSc的真实情况是：课程密度比两年制或研究型项目高很多，你选了足够多的课，同时在做一个稍微认真点的项目，再加上实习，时间会非常碎。碎到什么程度——你会开始在地铁上改论文，然后错过站。</p><p>短期高强度实习（三个月以内）在这种密度下是可以的，前提是你知道自己想要什么。但那种”全身心投入、做有深度贡献”类型的实习，在这个节奏下很难做好。你要么课没学好，要么实习没做好，两个都做得差不多但都没做出来。</p><p>最坏的情况是：”我在港大读了一年研究生，但课程和实习都没给我留下什么有价值的东西”——这不少见。</p><p>把课上扎实的长期价值是真实的，但那个”扎实”不是自动发生的。你得有意识地把课堂学的东西跟实际问题连起来，不然上课就只是上课。</p><hr><h2 id="要不要社交"><a href="#要不要社交" class="headerlink" title="要不要社交"></a>要不要社交</h2><p>香港的圈子和内地不一样。这里的LinkedIn使用率比内地高很多，networking活动密度也高，行业活动、校友聚会、创业社群，选择比较多。</p><p>有一个说法是”HKU的校友网络是来这里最大的隐性资产”，我觉得这句话是对的，但执行方式经常被说错了。</p><p>混networking活动这件事，回报率是高度非线性的。对少数人来说效果显著，他们本来就擅长在陌生环境里快速建立关系，话题自然，能记住对方的事。对大多数人来说，参加了一堆活动，加了一堆LinkedIn，然后那些连接再也没有实质性的互动。这不是网络，这是地址簿。</p><p>真正有用的人脉建立方式，几乎总是基于某种具体的合作或者共同兴趣——一起做了一个项目、一起研究了一个问题、一起搞清楚了某件事。这种连接有内容，所以有张力。</p><p>所以”要不要社交”这个问题，正确答案不是”要”或”不要”，是”做什么样的社交”。为了建立人脉而建立人脉，很少有用。</p><hr><h2 id="研究生和本科生思维方式的真正差异"><a href="#研究生和本科生思维方式的真正差异" class="headerlink" title="研究生和本科生思维方式的真正差异"></a>研究生和本科生思维方式的真正差异</h2><p>这个问题经常被说成”更努力”或者”更独立”，我觉得都不准确。</p><p>更准确的描述是：本科训练的是”给定问题，找到答案”；研究生应该训练的是”判断这是不是一个值得问的问题”。</p><p>本科的课程结构是这样的：老师给你问题，你找答案，答案对或错是可以判断的。这个结构在学习基础知识时是高效的，但它会留下一个盲点——你习惯了在别人定义好的框架里工作。</p><p>研究生阶段，尤其是有研究色彩的阶段，真正难的地方不是解题，而是选题。为什么这个问题值得花三个月研究？这个方法路线有没有根本性的缺陷？这个实验结果说明了什么又遗漏了什么？</p><p>这种批判性的框架，不是靠”更努力”练出来的，是靠”频繁问自己’这件事为什么这么做’”练出来的。</p><p>一年制的MSc未必能真正培养出这个思维方式，但它至少提供了一个练习的场景。能不能利用起来，取决于自己有没有意识到这件事。</p><hr><p>最后的结论很简单，但我觉得值得明说：</p><p>研究生这一年不应该按照某种最优化脚本来过，因为不同的人最优化的目标不同。有人来这里是为了学历背书，有人是为了转赛道，有人是为了给自己一段思考的时间，有人真的想做研究。这几个目标对应的一年规划完全不同，不能混用同一份攻略。</p><p>我自己不焦虑，不是因为觉得什么都无所谓，而是因为想清楚了自己在这里想做的是什么，然后就不需要对每一个”你应该xxx”的建议都认真响应了。</p><p>焦虑的来源往往是目标不清晰，所以对所有信号都保持警觉。想清楚要什么，那些噪声就自然过滤掉了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 思考 </tag>
+            
+            <tag> HKU </tag>
+            
+            <tag> 研究生 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>单调栈：O(n)干掉所有下一个更大元素问题</title>
+      <link href="/2026/03/15/monotonic-stack/"/>
+      <url>/2026/03/15/monotonic-stack/</url>
+      
+        <content type="html"><![CDATA[<p>问题：给你一个数组 <code>a[0..n-1]</code>，对每个元素找右边第一个比它大的元素的下标。没有就输出 -1。</p><p>朴素做法：对每个 <code>a[i]</code>，从 <code>i+1</code> 往右扫描，找到第一个 <code>a[j] &gt; a[i]</code>。最坏情况 O(n²)，比如数组是严格递减的，每个元素都要扫到末尾。</p><p>单调栈把这个问题降到 O(n)，而且代码只有十几行。</p><h2 id="思路：维护一个单调递减的栈"><a href="#思路：维护一个单调递减的栈" class="headerlink" title="思路：维护一个单调递减的栈"></a>思路：维护一个单调递减的栈</h2><p>核心思想：维护一个存了下标的栈，保证栈里的元素对应的值从底到顶单调递减。</p><p>遍历数组，对于每个新元素 <code>a[i]</code>：</p><ul><li>如果 <code>a[i]</code> 比栈顶元素大，说明栈顶元素找到了它的”右边第一个更大值”，就是 <code>a[i]</code>。弹出栈顶，记录答案，继续比较新的栈顶。</li><li>一直弹，直到栈为空或者栈顶元素 <code>&gt;= a[i]</code>。</li><li>把 <code>i</code> 压栈。</li></ul><p>遍历结束后，栈里还剩下的元素没有找到右边更大的值，答案是 -1。</p><p>为什么这能保证正确性？栈里的元素从底到顶单调递减。当 <code>a[i]</code> 来了，它能弹出的栈顶必然是满足”比 a[i] 小，而且在 i 左边，而且右边还没有比它更大的”的元素。所有这些元素的答案就是 <code>a[i]</code>。</p><h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 找每个元素右边第一个更大值的下标，没有则为 -1</span></span><br><span class="line"><span class="comment">// 返回长度为 n 的数组 ans</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next_greater</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; a)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;  <span class="comment">// 存下标，保证 a[stk] 单调递减</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; a[stk.<span class="built_in">top</span>()] &lt; a[i]) &#123;</span><br><span class="line">            ans[stk.<span class="built_in">top</span>()] = i;</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 栈里剩余的元素 ans 保持 -1</span></span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找每个元素右边第一个更小值的下标</span></span><br><span class="line"><span class="comment">// 只需把 &lt; 改成 &gt;，维护单调递增的栈</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next_smaller</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; a)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;  <span class="comment">// 存下标，保证 a[stk] 单调递增</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; a[stk.<span class="built_in">top</span>()] &gt; a[i]) &#123;</span><br><span class="line">            ans[stk.<span class="built_in">top</span>()] = i;</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="复杂度证明"><a href="#复杂度证明" class="headerlink" title="复杂度证明"></a>复杂度证明</h2><p>每个元素最多入栈一次，最多出栈一次。入栈总次数 n，出栈总次数也不超过 n。所以整个 for 循环里，while 的总执行次数是 O(n)，不是每次 for 都执行 O(n) 次 while。</p><p>这是均摊复杂度的典型例子：单次 while 可能很长，但不可能每次 for 都很长，因为弹出的元素不会再进来了。总代价 O(n)。</p><h2 id="经典变种1：柱状图最大矩形面积（LeetCode-84）"><a href="#经典变种1：柱状图最大矩形面积（LeetCode-84）" class="headerlink" title="经典变种1：柱状图最大矩形面积（LeetCode 84）"></a>经典变种1：柱状图最大矩形面积（LeetCode 84）</h2><p>给你 n 个柱子的高度，找能放下的最大矩形面积。</p><p>关键观察：对于每个柱子 <code>h[i]</code>，它能向左右延伸的最远距离，取决于左边第一个比它矮的柱子和右边第一个比它矮的柱子。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">largestRectangleArea</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = heights.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">left</span><span class="params">(n)</span>, <span class="title">right</span><span class="params">(n)</span></span>;  <span class="comment">// 左/右第一个更小值的下标</span></span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找每个元素左边第一个更小值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; heights[stk.<span class="built_in">top</span>()] &gt;= heights[i]) stk.<span class="built_in">pop</span>();</span><br><span class="line">        left[i] = stk.<span class="built_in">empty</span>() ? <span class="number">-1</span> : stk.<span class="built_in">top</span>();</span><br><span class="line">        stk.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>()) stk.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找每个元素右边第一个更小值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; heights[stk.<span class="built_in">top</span>()] &gt;= heights[i]) stk.<span class="built_in">pop</span>();</span><br><span class="line">        right[i] = stk.<span class="built_in">empty</span>() ? n : stk.<span class="built_in">top</span>();</span><br><span class="line">        stk.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, heights[i] * (right[i] - left[i] - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这道题朴素是 O(n²)，单调栈 O(n)。</p><h2 id="经典变种2：接雨水（LeetCode-42）"><a href="#经典变种2：接雨水（LeetCode-42）" class="headerlink" title="经典变种2：接雨水（LeetCode 42）"></a>经典变种2：接雨水（LeetCode 42）</h2><p>给你一组柱子高度，下雨后能接多少水。</p><p>也可以用单调栈，不过这道题的单调栈解法稍微反直觉一点，按行计算而不是按列：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = height.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;  <span class="comment">// 存下标，维护单调递减</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; height[stk.<span class="built_in">top</span>()] &lt; height[i]) &#123;</span><br><span class="line">            <span class="type">int</span> bottom = stk.<span class="built_in">top</span>(); stk.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) <span class="keyword">break</span>;</span><br><span class="line">            <span class="comment">// bottom 左边是 stk.top()，右边是 i，这一层能接的水</span></span><br><span class="line">            <span class="type">int</span> width = i - stk.<span class="built_in">top</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> h = <span class="built_in">min</span>(height[stk.<span class="built_in">top</span>()], height[i]) - height[bottom];</span><br><span class="line">            ans += width * h;</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>接雨水用单调栈的思路是：每次弹出一个元素，它左边的栈顶和右边的当前元素围成一个”坑”，计算这个坑能接多少水。</p><h2 id="芙宁娜的审判队列"><a href="#芙宁娜的审判队列" class="headerlink" title="芙宁娜的审判队列"></a>芙宁娜的审判队列</h2><p>想象枫丹审判庭有一个待审案件队列，芙宁娜把案件按”重要性”排队——她只关心眼下最重要的案件，新来的案件如果比当前队列里的某些案件更重要，那些不够重要的案件就先搁置，等更重要的案件处理完再说。这个”搁置不够重要的、处理眼下最重要的”结构，就是单调栈的直觉。</p><p>每个新来的元素，如果它”更大”，就让它来”解决”比它小的那些元素。每个元素等待的时间，就是它直到遇见比它更大的元素之前的那段区间。</p><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><p>判断是否该用单调栈：</p><ol><li>需要找每个元素左边&#x2F;右边第一个更大&#x2F;更小的元素→单调栈</li><li>需要维护某种”相邻关系”，朴素 O(n²) 但感觉有优化空间→考虑单调栈</li><li>柱状图最大矩形、接雨水、每日温度（LeetCode 739）、股票跨度问题（LeetCode 901）→这些都是单调栈</li><li>如果需要找”下一个更大”同时也需要历史信息（比如最大值）→单调栈 + 其他数据结构组合</li></ol><p>单调栈的关键不是”维护单调性”这个结论，而是理解为什么弹出的元素此刻得到了答案。想清楚这一点，变种题都是一个模子里出来的。</p><p>写单调栈时最容易犯的错：搞不清楚什么时候用 <code>&lt;</code> 什么时候用 <code>&lt;=</code>，什么时候维护递增什么时候维护递减。记住：维护递减栈找的是”更大”，维护递增栈找的是”更小”；用 <code>&lt;</code> 和用 <code>&lt;=</code> 的区别在于处不处理等值元素。不确定就拿一个小样例手动验证一遍，比凭感觉猜靠谱。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 单调栈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MyGO的灯为什么让人看完觉得累</title>
+      <link href="/2026/03/15/mygo-tomo-analysis/"/>
+      <url>/2026/03/15/mygo-tomo-analysis/</url>
+      
+        <content type="html"><![CDATA[<p>很多人看完 MyGO 会有一种说不清楚的疲惫感。剧情不算重口，也没有特别压抑的情节走向，但看完就是累。</p><p>我觉得这个”累”主要是从高松灯身上来的，而且这个”累”不是角色设计的失误，是设计的精确。</p><h2 id="灯的存在方式"><a href="#灯的存在方式" class="headerlink" title="灯的存在方式"></a>灯的存在方式</h2><p>灯不是坏人，这是首先要说清楚的。她不故意伤害人，不主动制造冲突，她完全真诚。</p><p>问题是她的真诚不包含对他人状态的感知。</p><p>她只活在自己的当下。她的当下是音乐是 CRYCHIC 是唱歌，她会全情投入这些，她会为了这些忽略掉身边的人，不是出于自私，是因为她的注意力结构里就没有”这个人现在感受如何”这一项。</p><p>这和自私不一样，自私是”我知道你在意，但我选择不管”，灯是”你在意什么”这件事从一开始就不在她的处理流程里。</p><p>这种人现实中大量存在。通常被描述成”活在自己世界里的人”，或者”我只是说实话，我没有坏心思”型。他们的共同特点是：真诚地造成伤害，然后对伤害本身没有意识，因为他们真的不是故意的，而且他们真的不知道自己做错了什么。</p><h2 id="灯和爱音的关系动力学"><a href="#灯和爱音的关系动力学" class="headerlink" title="灯和爱音的关系动力学"></a>灯和爱音的关系动力学</h2><p>爱音是那种关系里的能量输出方。她主动靠近，主动维系，主动在灯断开连接的时候再次接上。</p><p>这件事成立是因为爱音有足够强的动力，她需要 CRYCHIC，需要和灯的那种连接，这种需要强到支撑她一直输出。</p><p>但这是不对称的。灯接受了爱音的靠近，但她没有对等地回应，不是拒绝，是她不知道”等价回应对方的关注”这件事是需要主动做的。对她来说，爱音在，很好，爱音和自己想的东西不一样，这让她困惑。她不是不在意爱音，但她表达在意的方式是继续做自己的事，而不是转过来问”你还好吗”。</p><p>这种关系里爱音是累的，不是因为她不爱，是因为爱是单向在流动的。她一直在输出，而灯是个漏桶，接住了一点，漏走了大部分。</p><p>这不是灯的错，这是灯的构造方式。但一段关系里，长期不对等会让主动的那一方耗尽。</p><h2 id="灯为什么不是反派"><a href="#灯为什么不是反派" class="headerlink" title="灯为什么不是反派"></a>灯为什么不是反派</h2><p>反派需要有意图，需要知道自己在做什么，需要做出选择。</p><p>灯没有意图。她的所有行为都是直接反应，没有计算，没有算计，没有”我这样做了对方会怎样”这一步的预期。</p><p>这反而比反派更难处理。一个知道自己在做坏事的反派，你可以用对抗来解决；一个不知道自己在伤害人、而且自身足够真诚的人，你没法指责她，因为她不是那个意思，同时你也没法假装没事，因为你确实受伤了。</p><p>这个夹缝就是 MyGO 里大部分关系摩擦的来源：不是有人做了坏事，而是有人的存在方式和其他人的需求之间有根本性的不匹配。</p><p>这种情况的解决路径也不是”教会灯感知他人”，因为那种感知如果不是天然有的，学来的版本是一套行为规则，不是真正的共情。她可以学会”这时候要问一下对方”，但那和真正感知到了对方的状态是两件事，对方其实感受得到差别。</p><h2 id="爱音选择留下来意味着什么"><a href="#爱音选择留下来意味着什么" class="headerlink" title="爱音选择留下来意味着什么"></a>爱音选择留下来意味着什么</h2><p>爱音最后没有走，没有选择切断和灯的联系。</p><p>有一种解读是”爱音选择了接受被消耗”，我不认同这个读法。被消耗是被动的，是你没意识到发生了什么就流失了能量；爱音是知道代价的，她选择留下来不是因为不知道有代价，而是她找到了一种和灯共存而不被完全榨干的方式。</p><p>这个方式不是改变灯，是重新定位自己对这段关系的期待。她不再指望灯能回来问”你还好吗”，她接受灯是那种构造方式的人，然后在这个前提下决定要不要留。</p><p>这比”爱音接受了被消耗”要复杂，也更接近现实里成熟的关系处理。成熟不是学会不受伤，是学会在知道代价的情况下做出你愿意承担代价的选择。</p><p>爱音做到了这件事，但这件事很难，所以看完 MyGO 是累的。</p><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>灯让人累的原因说到底是：她是现实里某类人的精确素描，而不是一个方便被归类为”坏人”的角色。</p><p>你生活里可能有一两个灯这样的人——不是坏人，甚至是真诚的人，但和他们在一起就是会消耗你，因为他们的存在方式和你需要的互动方式不匹配。你没法生气，因为他们不是故意的；你也没法假装没有被消耗，因为你确实有。</p><p>MyGO 没有提供解决方案，它只是准确地描述了这个处境。这已经是很诚实的事情了。</p><p>千早爱音这个角色之所以让我印象很深，不是因为她是正面形象，而是因为她在这段关系里的挣扎是真实的，她的最终选择也没有被美化成容易的事。她选择留下来是因为她决定了留下来，不是因为留下来是正确答案。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BanG Dream </tag>
+            
+            <tag> MyGO </tag>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 角色分析 </tag>
+            
+            <tag> 高松灯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Raft共识算法：比Paxos好懂但也没那么好懂</title>
+      <link href="/2026/03/15/raft-consensus/"/>
+      <url>/2026/03/15/raft-consensus/</url>
+      
+        <content type="html"><![CDATA[<p>Raft 的论文标题直接叫”In Search of an Understandable Consensus Algorithm”（寻找可理解的共识算法）[Ongaro &amp; Ousterhout, USENIX ATC 2014]，可见作者对 Paxos 的可读性有多大意见。</p><p>Lamport 的 Paxos 是共识算法的经典，但出名的不只是它的正确性，还有它出名的难懂。工业界实现 Paxos 的团队大多在原始论文基础上做了大量扩展和修改，最终落地的版本和原始 Paxos 可能面目全非。Raft 的目标是：在理论上同样正确的前提下，让实现更可预测，让工程师读完论文能直接动手写。</p><p>能不能完全做到这个目标是另一回事，但 Raft 的确比 Paxos 更容易入手。</p><h2 id="为什么需要共识"><a href="#为什么需要共识" class="headerlink" title="为什么需要共识"></a>为什么需要共识</h2><p>分布式系统里，多个节点各自有各自的状态，网络会延迟、节点会宕机、消息会丢失。你需要一种机制让所有节点就某个值达成一致，而且即使部分节点挂掉也要继续工作。</p><p>这就是共识问题的来源。</p><p>CAP 定理告诉你，一致性（Consistency）、可用性（Availability）、分区容错性（Partition Tolerance）三者只能同时满足其二。共识算法是在 CP 这一侧努力的——牺牲一定的可用性，换来在分区发生时的一致性保证。</p><p>Raft 能容忍少数节点宕机。具体来说，集群有 2f+1 个节点时，可以容忍 f 个节点同时故障，因为还剩 f+1 个节点，构成多数（majority）。</p><h2 id="三个核心机制"><a href="#三个核心机制" class="headerlink" title="三个核心机制"></a>三个核心机制</h2><p>Raft 把共识问题分解成三个相对独立的子问题：领导者选举、日志复制、安全性保证。</p><h3 id="1-领导者选举"><a href="#1-领导者选举" class="headerlink" title="1. 领导者选举"></a>1. 领导者选举</h3><p>Raft 是强领导者模型：任何时刻最多只有一个合法 leader，所有请求都通过 leader 处理，follower 只接收 leader 的指令。</p><p>时间被划分成任期（term），每个任期从一次选举开始。节点有三种状态：leader、follower、candidate。</p><p>选举过程：</p><ul><li>Follower 在超时时间内没收到 leader 的心跳，转为 candidate</li><li>Candidate 给自己投票，然后向其他所有节点发送 RequestVote 请求</li><li>收到多数票，赢得选举，成为 leader</li><li>超时没有结果，重新开始选举</li></ul><p>关键设计：每个节点的选举超时时间是随机的（150ms–300ms），这避免了所有节点同时超时、同时发起选举，导致无限分票。随机超时是 Raft 里一个优雅的简化。</p><p>每次投票，节点只投给”日志不比自己旧”的 candidate，这是安全性的关键约束，后面会说到。</p><h3 id="2-日志复制"><a href="#2-日志复制" class="headerlink" title="2. 日志复制"></a>2. 日志复制</h3><p>Leader 收到客户端请求，先把操作写入自己的日志（本地追加，不提交），然后并行发送 AppendEntries 给所有 follower，等多数节点确认收到，才提交（commit）这条日志，应用到状态机，返回客户端。</p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Client → Leader</span><span class="punctuation">:</span> <span class="string">写入请求</span></span><br><span class="line"><span class="attribute">Leader</span><span class="punctuation">:</span> <span class="string">追加到本地日志[未提交]</span></span><br><span class="line"><span class="attribute">Leader → Followers</span><span class="punctuation">:</span> <span class="string">AppendEntries(日志项)</span></span><br><span class="line"><span class="attribute">Followers</span><span class="punctuation">:</span> <span class="string">写入本地日志，回复 OK</span></span><br><span class="line"><span class="attribute">Leader</span><span class="punctuation">:</span> <span class="string">收到多数 OK → 提交 → 应用状态机 → 回复客户端</span></span><br><span class="line"><span class="attribute">Leader → Followers</span><span class="punctuation">:</span> <span class="string">下一次 AppendEntries 携带 commitIndex</span></span><br><span class="line"><span class="attribute">Followers</span><span class="punctuation">:</span> <span class="string">看到 commitIndex 更新 → 提交</span></span><br></pre></td></tr></table></figure><p>日志项包含：term 编号、index、实际命令。Leader 每次 AppendEntries 还会携带前一条日志项的 term 和 index，follower 验证一致后才追加。如果不一致，leader 回退，找到分叉点，强制 follower 对齐 leader 的日志。</p><h3 id="3-安全性保证"><a href="#3-安全性保证" class="headerlink" title="3. 安全性保证"></a>3. 安全性保证</h3><p>这里是 Raft 最重要也最微妙的部分。</p><p>问题：一个节点宕机、重启、重新加入集群，它的日志可能和当前 leader 不一致。如何确保已经提交的日志不会被回滚？</p><p>Raft 的解法：选举限制。Candidate 只有日志”至少和自己一样新”的节点才会给它投票。”更新”的判断规则：</p><ol><li>最后一条日志的 term 更大的更新</li><li>term 相同，index 更大的更新</li></ol><p>因为 commit 需要多数票，而一条日志要被提交，它必须存在于多数节点上。新 leader 要赢得选举也需要多数票。这两个多数集合必然有交集，所以新 leader 一定从某个节点那里看到了所有已提交的日志，不会选出一个日志落后的节点做 leader。</p><p>直觉类比：枫丹审判庭，一个决定只有在大多数法官同意的情况下才生效。要成为新的审判长，你必须比多数法官更了解之前的所有案件——否则你没资格。这正是 Raft 的选举限制。</p><h2 id="脑裂的处理"><a href="#脑裂的处理" class="headerlink" title="脑裂的处理"></a>脑裂的处理</h2><p>网络分区（network partition）发生时，集群被切割成两个或多个子集，子集之间无法通信。</p><p>Raft 的处理方式：少数子集的节点无法达到多数票，它们的请求无法提交；多数子集正常工作。网络恢复后，少数子集的节点发现更新的 term，自动降格为 follower，同步多数子集 leader 的日志。</p><p>这意味着分区期间少数子集完全不可用（CP 而非 AP）。客户端连到少数子集的节点会超时，要自己重试到多数子集那边。</p><h2 id="工程实现的坑"><a href="#工程实现的坑" class="headerlink" title="工程实现的坑"></a>工程实现的坑</h2><p>Raft 理论清晰，工程实现里有几个细节容易出错：</p><p><strong>任期号（term）管理</strong>：任何时候收到更高 term 的消息，必须立即更新自己的 term，并降格为 follower。不管是 AppendEntries 还是 RequestVote，都要检查 term。漏了这个检查会导致旧 leader 不降格，出现多个节点都认为自己是 leader 的状态。</p><p><strong>持久化状态</strong>：Raft 要求三个状态必须在回复任何 RPC 之前持久化到磁盘：currentTerm、votedFor、log[]。节点崩溃重启后，这三项必须是崩溃前的值，否则可能违反选举安全性或者重复投票。</p><p><strong>配置变更</strong>：集群成员变化（加节点、删节点）是 Raft 里最麻烦的部分。直接切换配置会有瞬间出现两个多数集合的风险。Raft 论文里提出了联合共识（joint consensus）的方式，实践中更多用单步成员变更（每次只加减一个节点）来绕开这个问题。</p><p><strong>ReadIndex &#x2F; LeaderLease</strong>：处理只读请求时，leader 不能直接返回本地状态，因为它可能是分区后的旧 leader，日志已经落后。安全的只读需要确认自己在当前 term 里仍然是 leader（通过一轮心跳确认多数节点）。</p><h2 id="Raft-vs-Paxos"><a href="#Raft-vs-Paxos" class="headerlink" title="Raft vs Paxos"></a>Raft vs Paxos</h2><p>Raft 牺牲了灵活性换来可理解性。Paxos 允许多个提议者并发提议，日志项的顺序不需要和提议顺序完全一致，这带来更高的并发度；Raft 的强 leader 模型意味着所有写入都经过 leader，leader 是瓶颈，但它让日志永远是全序的，实现起来更直觉。</p><p>实际系统里，etcd、TiKV、CockroachDB 用的都是 Raft 或其变体。Paxos 的工业落地更多见于 Google 内部（Chubby、Spanner 用的是 Paxos 变体），对外开源的案例少。</p><p>Raft 论文的用户研究显示，同样没接触过共识算法的学生，学完 Raft 比学完 Paxos 在测试上表现更好 [Ongaro &amp; Ousterhout, 2014]。</p><p>当然，”比 Paxos 好懂”这件事的基线不高，Raft 也不是真的好懂。把 Raft 真正实现到能处理所有边界情况，还是要仔细读论文的第二遍。标题说”也没那么好懂”，这是经验之谈。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分布式系统 </tag>
+            
+            <tag> 工程实践 </tag>
+            
+            <tag> Raft </tag>
+            
+            <tag> 共识算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>葬送的芙莉莲：关于时间和遗忘的一首慢诗</title>
+      <link href="/2026/03/14/frieren-analysis/"/>
+      <url>/2026/03/14/frieren-analysis/</url>
+      
+        <content type="html"><![CDATA[<p>我不打算概述剧情。如果你看过就知道我在说什么，如果没看过，概述也说不清楚这部作品在做什么。</p><p>芙莉莲的核心命题不是冒险，不是成长，不是”魔法的意义”，虽然这些都是它的外壳。它真正在问的问题是：对一个精灵来说，人类的一生只是一个片段——什么样的片段值得被记住？</p><p>这个问题没法绕开。它不是背景设定，是整部作品的发动机。</p><h2 id="“后英雄传说”的叙事结构"><a href="#“后英雄传说”的叙事结构" class="headerlink" title="“后英雄传说”的叙事结构"></a>“后英雄传说”的叙事结构</h2><p>芙莉莲开篇就告诉你结局：他们打败了魔王，勇者一行人胜利归来。这不是剧透，是作品主动做出的选择。</p><p>普通的冒险故事是悬念驱动的——魔王能不能被打倒？那个结局是不确定的，所以你跟着看。芙莉莲反过来：结局已经给你了，故事反而在问”这段旅途是什么意思”。</p><p>从结果倒推过程的意义。这是相当特别的叙事结构，它等于主动放弃了最常见的悬念，换来另一种张力：你已经知道他们打败了魔王，所以旅途不是为了打败魔王，而是为了理解打败魔王的人是谁，他们在这段路上经历了什么，什么东西在那之后还留下来了。</p><p>这让芙莉莲的每一个回忆片段都有特殊的重量。不是”这件事推动了剧情”，而是”这件事发生了，有人经历过它，然后时间过去了”。</p><h2 id="收集魔法的真正含义"><a href="#收集魔法的真正含义" class="headerlink" title="收集魔法的真正含义"></a>收集魔法的真正含义</h2><p>芙莉莲收集魔法，这件事表面上是她的爱好，深入看是她和时间打交道的方式。</p><p>她收集的每一个魔法背后都有一个已经死去的人。某个魔法师穷尽一生研究出来的东西，留下来了，芙莉莲把它找到，学会它，带着它继续走。那个人不在了，但他研究的痕迹还在。</p><p>这是一种非常温柔的对抗遗忘的方式。不是靠名声，不是靠后人的颂扬，是靠技艺本身被传递下去。一个无名魔法师的毕生心血，活在芙莉莲学会了它这件事里。</p><p>芙莉莲不是在收集魔法，是在收集痕迹。</p><p>这也解释了她为什么执着于那些”没什么用的魔法”，那些能让花瓣飘落的魔法，那些能让食物更好看的魔法。这些魔法的用处不是战斗，是有人曾经觉得值得为它花时间，是有人认为让花瓣飘落这件事本身就值得被做成魔法。</p><p>这种判断本身就是一个关于”什么值得被记住”的投票。</p><h2 id="和十六夜咲夜的对照"><a href="#和十六夜咲夜的对照" class="headerlink" title="和十六夜咲夜的对照"></a>和十六夜咲夜的对照</h2><p>同样是和正常时间感知不同的存在，咲夜和芙莉莲做出了完全相反的选择。</p><p>咲夜是时间停止者，她的能力是对时间施加控制，把流逝固定住，让自己站在时间流之外操纵它。时间是她的工具，她比时间更快，她不在时间里，她在时间旁边。</p><p>芙莉莲不控制时间，她在时间里流动，只是流动得很慢。人类在她眼里一生是一个短暂的片段，但她不因此俯视，而是用这个长视角去理解那些片段的形状。</p><p>咲夜选择的是掌控——我不被时间支配，我支配时间。这是一种对有限性的拒绝。</p><p>芙莉莲选择的是接受——时间在流，人在消逝，我能做的是留住痕迹，而不是阻止流逝。这是一种对有限性的和解。</p><p>哪种方式更好？我不打算评判。但芙莉莲之所以会让人觉得有重量，是因为她的选择里有一种成熟的悲哀：接受不等于不痛，接受只是不再抵抗。</p><h2 id="精灵也会遗忘"><a href="#精灵也会遗忘" class="headerlink" title="精灵也会遗忘"></a>精灵也会遗忘</h2><p>芙莉莲最让人难过的不是人会死。人会死这件事大家都知道，在故事里看到了也只是”是的，人会死”。</p><p>真正让人难过的是：连精灵都会遗忘。</p><p>芙莉莲和希梅尔在一起的那十年，她当时没有觉得多珍贵。精灵的时间感不同，十年对她来说只是一小段，她没有认真留意那段时间。等希梅尔死了，她才回去找他在的痕迹，才开始重新走他们走过的路，才开始后悔——后悔当时没有更认真地看他一眼。</p><p>这不是”你要珍惜眼前人”的说教，这是一个关于遗忘的精确描述：遗忘不是主动的，是你当时没有意识到这是值得记住的东西，等你意识到的时候，细节已经模糊了。</p><p>精灵的寿命够长，时间够多，理论上她有资格把每一件事都记住。但她没有，因为记忆不是硬盘，不是你对这件事”重要”就自动存档。记忆是主动的，你要在当时就觉得它值得，否则它不会被留下来。</p><p>芙莉莲让我不舒服的地方就在这里——她让我意识到，我现在正在经历的事情里，有一些在十年后会变成一片模糊，而我现在没办法判断是哪些。</p><p>这首慢诗就是在写这件事。它不着急，因为它写的本来就是一个关于时间足够长会发生什么的故事。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 葬送的芙莉莲 </tag>
+            
+            <tag> 角色分析 </tag>
+            
+            <tag> 时间 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>怎么选offer：一个没有标准答案的问题</title>
+      <link href="/2026/03/14/offer-selection/"/>
+      <url>/2026/03/14/offer-selection/</url>
+      
+        <content type="html"><![CDATA[<p>我不想把这篇写成”选 offer 建议”攻略，那种东西已经够多了，而且大部分都在说废话：平台大&gt;平台小，钱多&gt;钱少，成长&gt;不成长。谢谢，说了等于没说。</p><p>我想讨论的是几个真实存在的维度，以及为什么它们比表面上更复杂。</p><h2 id="平台品牌效应：边际递减的"><a href="#平台品牌效应：边际递减的" class="headerlink" title="平台品牌效应：边际递减的"></a>平台品牌效应：边际递减的</h2><p>大厂光环是真实存在的，但它的价值不是线性的，是边际递减的。</p><p>刚毕业或者实习阶段，一段大厂经历能帮你越过很多简历筛选。HR 不认识你，但认识你的前东家；面试官可能懒得看你做了什么，但先默认你能力还行。这个光环在你职业生涯前两三年是有用的。</p><p>但到第三四年，面试官开始问你在大厂做了什么，而不只是在哪里。这时候”我在 XX 公司”变成了背景，你做了什么、影响面有多大、技术深度到哪里，才是真正被权重的东西。如果你这三年在大厂里做的都是边缘工作、螺丝钉任务，品牌光环已经开始折损。</p><p>所以品牌效应不是不重要，是它的有效期有限。你得在它有用的时候利用它，同时别让它成为你不去积累实质内容的借口。</p><h2 id="薪资：短期收益和长期路径可能是反的"><a href="#薪资：短期收益和长期路径可能是反的" class="headerlink" title="薪资：短期收益和长期路径可能是反的"></a>薪资：短期收益和长期路径可能是反的</h2><p>薪资高的 offer 当然更好，但”当然”这两个字是有条件的。</p><p>A 公司给你 30k，做的是已经稳定的业务，方向清晰，但技术不新；B 公司给你 22k，做的是现在刚起来的方向，团队在快速成长。两年后 A 公司的 30k 可能还是 30k，B 公司的 22k 可能变成 40k——不是因为涨工资，是因为你值更多了。</p><p>我不是说选 B 一定对，是说如果你做的判断只是”30k &gt; 22k”，你漏算了一项。</p><p>反过来说也成立：如果 B 公司两年后黄了，你浪费了两年。高风险高收益这个逻辑在职业路径上同样成立。选择 A 不一定是保守，可能是你对自己现阶段需要稳定有清醒的认知。</p><p>只看薪资的问题不是薪资不重要，是它让你跳过了”我要去做什么”这个更根本的问题。</p><h2 id="技术方向：感兴趣不等于有前途"><a href="#技术方向：感兴趣不等于有前途" class="headerlink" title="技术方向：感兴趣不等于有前途"></a>技术方向：感兴趣不等于有前途</h2><p>感兴趣的方向往往能让你持续学习，不感兴趣的方向容易摸鱼。这是真的。</p><p>但”感兴趣”和”有前途”不是一回事。你可以对某个方向非常感兴趣，但这个方向五年后被取代了，或者被证明是个小众赛道，你的积累很难迁移。反过来，你不那么感兴趣的方向，可能是未来五年最重要的赛道。</p><p>特别是在 AI 行业，这个问题更突出。方向变化太快，两年前炙手可热的技术可能现在已经是存量工作，两年前没人搭理的技术可能现在是抢手技能。押错赛道的代价在 AI 行业比传统行业高。</p><p>所以感兴趣是个必要条件，不是充分条件。感兴趣的前提下，还要问：这个方向的需求是在扩大还是在收窄？它有没有护城河？还是说五年后所有的竞争优势都会被下一代模型覆盖？</p><p>这些问题没有确定答案，但不问是肯定出问题的。</p><h2 id="团队和-Mentor：最难在-offer-阶段评估的维度"><a href="#团队和-Mentor：最难在-offer-阶段评估的维度" class="headerlink" title="团队和 Mentor：最难在 offer 阶段评估的维度"></a>团队和 Mentor：最难在 offer 阶段评估的维度</h2><p>这是最重要但也最难判断的一项。</p><p>实习或者工作的质量，很大程度上取决于你的直接 leader 和团队氛围。一个好 mentor 可以把你推上一个新台阶，一个差的 mentor 可以让你在正确的公司里浪费一年。</p><p>问题是，在 offer 阶段这个维度几乎不可能准确评估。你面了几轮，见了 HR 和面试官，但你真正要合作的直接 leader 可能只聊了半小时，甚至没聊。半小时的聊天里，你不知道对方是真的在培养人还是只是看起来很好。</p><p>能做的事情是侧面打听：在职的人在 LinkedIn 或者脉脉上什么评价，这个团队过去一年出去的人都去了哪里，离职率高不高。这些不是万无一失的信号，但比什么都没有强。</p><p>如果面试阶段能和未来的直接 leader 多聊一点——不是技术面，是聊他对这个岗位的预期、他怎么看待下属的成长、团队目前的状态——这些信息比薪资谈判更值钱。</p><h2 id="选-offer-的本质是”你现在认为自己是哪类人”"><a href="#选-offer-的本质是”你现在认为自己是哪类人”" class="headerlink" title="选 offer 的本质是”你现在认为自己是哪类人”"></a>选 offer 的本质是”你现在认为自己是哪类人”</h2><p>上面四个维度都是工具，但选 offer 归根结底是一个自我判断的问题。</p><p>你觉得你现在最需要什么？刚出校门，可能需要的是见识——见识真实的工程是怎么做的、协作是什么样的、自己和业界有多大差距。这个阶段平台和方向比钱重要。</p><p>工作两三年，可能最需要的是聚焦——找到一个你真正想深耕的方向，不要再到处飘。这个阶段技术匹配度和团队质量更重要。</p><p>更往后，可能最重要的是影响力和话语权——你想不想在一个方向上真正做出自己的东西，还是继续做执行层的工作。这个阶段钱和平台的逻辑又变了。</p><p>不同阶段的最优解是不一样的，拿着第三年的框架去做应届生的选择，或者用应届生的框架去想第五年的选择，都会出问题。</p><h2 id="没有最优解，但有最差解"><a href="#没有最优解，但有最差解" class="headerlink" title="没有最优解，但有最差解"></a>没有最优解，但有最差解</h2><p>最差解是什么？只看钱选，或者只看品牌选。</p><p>只看钱的问题是：你不知道自己为什么在这里，到了难熬的时刻撑不住。钱能买来你的时间，但买不来你在这里做事的理由。</p><p>只看品牌的问题是：大厂不欠你成长。你自己不主动，再好的平台也只是让你简历上多了个logo。</p><p>最差的选择不是选了哪里，是选的时候完全没有想过”我要从这里得到什么”，然后在里面随波逐流了两年，出来发现什么都没积累到，而下一份工作还是在用同一个逻辑选。</p><p>有没有想清楚为什么选，比选了什么更重要。就这样。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 思考 </tag>
+            
+            <tag> 求职 </tag>
+            
+            <tag> 职业规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>KMP：字符串匹配界的Dijkstra</title>
+      <link href="/2026/03/14/kmp/"/>
+      <url>/2026/03/14/kmp/</url>
+      
+        <content type="html"><![CDATA[<p>字符串匹配是个听起来很简单的问题：给你一个文本串 <code>s</code>，一个模式串 <code>p</code>，问 <code>p</code> 在 <code>s</code> 里哪里出现过。</p><p>朴素解法显而易见：枚举 <code>s</code> 的每个位置，试着从那里开始匹配 <code>p</code>，失败了就从下一个位置重新来。时间复杂度 O(nm)，<code>n</code> 是文本串长度，<code>m</code> 是模式串长度。</p><p>朴素解法不是不对，是浪费了。每次失配之后，你丢掉了所有已经匹配过的信息，从头再来。这是典型的”做了重复工作”的问题。KMP 的核心思想就是：失配时不要扔掉那些信息，利用它跳过不必要的比较。</p><p>这个算法由 Knuth、Morris 和 Pratt 在 1977 年正式发表 [Knuth, Morris, Pratt, “Fast Pattern Matching in Strings”, SIAM Journal on Computing, 1977]。Knuth 后来在 TAOCP 里说，这是他见过的最优雅的线性时间算法之一。</p><h2 id="失配时到底发生了什么"><a href="#失配时到底发生了什么" class="headerlink" title="失配时到底发生了什么"></a>失配时到底发生了什么</h2><p>假设 <code>s = &quot;abababc&quot;</code>，<code>p = &quot;ababc&quot;</code>。</p><p>我们从 <code>s[0]</code> 开始匹配 <code>p</code>：</p><ul><li><code>s[0..3] = &quot;abab&quot;</code> 匹配了 <code>p[0..3] = &quot;abab&quot;</code></li><li><code>s[4] = &#39;a&#39;</code> vs <code>p[4] = &#39;c&#39;</code>，失配</li></ul><p>朴素算法：从 <code>s[1]</code> 重新开始。但 <code>s[1] = &#39;b&#39;</code>，<code>p[0] = &#39;a&#39;</code>，一比就不行，再从 <code>s[2]</code> 开始。</p><p>等一下。我们已经知道 <code>s[0..3] = &quot;abab&quot;</code>，所以 <code>s[2..3] = &quot;ab&quot;</code> &#x3D; <code>p[0..1]</code>。也就是说，我们可以直接把 <code>p</code> 滑到 <code>s[2]</code> 的位置，从 <code>p[2]</code> 继续比，而不是从头开始。已经匹配的 <code>&quot;ab&quot;</code> 不需要再比一次。</p><p>这就是 KMP 的精髓：失配时，主串指针 <code>i</code> 不回退，只移动模式串指针 <code>j</code>，跳回到某个更早的位置继续比。跳到哪里，由”前缀函数”告诉你。</p><h2 id="前缀函数（failure-function）"><a href="#前缀函数（failure-function）" class="headerlink" title="前缀函数（failure function）"></a>前缀函数（failure function）</h2><p>前缀函数 $\pi[i]$ 的定义：对于模式串 <code>p[0..i]</code>，最长的”真前缀 &#x3D; 真后缀”的长度。</p><p>真前缀是除了整个字符串本身的前缀，真后缀同理。</p><p>以 <code>p = &quot;ababc&quot;</code> 为例：</p><ul><li><code>p[0] = &quot;a&quot;</code>：没有真前缀，$\pi[0] &#x3D; 0$</li><li><code>p[0..1] = &quot;ab&quot;</code>：真前缀 <code>&quot;a&quot;</code>，真后缀 <code>&quot;b&quot;</code>，不等，$\pi[1] &#x3D; 0$</li><li><code>p[0..2] = &quot;aba&quot;</code>：真前缀 <code>{&quot;a&quot;, &quot;ab&quot;}</code>，真后缀 <code>{&quot;a&quot;, &quot;ba&quot;}</code>，公共部分是 <code>&quot;a&quot;</code>，$\pi[2] &#x3D; 1$</li><li><code>p[0..3] = &quot;abab&quot;</code>：公共最长是 <code>&quot;ab&quot;</code>，$\pi[3] &#x3D; 2$</li><li><code>p[0..4] = &quot;ababc&quot;</code>：没有公共部分，$\pi[4] &#x3D; 0$</li></ul><p>所以 $\pi &#x3D; [0, 0, 1, 2, 0]$。</p><p>失配时，如果 <code>s[i] != p[j]</code>，把 <code>j</code> 更新为 $\pi[j-1]$，继续比较 <code>s[i]</code> 和 <code>p[j]</code>。这等价于：模式串已经匹配的 <code>p[0..j-1]</code> 里，它的最长公共前后缀就是下次可以直接继承的”已知信息”。</p><h2 id="计算-π-数组：O-m-的自我匹配"><a href="#计算-π-数组：O-m-的自我匹配" class="headerlink" title="计算 π 数组：O(m) 的自我匹配"></a>计算 π 数组：O(m) 的自我匹配</h2><p>计算 $\pi$ 的算法很妙，本质是让模式串和自身做 KMP 匹配：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">compute_pi</span><span class="params">(<span class="type">const</span> string&amp; p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> m = p.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">pi</span><span class="params">(m, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;  <span class="comment">// 当前已匹配的最长前后缀长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; p[i] != p[j]) j = pi[j - <span class="number">1</span>];  <span class="comment">// 失配，回退</span></span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j]) j++;</span><br><span class="line">        pi[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pi;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这段代码的复杂度分析：<code>j</code> 每次循环最多增加 1，总共增加不超过 m 次；while 循环每次让 <code>j</code> 严格减小，所以总减小次数也不超过 m 次；合计 O(m)。</p><h2 id="KMP-匹配：O-n-m"><a href="#KMP-匹配：O-n-m" class="headerlink" title="KMP 匹配：O(n+m)"></a>KMP 匹配：O(n+m)</h2><p>有了 $\pi$ 数组，主匹配过程是对称的：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回 p 在 s 中所有出现位置的起始下标</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">kmp_search</span><span class="params">(<span class="type">const</span> string&amp; s, <span class="type">const</span> string&amp; p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = s.<span class="built_in">size</span>(), m = p.<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; pi = <span class="built_in">compute_pi</span>(p);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;  <span class="comment">// p 中当前匹配到的位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; s[i] != p[j]) j = pi[j - <span class="number">1</span>];  <span class="comment">// 失配，回退</span></span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j]) j++;</span><br><span class="line">        <span class="keyword">if</span> (j == m) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(i - m + <span class="number">1</span>);  <span class="comment">// 找到一次出现</span></span><br><span class="line">            j = pi[j - <span class="number">1</span>];  <span class="comment">// 继续找下一个，允许重叠</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>复杂度分析和 π 数组计算完全对称：主串指针 <code>i</code> 只增不减，<code>j</code> 的总增减次数均不超过 n，所以主匹配 O(n)，加上预处理 O(m)，总共 O(n+m)。</p><h2 id="应用：字符串的最小周期"><a href="#应用：字符串的最小周期" class="headerlink" title="应用：字符串的最小周期"></a>应用：字符串的最小周期</h2><p>KMP 有一个很好看的推论，涉及到字符串的周期性。</p><p>定义：如果字符串 <code>s</code> 满足 <code>s[i] = s[i mod T]</code> 对所有 <code>i</code> 成立，则 <code>T</code> 是 <code>s</code> 的一个周期。</p><p>定理：长度为 <code>m</code> 的字符串 <code>s</code>，$m - \pi[m-1]$ 是 <code>s</code> 的最小周期，当且仅当 <code>m</code> 能被 $m - \pi[m-1]$ 整除。[Knuth, Morris, Pratt, 1977，推论]</p><p>举例：<code>p = &quot;abababab&quot;</code>，$\pi[7] &#x3D; 6$，所以最小周期候选是 $8 - 6 &#x3D; 2$，确实 <code>&quot;ab&quot;</code> 重复 4 次，整除成立，最小周期是 2。</p><p>这就是初音未来的”循环采样”——她的 VOCALOID 合成里大量使用周期性的音素，一段音频如果能被分解成最短的循环单元，存储和处理的成本就大幅下降。字符串的最小周期，本质上是在问”这段序列可以被压缩成多短的重复单元”，和音频的周期性分析在概念上完全对应。</p><h2 id="next-数组-vs-π-数组：一个会踩的坑"><a href="#next-数组-vs-π-数组：一个会踩的坑" class="headerlink" title="next 数组 vs π 数组：一个会踩的坑"></a>next 数组 vs π 数组：一个会踩的坑</h2><p>很多教材（包括部分 OI 教材和国内竞赛圈）用的是 <code>next</code> 数组而不是 $\pi$ 数组，但两者的定义不一样：</p><ul><li>$\pi[i]$：<code>p[0..i]</code> 最长公共真前后缀的长度，范围 <code>[0, i]</code></li><li><code>next[i]</code>（某些定义）：<code>p[0..i-1]</code> 最长公共真前后缀的长度，下标偏移了 1</li><li><code>next[j]</code>（另一些定义）：失配时 <code>j</code> 应该跳到的位置，等于 $\pi[j-1]$，且通常 <code>next[0] = -1</code></li></ul><p>这三种定义在代码里差了一个下标，混了就是 WA 或者 RE。</p><p>建议：竞赛时选定一种写法（我用上面的 $\pi$ 定义），确认完全理解后只用这一种，不要在比赛中临时换定义。</p><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><p>拿到字符串匹配题，判断是否需要 KMP：</p><ol><li>需要找模式串在文本串中的所有出现位置→KMP</li><li>需要找最长公共前后缀→直接利用 $\pi$ 数组</li><li>需要最小周期→$m - \pi[m-1]$，注意整除条件</li><li>多模式匹配→考虑 Aho-Corasick 自动机（KMP 的扩展）</li><li>只需要判断是否存在→KMP 也行，但 C++ STL 的 <code>string::find()</code> 也够用（底层可能是不同算法，但不用手写）</li></ol><p>最后：π 数组的计算过程本质上是让模式串和自己做一次 KMP。理解了这一点，$\pi$ 的计算和主匹配的代码结构完全一致，只需要记一套逻辑。</p><p>KMP 好在什么地方？不是它快——O(nm) 对大多数实际数据已经够了。好在它是个干净的算法，利用了问题结构的所有信息，没有浪费任何一次比较的结果。这种感觉在算法里不多见。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> KMP </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 模式匹配 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>向量数据库原理：HNSW和IVF-PQ</title>
+      <link href="/2026/03/13/vector-database/"/>
+      <url>/2026/03/13/vector-database/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么KNN不够用"><a href="#为什么KNN不够用" class="headerlink" title="为什么KNN不够用"></a>为什么KNN不够用</h2><p>最近邻搜索的朴素算法是精确KNN：给定查询向量 $q$，在数据库里遍历所有向量 $x_i$，计算距离 $d(q, x_i)$，返回最小的K个。</p><p>时间复杂度 $O(nd)$，其中 $n$ 是向量数量，$d$ 是向量维度。</p><p>听起来无害，算一下：$n &#x3D; 10^8$（亿级文档），$d &#x3D; 1536$（OpenAI embedding的维度）。单次查询需要 $1.536 \times 10^{11}$ 次浮点运算，A100每秒大约 $3 \times 10^{14}$ 次浮点运算（理论峰值），实际上一次查询要几十到几百毫秒。</p><p>多一点并发，延迟就不可接受了。而且这是最好情况，实际的KNN实现里还有内存读取的瓶颈——亿级向量的数据集放在内存里本身就是十几到几百GB，每次查询都要线性扫描这么大的数据，IO是真正的瓶颈。</p><p>所以生产系统里用的是ANN（Approximate Nearest Neighbor，近似最近邻）：允许一定的精度损失（召回率99%而非100%），换取查询速度的显著提升。两个主流算法是HNSW和IVF-PQ，它们用完全不同的思路解决同一个问题。</p><h2 id="HNSW：分层跳表加小世界图"><a href="#HNSW：分层跳表加小世界图" class="headerlink" title="HNSW：分层跳表加小世界图"></a>HNSW：分层跳表加小世界图</h2><p>HNSW（Hierarchical Navigable Small World，Malkov &amp; Yashunin, 2018）的设计思想来自两个地方：跳表（Skip List）和小世界图（Small World Graph）。</p><h3 id="小世界图"><a href="#小世界图" class="headerlink" title="小世界图"></a>小世界图</h3><p>小世界图是一种特殊的图结构：任意两个节点之间的平均路径长度是 $O(\log n)$，同时有较高的局部聚类系数。现实世界里的很多网络（社交网络、引文网络）都有这个性质——你和任何陌生人之间平均只有六度分隔，但你的朋友圈里互相认识的比例很高。</p><p>在向量空间里，如果把相近的向量连边构成这样的图，那从任意一个起点出发，通过贪心地每次走向离查询最近的邻居，能在 $O(\log n)$ 步之内到达目标区域。这是NSW（Navigable Small World）的基本思路。</p><h3 id="加上层次结构"><a href="#加上层次结构" class="headerlink" title="加上层次结构"></a>加上层次结构</h3><p>NSW的问题是：对于大数据集，查询路径虽然短，但每一步的候选邻居很多，搜索效率不够高。</p><p>HNSW加了一个层次化的结构，类比跳表：</p><ul><li>最底层（layer 0）包含所有向量，每个向量和最近的若干邻居相连</li><li>上层是底层的”快速通道”：向量以指数递减的概率出现在更高层，每个向量在第 $l$ 层出现的概率是 $e^{-l&#x2F;m_L}$（$m_L$ 是归一化因子）</li><li>每层内部维护局部小世界图结构</li></ul><p>查询时，从最顶层的单个入口点出发，贪心地在当前层找到离查询最近的节点，然后进入下一层继续细化，直到到达底层。</p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Layer</span> <span class="number">2</span>:  <span class="selector-tag">q</span> ——→ <span class="selector-tag">a</span>                (快速跨越大距离)</span><br><span class="line"><span class="selector-tag">Layer</span> <span class="number">1</span>:  <span class="selector-tag">q</span> ——→ <span class="selector-tag">a</span> ——→ <span class="selector-tag">b</span> ——→ <span class="selector-tag">c</span>    (中等粒度定位)</span><br><span class="line"><span class="selector-tag">Layer</span> <span class="number">0</span>:  <span class="selector-tag">q</span> ——→ <span class="selector-tag">c</span> ——→ <span class="selector-tag">d</span> ——→ <span class="selector-tag">e</span> ——→ <span class="selector-tag">result</span>  (精细搜索)</span><br></pre></td></tr></table></figure><p>查询复杂度：$O(\log n)$（层数 $O(\log n)$，每层内搜索步数 $O(1)$ 均摊）。</p><p>插入一个新向量的复杂度也是 $O(\log n)$：随机决定它出现在哪几层，在每层找到它的邻居并更新边。这使得HNSW支持动态增量更新，不需要重建索引。</p><h3 id="HNSW的代价"><a href="#HNSW的代价" class="headerlink" title="HNSW的代价"></a>HNSW的代价</h3><p>HNSW的内存消耗是它最大的问题。每个向量存原始向量（$d \times 4$ bytes，float32）加上图结构（每层的邻居列表，$O(m)$ 条边，$m$ 是每个节点的最大邻居数）。</p><p>对于 $n &#x3D; 10^8$，$d &#x3D; 128$，$m &#x3D; 32$ 的配置，内存占用大约 $100GB$ 以上。这在很多场景是不可接受的。</p><h2 id="IVF-PQ：聚类分桶加向量压缩"><a href="#IVF-PQ：聚类分桶加向量压缩" class="headerlink" title="IVF-PQ：聚类分桶加向量压缩"></a>IVF-PQ：聚类分桶加向量压缩</h2><p>IVF-PQ用两个独立的技巧解决HNSW的两个问题：IVF减少搜索范围，PQ压缩内存。</p><h3 id="IVF：Inverted-File-Index"><a href="#IVF：Inverted-File-Index" class="headerlink" title="IVF：Inverted File Index"></a>IVF：Inverted File Index</h3><p>IVF的思路类似倒排索引，但作用于向量空间：</p><ol><li>离线训练阶段：用K-Means对数据库向量聚类，得到 $K$ 个聚类中心（称为码本，codebook）</li><li>建索引：每个向量找到最近的聚类中心，分配到对应的桶（list）里</li><li>查询时：先找到查询向量最近的若干个桶（通常是 <code>nprobe</code> 个），只在这些桶里做精确搜索</li></ol><p>搜索范围从全部 $n$ 个向量缩小到 $K$ 个桶里平均每桶 $n&#x2F;K$ 个向量，加上 <code>nprobe</code> 个桶：实际搜索量约 $\text{nprobe} \times n &#x2F; K$。</p><p>代价：<code>nprobe</code> 越大，召回率越高但速度越慢；聚类质量影响召回率；数据分布不均匀时某些桶特别大，影响性能。</p><h3 id="PQ：Product-Quantization"><a href="#PQ：Product-Quantization" class="headerlink" title="PQ：Product Quantization"></a>PQ：Product Quantization</h3><p>PQ（乔丁 &amp; 比耶罗, 2011）解决内存问题：用量化压缩每个向量。</p><p>把 $d$ 维向量切分成 $m$ 个子向量，每段 $d&#x2F;m$ 维。对每段分别训练一个码本，有 $K^<em>$ 个中心（通常 $K^</em> &#x3D; 256$，用1字节表示）。</p><p>每个向量压缩存储为 $m$ 个字节（每段的量化码），从原来的 $d \times 4$ bytes 压缩到 $m$ bytes。</p><p>压缩比：$d &#x3D; 128$，$m &#x3D; 8$ 的情况下，从512 bytes压缩到8 bytes，64倍压缩。</p><p>查询时，距离不直接在原始向量上算，而是用预计算的距离查找表（ADC，Asymmetric Distance Computation）来近似：</p><p>$$d(q, x) \approx \sum_{j&#x3D;1}^{m} d\left(q_j, c_j^{(q_j)}\right)$$</p><p>其中 $c_j^{(i)}$ 是第 $j$ 段码本的第 $i$ 个中心，$q_j$ 是查询向量第 $j$ 段的量化码。这个距离是近似的，因为向量被量化了，会有误差。</p><h2 id="两者对比"><a href="#两者对比" class="headerlink" title="两者对比"></a>两者对比</h2><table><thead><tr><th>特性</th><th>HNSW</th><th>IVF-PQ</th></tr></thead><tbody><tr><td>查询速度</td><td>快 ($O(\log n)$)</td><td>快（取决于nprobe）</td></tr><tr><td>召回率</td><td>高</td><td>中（有量化误差）</td></tr><tr><td>内存占用</td><td>大（原始向量+图结构）</td><td>小（压缩存储）</td></tr><tr><td>动态更新</td><td>原生支持</td><td>需要重建量化器</td></tr><tr><td>训练成本</td><td>无（直接插入）</td><td>需要离线训练聚类和量化</td></tr><tr><td>适用场景</td><td>中小规模，高精度</td><td>大规模，内存受限</td></tr></tbody></table><p>选型的粗略规则：向量数量在1亿以下、内存足够、需要动态更新，选HNSW；向量数量超过1亿或者内存受限、更新不频繁，选IVF-PQ。</p><h2 id="工程选型：各数据库的定位"><a href="#工程选型：各数据库的定位" class="headerlink" title="工程选型：各数据库的定位"></a>工程选型：各数据库的定位</h2><p>Faiss（Meta开源）：研究和工程都用，实现了HNSW、IVF-PQ、IVFFLAT等主流算法，C++实现、Python绑定，GPU版本也有。不是一个完整的数据库，是个算法库，适合需要精细控制的场景或者研究用途。</p><p>Qdrant（Rust实现）：完整的向量数据库服务，默认用HNSW，支持过滤查询（按条件过滤后再做ANN），API设计比较现代，适合中小规模生产部署。</p><p>Weaviate：有类似图数据库的查询语义，支持混合搜索（向量+关键词），适合需要把结构化属性和向量查询结合起来的场景。</p><p>Milvus：云原生向量数据库，专为大规模设计，支持分布式部署，Alibaba和Zilliz在背后。大规模生产场景（十亿级向量）是它的主场。</p><h2 id="RAG场景的特殊需求"><a href="#RAG场景的特殊需求" class="headerlink" title="RAG场景的特殊需求"></a>RAG场景的特殊需求</h2><p>RAG系统对向量数据库有一些普通ANN场景没有的要求：</p><p>动态增量更新。文档库会持续更新，新的文档要能实时加入索引，不能等到离线批量重建。这让HNSW比IVF-PQ更自然——IVF-PQ的量化器是离线训练的，新加的向量要重新量化才能索引，如果量化器不覆盖新向量的分布，精度会下降。</p><p>过滤查询。RAG经常需要”在满足条件X的文档里找最相关的”，比如只在某个用户的私有文档里搜。纯ANN索引不直接支持这个，需要ANN加上后处理过滤（先ANN再过滤，可能损失召回率），或者支持pre-filtering的数据库（Qdrant的payload indexing就是做这个的）。</p><p>美琴的做法是：面对一堆嫌疑人，不是挨个审问，而是先按电系能力、发型、制服划出几个群体（IVF），然后在最可疑的那几群里精确比对（PQ或者HNSW底层搜索）。找不到嫌疑人不要紧，95%的情况下那个人在她锁定的范围内，剩下5%是小概率事件，可以接受。</p><p>这就是ANN的精髓：用可接受的精度换不可接受变成可接受的速度。</p><hr><p><em>参考文献：Malkov &amp; Yashunin, “Efficient and robust approximate nearest neighbor search using HNSW graphs”, IEEE TPAMI 2018. Jégou et al., “Product Quantization for Nearest Neighbor Search”, IEEE TPAMI 2011.</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工程实践 </tag>
+            
+            <tag> RAG </tag>
+            
+            <tag> 向量数据库 </tag>
+            
+            <tag> HNSW </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>B站为什么还活着</title>
+      <link href="/2026/03/13/bilibili-analysis/"/>
+      <url>/2026/03/13/bilibili-analysis/</url>
+      
+        <content type="html"><![CDATA[<p>B站的股价从2021年的巅峰到2024年缩水了超过80%，月活用户增长停滞，盈利的时间线一延再延，每次财报都有人说要凉了。</p><p>但B站没有凉。它还在，而且还有人在上面花很多时间。</p><p>这件事值得解释一下。</p><h2 id="B站真正的核心资产不是视频"><a href="#B站真正的核心资产不是视频" class="headerlink" title="B站真正的核心资产不是视频"></a>B站真正的核心资产不是视频</h2><p>很多人会说B站的护城河是UP主内容，但这个回答不够准确。UP主内容是可以迁移的——一个有100万粉丝的UP主，如果去抖音或者YouTube，核心受众大概率会跟着走，内容本身不会被锁在B站里。</p><p>B站真正难以复制的东西是弹幕文化。</p><p>弹幕这件事在技术上不复杂，早在NicoNico时代就有了，YouTube可以做，爱奇艺可以做，其实都做了。但B站的弹幕是不一样的。</p><p>区别在哪里？时间密度和社区认同。</p><p>B站积累了十多年的弹幕数据库。一个2012年的视频，上面有2012年到今天所有观看过这个视频的人留下的弹幕。你看老番剧，弹幕里有十年前的人在说话，也有昨天的人在呼应他们。这创造了一种时间维度上的社交——你在2026年看一个2013年的视频，感受到的是整整十几年时光里无数人的共同反应。</p><p>这个东西YouTube做不了，不是技术不够，是没有积累。</p><p>弹幕还塑造了一种特定的幽默语境。”xx时间请xx”、”说你呢”、”来了老弟”——这些弹幕梗形成了一套共享的语言，能看懂这套语言的人会对彼此产生认同感，不能看懂的人会感到轻微的排外。这种排外性本身也是护城河，它创造了入圈门槛，入圈之后有归属感，不想轻易离开。</p><h2 id="内容扩张的矛盾"><a href="#内容扩张的矛盾" class="headerlink" title="内容扩张的矛盾"></a>内容扩张的矛盾</h2><p>B站最初是二次元社区，后来往知识区、生活区、科技区扩张，现在已经是个综合视频平台。</p><p>老用户抱怨”B站变味了”，这个抱怨是真实的，但背后的逻辑是：B站不扩张就死，扩张了就必然稀释原有社区文化，这是一个没有好解的两难。</p><p>纯二次元内容市场容量有限，不够支撑一家上市公司的营收规模。知识区和生活区是扩张流量必须走的路。但这些内容的用户和核心二次元用户的重合度不高，两个人群对平台调性的期待不一样。知识区UP主希望平台算法给他们流量，不想和鬼畜区抢推荐位；二次元用户觉得平台越来越不像他们的地方了。</p><p>这个矛盾没有消失，只是被暂时压着。B站的解决办法是在产品层面做圈层区隔——不同频道、不同社区、首页推荐个性化——让不同用户群体尽量生活在自己的信息茧房里，减少摩擦。这个办法有效，但它的代价是整体社区的凝聚力下降，B站越来越像一个”恰好在同一个App里的几个不同社区的集合”，而不是一个统一的文化共同体。</p><h2 id="盈利困境是结构性的"><a href="#盈利困境是结构性的" class="headerlink" title="盈利困境是结构性的"></a>盈利困境是结构性的</h2><p>B站长期亏损，核心原因是内容平台的成本结构。</p><p>视频平台的主要成本是带宽和CDN，这是刚性成本，随用户和内容规模线性增长。UP主激励是另一个大头，B站一直在补贴UP主，否则生态撑不住。</p><p>变现路径相对有限：广告（但B站用户对广告的接受度很低，激进的广告策略会损伤社区氛围）；大会员（订阅制，天花板比较明显）；直播（竞争非常激烈）；游戏联运（做过，但市场环境不好）；电商（还在探索）。</p><p>B站一直在这些路径里试，但没有找到一个能支撑其规模的稳定主力变现方式。广告和大会员加在一起，覆盖不了完整的成本。</p><p>这不是管理层执行力的问题，是这类平台的结构性挑战。YouTube能盈利是因为Google Ads的变现效率极高，而且YouTube的规模把边际成本压得很低。B站目前两个条件都不满足。</p><h2 id="B站和抖音不是同一个赛道"><a href="#B站和抖音不是同一个赛道" class="headerlink" title="B站和抖音不是同一个赛道"></a>B站和抖音不是同一个赛道</h2><p>有种说法是”抖音把B站打了”，我觉得这个说法是不准确的。</p><p>它们是两种不同的产品。</p><p>抖音做的是注意力碎片化消费：短视频、下划换下一条、被动接受算法推荐、平均单视频时长三分钟以内。用户不需要有意图，打开App就开始消费，停不下来。</p><p>B站做的是主动内容消费：用户带着目的来，搜索或者订阅，看完整的中长视频，评论区讨论，弹幕互动。平均停留时长高很多，但进入门槛也更高——你需要有个理由来B站，而不是无聊了划一划。</p><p>这两种产品竞争的是时间，但竞争的方式不同。抖音抢走的是用户”无意识消费”时间，B站在”有意识消费”时间上的竞争力并没有被抖音直接击垮。B站真正的竞争对手，反而更接近YouTube（中长视频）和NicoNico（弹幕文化）。</p><h2 id="对B站未来的判断"><a href="#对B站未来的判断" class="headerlink" title="对B站未来的判断"></a>对B站未来的判断</h2><p>B站不会消失，但也没有明确的路径变成一个真正盈利的大公司。</p><p>弹幕文化和核心社区的黏性会保持，这部分不容易被打。但增长天花板是真实存在的，核心用户群的年龄在增长，新一代用户不一定会和以前的一代有一样的B站使用习惯。</p><p>最可能的状态是：B站成为一个中等规模的、有清晰用户定位的视频平台，靠着弹幕文化和知识内容的双轮驱动，保持一定的盈利但不会爆发式增长。这不是坏的结局，只是不是资本市场想要的那种。</p><p>它为什么还活着？因为有一批人愿意在那里，而那里有他们在其他地方找不到的东西。这就够了，勉强够了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> B站 </tag>
+            
+            <tag> 互联网 </tag>
+            
+            <tag> 文化 </tag>
+            
+            <tag> 商业 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于开源项目的一些想法：从维护者和用户两个视角</title>
+      <link href="/2026/03/13/open-source-thoughts/"/>
+      <url>/2026/03/13/open-source-thoughts/</url>
+      
+        <content type="html"><![CDATA[<p>MTSIR3-GAN开源到现在有132个Star，偶尔还会有人提Issue，说复现的时候某个步骤不清楚，或者在自己的数据集上跑不起来。</p><p>这件事让我对开源有了比以前更复杂的看法。</p><h2 id="开源的动机"><a href="#开源的动机" class="headerlink" title="开源的动机"></a>开源的动机</h2><p>诚实地讲：学术开源的第一动机大多数时候不是”回馈社区”，而是声誉。</p><p>论文开源代码，引用率会高一些（有研究表明这是显著效应，不只是安慰剂）。GitHub的star是一种社交货币，在某些简历上会被当作信号。在一些机构里，开源项目被当作影响力的度量指标。</p><p>这些都是真实存在的激励，没有必要假装它们不存在。</p><p>但动机不纯并不意味着结果不好。用户角度，不管作者的动机是什么，一个可以正常运行的开源代码库就是有价值的。激励和价值可以同时为真。</p><p>除了声誉，还有一个不那么功利的动机：希望自己的工作被人看到和用到。一篇论文发出去之后，大多数情况下读过的人是有限的，复现过的人更少。开源代码降低了复现门槛，让更多人可以站在你的工作上往前走，这件事本身是有意义的。</p><h2 id="开源的成本"><a href="#开源的成本" class="headerlink" title="开源的成本"></a>开源的成本</h2><p>问题是，大多数开源项目没有把成本算清楚。</p><p>开源一个代码库，最低限度的成本是：</p><p>写一个能让陌生人跑通的README（这比听起来难，你自己写的代码，每一行都在你脑子里，你看不见别人看不见的地方）；处理环境依赖问题（CUDA版本、Python版本、某个库在某个操作系统上的兼容性问题）；回答Issues（不是所有Issues都是有效的，有相当比例是没有认真读文档就来问的）。</p><p>这些工作在论文发表后没有任何绩效激励。发论文有分，维护开源代码没有分。在学术体系里，维护开源项目是一种没有绩效回报的利他行为，而大多数研究者并不是有无限时间的利他主义者。</p><p>这就是为什么学术圈的开源代码质量参差不齐，为什么很多论文的代码是”能跑但你要自己搞清楚怎么用”的状态，为什么Issues里的回复时间可以是几个月。这不是作者不负责，是激励结构决定了维护代码的优先级会很低。</p><h2 id="好的开源项目是什么样的"><a href="#好的开源项目是什么样的" class="headerlink" title="好的开源项目是什么样的"></a>好的开源项目是什么样的</h2><p>真正好用的开源项目有几个共同特征：</p><p>可复现。不只是代码可以运行，是论文里报告的核心指标可以在README描述的环境里复现出来。这听起来是基本要求，但实际上很多”开源”代码连这一点都做不到。</p><p>文档是给陌生人写的。”见代码”不是文档，配置文件里的注释不是文档。文档应该假设读者没有看过你的论文全文，没有参与过你的项目，然后从安装到运行到自定义，一步步写清楚。</p><p>有CI。代码有自动化测试，新的提交会触发测试跑一遍。这在学术项目里几乎是奢侈品，但它能防止代码在依赖库升级之后悄悄坏掉，几个月后有人来复现发现跑不了。</p><p>License选得清楚。MIT、Apache 2.0、GPL，每个有不同的限制，用你的代码的人需要知道他们的权利和义务。没有License的代码在法律上处于模糊状态，严谨的项目不会直接用。</p><h2 id="开源不等于永久维护承诺"><a href="#开源不等于永久维护承诺" class="headerlink" title="开源不等于永久维护承诺"></a>开源不等于永久维护承诺</h2><p>这是用户侧最常见的误解。</p><p>“你开源了，所以你有义务帮我解决我的问题。”</p><p>不是这样的。开源项目通常伴随的是一个”按现状提供”（as-is）的声明，维护者没有义务保证它能用在你的具体场景里，没有义务在24小时内回复你的Issue，没有义务无限期地维护这个项目。</p><p>开源是一种主动共享，不是一份服务合同。</p><p>作为MTSIR3-GAN的作者，我会尽量回复Issues，但我有自己的主线工作，不是全职维护这个项目。这不是态度问题，是时间分配的现实。</p><h2 id="用户角度：如何正确消费开源项目"><a href="#用户角度：如何正确消费开源项目" class="headerlink" title="用户角度：如何正确消费开源项目"></a>用户角度：如何正确消费开源项目</h2><p>作为开源项目的用户，有几个思路我觉得是对的：</p><p>先看文档和已有Issues，再开新Issue。80%的问题文档里已经有了，或者有人之前问过、作者已经回复了。开一个和五个月前某条已关闭Issue完全相同的问题，不是在节省时间，是在浪费所有人的时间。</p><p>如果发现了bug，提一个包含复现步骤的Issue，而不是只说”跑不了”。”跑不了”对维护者来说信息量为零，包含环境信息、错误日志、最小复现示例的Issue才是有用的。</p><p>能贡献就贡献，哪怕一行。修了一个typo、补了一条文档、提了一个详细的bug报告，这些都是贡献。开源社区的运转靠的是这些边际贡献积累起来，而不只是几个核心维护者扛所有。</p><p>用了项目，顺手点个Star。这不只是礼貌，它影响这个项目的可见度，间接影响作者继续维护的动力。成本是零，回报是真实的。</p><p>不要fork了之后不声明来源。学术圈这种事比较少，但工程项目里挺常见的，拿了代码改了改说是自己写的。这踩了License，也踩了基本的职业道德线。</p><hr><p>做维护者之前，我觉得开源是”发上去就行了”。做了之后才知道，维护一个项目的成本是持续的，而且大部分时间不是在写新功能，是在处理各种”环境问题”和”我应该已经在文档里写清楚了但还是有人问”的问题。</p><p>这不是在抱怨，是想说：好的开源项目是有代价的，这个代价应该被承认，而不是被当作理所当然的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 思考 </tag>
+            
+            <tag> 开源 </tag>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>黑神话悟空和国产3A：一次成功证明了什么，又没证明什么</title>
+      <link href="/2026/03/12/black-myth/"/>
+      <url>/2026/03/12/black-myth/</url>
+      
+        <content type="html"><![CDATA[<p>黑神话悟空发售的时候，Steam同时在线超过200万，Meta Quest里找不到一个中文评论是负面的，整个游戏圈在那几周都在讨论它。游戏科学用了差不多六年，做出了一个技术层面确实达到国际一线水准的动作RPG。</p><p>这件事是真实的，它确实发生了。</p><p>但”国产游戏崛起了”、”3A时代来临了”这些叙事，我觉得需要拆开来看。</p><h2 id="它证明了什么"><a href="#它证明了什么" class="headerlink" title="它证明了什么"></a>它证明了什么</h2><p>黑神话证明了一件事：中国的游戏开发团队，在资金、时间、人才足够的前提下，有能力做出技术美术水准媲美宫崎英高那一档的3A游戏。</p><p>这是真的，而且在几年前这件事是存疑的。国内游戏公司长期集中在手游和网游赛道，3A领域几乎是空白，业界普遍认为”国内的技术积累不够”。黑神话打了这个脸——虚幻5、光追、全球同步发售、Metacritic 81分，技术层面的问题已经解决了。</p><p>另一件它证明的事：西游记这个IP，在全球范围内有足够的认知度，配上扎实的游戏质量，可以支撑全球市场的商业成功。中国IP不是天生在海外市场没有竞争力的。</p><p>这两件事已经很有价值了，不需要往上加更多东西。</p><h2 id="它没证明什么"><a href="#它没证明什么" class="headerlink" title="它没证明什么"></a>它没证明什么</h2><p>它没有证明这条路可以被复制。</p><p>黑神话能成，背后有几个不可忽视的特殊条件：</p><p>游戏科学的核心团队从腾讯出来，有相当长的行业经验积累，而且整个开发过程基本上是一个高度集中的小团队在做（相比之下，育碧或者EA那种规模的开发团队，组织协调成本本身就是一个大问题）。</p><p>时机也很重要。虚幻5的成熟和国内3D美术人才的供给，在2020年代初正好到了一个可以支撑这种项目的节点。早几年，引擎不够好，人找不到，成本高一倍。</p><p>IP选择也是关键变量。西游记不需要解释，全球任何地方都知道孙悟空是谁。换一个国产IP，比如封神，在海外的认知基础就会弱很多，能不能支撑同样的商业成功是个开放问题。</p><p>这些条件不是别的团队轻易能复制的。在黑神话之后宣布”要做3A”的公司已经很多了，等他们五六年后的作品出来，能有几个达到同等水准？</p><h2 id="更结构性的问题"><a href="#更结构性的问题" class="headerlink" title="更结构性的问题"></a>更结构性的问题</h2><p>游戏行业有几个特殊性，让”一款成功 → 行业健康”这个推断尤其站不住脚。</p><p>第一是版号制度。国内的版号政策至今是不可预期的，一个团队花三年开发的游戏，如果拿不到版号，在国内是无法合法销售的。黑神话走的是先海外发售再搞国内版号的路线，大多数国内团队没有这个底气。</p><p>第二是回本周期。3A游戏的开发成本动辄几亿人民币，回本周期是五到十年。这期间没有现金流，需要有人持续输血。国内的游戏公司大多数靠手游和网游的现金流来交叉补贴3A项目，这个商业模式是脆弱的。</p><p>第三是人才储备。做3A需要大量有经验的引擎程序员、技术美术、动画师。这些人目前国内的供给还不够，黑神话本身就有引进大量外援的成分在里面。这个生态不是一两款爆款游戏就能快速建立的。</p><h2 id="一个类比"><a href="#一个类比" class="headerlink" title="一个类比"></a>一个类比</h2><p>用一款黑神话来论证”国产游戏整体崛起了”，和用一篇DeepSeek论文来论证”中国AI已经全面超越美国了”，是同一类逻辑错误。</p><p>一个优秀的存在不等于一个健康的生态。生态需要的是：持续的成功案例、合理的商业回报机制、足够深的人才池、适合这类产品发展的政策环境。这些东西的建立需要时间，一款游戏改变不了这些结构性因素。</p><h2 id="我的看法"><a href="#我的看法" class="headerlink" title="我的看法"></a>我的看法</h2><p>我不是在泼冷水。黑神话是真的好游戏，它的成功是真实的，它对整个行业的示范效应也是真实的。</p><p>但这个示范效应的内容是”这件事可以被做到”，而不是”这条路现在已经铺好了、后来者照着走就行”。后者需要更多成功案例的积累，需要商业模式的验证，需要监管环境的配合，需要一代技术人才的成长。</p><p>现在的状态是：一个里程碑被立起来了，但通往那个里程碑的路还没有修好。</p><p>这两件事应该被区分清楚。捧杀和泼冷水都不是正确的回应方式，正确的是：承认这个成就的真实价值，同时对后续的路保持清醒。</p><p>能做到黑神话这个水平的团队，本来就是极少数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文化 </tag>
+            
+            <tag> 黑神话悟空 </tag>
+            
+            <tag> 游戏 </tag>
+            
+            <tag> 国产 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>堆：O(log n)的暴力哲学</title>
+      <link href="/2026/03/12/heap-priority-queue/"/>
+      <url>/2026/03/12/heap-priority-queue/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引入：美琴的任务队列"><a href="#引入：美琴的任务队列" class="headerlink" title="引入：美琴的任务队列"></a>引入：美琴的任务队列</h2><p>御坂美琴在学园都市同时应付一堆事：追Level 5、压制一批无聊的对手、帮同学解数学题、吃青蛙零食。每件事都有紧急程度，她不是按时间顺序处理，而是每次从中挑出当前最紧急的那件先做。</p><p>这就是优先队列的语义：每次取出的都是”优先级最高”的元素，而不是”最先进来”的。</p><p>实现优先队列的最常见数据结构是堆（Heap）。用链表模拟的话，插入 $O(1)$，取最大值 $O(n)$；用有序数组的话，插入 $O(n)$，取最大值 $O(1)$。而堆两者都是 $O(\log n)$。这个均衡的代价使得堆在竞赛里几乎是”能用堆就用堆”的地步。</p><h2 id="堆的定义与数组表示"><a href="#堆的定义与数组表示" class="headerlink" title="堆的定义与数组表示"></a>堆的定义与数组表示</h2><p>二叉堆满足两个条件：</p><ol><li>结构性：是完全二叉树（每层从左到右填满，最后一层允许不满但必须从左开始填）</li><li>堆序性（大根堆）：每个节点的值 $\geq$ 其子节点的值</li></ol><p>小根堆反过来：每个节点 $\leq$ 子节点。</p><p>完全二叉树有一个美妙的性质：可以用数组紧凑存储，不需要指针。编号规则（1-indexed）：</p><ul><li>节点 $i$ 的父节点：$\lfloor i&#x2F;2 \rfloor$</li><li>节点 $i$ 的左孩子：$2i$</li><li>节点 $i$ 的右孩子：$2i+1$</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> heap[MAXN];</span><br><span class="line"><span class="type">int</span> sz = <span class="number">0</span>;  <span class="comment">// 当前堆大小</span></span><br></pre></td></tr></table></figure><p>这个数组表示的直接后果是：树高为 $O(\log n)$，所以所有沿根到叶路径走的操作都是 $O(\log n)$。</p><h2 id="sift-up：插入操作"><a href="#sift-up：插入操作" class="headerlink" title="sift_up：插入操作"></a>sift_up：插入操作</h2><p>往堆里插一个新元素，先放到数组末尾（保持完全二叉树结构），然后向上”浮”，直到堆序性满足：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sift_up</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i &gt; <span class="number">1</span> &amp;&amp; heap[i] &gt; heap[i / <span class="number">2</span>]) &#123;</span><br><span class="line">        <span class="built_in">swap</span>(heap[i], heap[i / <span class="number">2</span>]);</span><br><span class="line">        i /= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    heap[++sz] = val;</span><br><span class="line">    <span class="built_in">sift_up</span>(sz);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>新元素在最坏情况下一路浮到根，路径长度是树高 $O(\log n)$，所以插入是 $O(\log n)$。</p><h2 id="sift-down：删除堆顶"><a href="#sift-down：删除堆顶" class="headerlink" title="sift_down：删除堆顶"></a>sift_down：删除堆顶</h2><p>删除堆顶（最大值或最小值）的标准做法：把堆顶和末尾元素交换，堆大小减1，然后对新堆顶做向下”沉”操作：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sift_down</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">2</span> * i &lt;= sz) &#123;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">2</span> * i;  <span class="comment">// 左孩子</span></span><br><span class="line">        <span class="keyword">if</span> (j + <span class="number">1</span> &lt;= sz &amp;&amp; heap[j + <span class="number">1</span>] &gt; heap[j]) j++;  <span class="comment">// 取较大的孩子</span></span><br><span class="line">        <span class="keyword">if</span> (heap[i] &gt;= heap[j]) <span class="keyword">break</span>;  <span class="comment">// 堆序性满足，停止</span></span><br><span class="line">        <span class="built_in">swap</span>(heap[i], heap[j]);</span><br><span class="line">        i = j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> top = heap[<span class="number">1</span>];</span><br><span class="line">    heap[<span class="number">1</span>] = heap[sz--];</span><br><span class="line">    <span class="built_in">sift_down</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>同理，最坏情况下新堆顶一路沉到叶子，$O(\log n)$。</p><h2 id="建堆：O-n-而不是-O-n-log-n"><a href="#建堆：O-n-而不是-O-n-log-n" class="headerlink" title="建堆：O(n) 而不是 O(n log n)"></a>建堆：O(n) 而不是 O(n log n)</h2><p>有 $n$ 个元素，怎么建一个堆？</p><p>朴素方法：逐个插入，$n$ 次 $O(\log n)$，总时间 $O(n \log n)$。</p><p>更快的方法：<strong>Floyd建堆算法</strong>，$O(n)$。</p><p>思路：先把所有元素无序地放进数组，然后从最后一个非叶节点（编号 $\lfloor n&#x2F;2 \rfloor$）开始，倒着对每个节点做 sift_down：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_heap</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) heap[i] = arr[i];</span><br><span class="line">    sz = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) <span class="built_in">sift_down</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>为什么是 $O(n)$？直觉上，大多数节点在树的下层，离叶子很近，sift_down的代价小。</p><p>精确分析：高度为 $h$ 的节点，sift_down 最多走 $h$ 步。高度为 $h$ 的节点最多有 $\lceil n&#x2F;2^{h+1} \rceil$ 个。总操作数：</p><p>$$T &#x3D; \sum_{h&#x3D;0}^{\lfloor \log n \rfloor} \left\lceil \frac{n}{2^{h+1}} \right\rceil \cdot h \leq n \sum_{h&#x3D;0}^{\infty} \frac{h}{2^{h+1}} &#x3D; n \cdot 1 &#x3D; O(n)$$</p><p>最后那个级数 $\sum_{h&#x3D;0}^{\infty} h&#x2F;2^{h+1} &#x3D; 1$ 是几何级数求导的经典结论（参考 CLRS 6.3节）。</p><p>这个 $O(n)$ 建堆是堆排序能达到最优的基础。</p><h2 id="堆排序：O-n-log-n-原地排序"><a href="#堆排序：O-n-log-n-原地排序" class="headerlink" title="堆排序：O(n log n) 原地排序"></a>堆排序：O(n log n) 原地排序</h2><p>建堆之后，反复取出堆顶（最大值）并放到数组末尾，堆大小减1：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">heap_sort</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">build_heap</span>(arr, n);         <span class="comment">// O(n)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">2</span>; i--) &#123;</span><br><span class="line">        <span class="built_in">swap</span>(heap[<span class="number">1</span>], heap[i]); <span class="comment">// 把最大值放到末尾</span></span><br><span class="line">        sz--;</span><br><span class="line">        <span class="built_in">sift_down</span>(<span class="number">1</span>);           <span class="comment">// 维护堆序性</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// heap[1..n] 现在是升序排列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间：$O(n)$（建堆）+ $n \times O(\log n)$（反复取堆顶）&#x3D; $O(n \log n)$。</p><p>空间：$O(1)$（原地，不需要额外数组）。</p><p>堆排序的理论性质很漂亮——时间最优、原地、不依赖输入分布。但实际工程里很少用，因为它的cache性能差（访问模式是跳跃的，对CPU cache极不友好），常数比快排大很多。快排在实践中的平均性能碾压堆排序。竞赛里也基本不手写堆排序，直接用STL的sort就行。</p><h2 id="STL-priority-queue-及其坑"><a href="#STL-priority-queue-及其坑" class="headerlink" title="STL priority_queue 及其坑"></a>STL priority_queue 及其坑</h2><p>C++的 <code>std::priority_queue</code> 默认是大根堆：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; pq;  <span class="comment">// 大根堆，top()是最大值</span></span><br><span class="line">pq.<span class="built_in">push</span>(<span class="number">3</span>); pq.<span class="built_in">push</span>(<span class="number">1</span>); pq.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">cout &lt;&lt; pq.<span class="built_in">top</span>();  <span class="comment">// 输出 4</span></span><br></pre></td></tr></table></figure><p>要用小根堆：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;  <span class="comment">// 小根堆</span></span><br></pre></td></tr></table></figure><p>自定义比较器，注意方向容易搞反——<code>priority_queue</code> 的比较器和排序的语义是”反的”，<code>comp(a, b)</code> 返回true意味着a的优先级低于b（即b会先出队）：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> cmp = [](pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; a, pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.first &gt; b.first;  <span class="comment">// 按first升序，即小根堆</span></span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br></pre></td></tr></table></figure><p>这个比较器的方向问题在竞赛里能搞死人，原则是：想让哪个先出，就让它在 comp 里返回 false（优先级”不低”）。</p><h2 id="竞赛中的懒删除"><a href="#竞赛中的懒删除" class="headerlink" title="竞赛中的懒删除"></a>竞赛中的懒删除</h2><p>有时候你需要删除堆中间某个特定的元素，而不是堆顶。标准堆没有高效的任意删除操作——你需要找到那个元素的位置，把它浮到顶，再弹出，但”找到位置”就要 $O(n)$。</p><p>**懒删除（Lazy Deletion）**是竞赛里的常见技巧：不真正删除，只打一个”已删除”标记，弹出时检查堆顶是否被标记，如果是就跳过，直到拿到一个没被标记的元素：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="type">int</span>&gt; deleted;  <span class="comment">// 或者 unordered_set</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">lazy_pop</span><span class="params">(priority_queue&lt;<span class="type">int</span>&gt;&amp; pq)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>() &amp;&amp; deleted.<span class="built_in">count</span>(pq.<span class="built_in">top</span>())) &#123;</span><br><span class="line">        deleted.<span class="built_in">erase</span>(pq.<span class="built_in">top</span>());</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除某个值：</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">lazy_delete</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">    deleted.<span class="built_in">insert</span>(val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代价是：每次 pop 操作可能需要跳过多个被标记的元素，但摊还下来每个元素最多被处理两次（一次标记，一次弹出时跳过），总体仍然是 $O(n \log n)$。</p><p>Dijkstra算法里处理”松弛后的旧节点”就是懒删除的典型场景——你往堆里放了更新后的距离，但旧的那条记录还在堆里，用懒删除来跳过它，比维护一个支持reduce-key的堆简单得多。</p><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><p>遇到需要”反复取最值”的题：</p><ol><li>需要反复取最大值 → 大根堆；取最小值 → 小根堆或 <code>greater&lt;T&gt;</code></li><li>要删除堆中某个特定元素？→ 懒删除，维护一个删除标记集合</li><li>要动态维护第k大&#x2F;小？→ 两个堆（一个大根堆+一个小根堆），维护平衡</li><li>Dijkstra &#x2F; Prim 的优先队列 → 小根堆，用懒删除处理重复入队</li><li>STL比较器方向别写反了 → <code>greater&lt;int&gt;</code> 是小根堆，自定义comparator里”返回true &#x3D; 优先级低”</li><li>建堆要快？→ 把数据全放进去，调用一次 <code>build_heap</code>，不要逐个push</li></ol><p>美琴在处理电磁相关的紧急情况时，每次都先选当前威胁最大的目标。如果某个威胁已经被处理了但记录还在队列里（懒删除的那个旧记录），她扫一眼”哦这个已经解决了”就跳过。简洁、高效、有点偷懒，但对的。</p><hr><p><em>练习题：<a href="https://www.luogu.com.cn/problem/P3378">洛谷P3378 堆</a> · <a href="https://www.luogu.com.cn/problem/P4779">洛谷P4779 Dijkstra最短路</a> · CLRS 6章（堆排序的严格证明）</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 堆 </tag>
+            
+            <tag> 优先队列 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>KV Cache：为什么LLM推理要缓存这个</title>
+      <link href="/2026/03/12/kv-cache/"/>
+      <url>/2026/03/12/kv-cache/</url>
+      
+        <content type="html"><![CDATA[<h2 id="自回归生成的代价"><a href="#自回归生成的代价" class="headerlink" title="自回归生成的代价"></a>自回归生成的代价</h2><p>语言模型生成文本的方式叫自回归（autoregressive）生成：每次预测下一个token，把这个token拼到已有序列后面，再预测下下一个，循环往复，直到生成终止符。</p><p>这个过程听起来很自然，但有一个计算上的麻烦：Transformer里的attention计算，每个位置的输出都依赖于序列中所有位置的K和V。</p><p>具体来说，生成第 $t$ 个token时，当前序列长度是 $t-1$，attention计算：</p><p>$$\text{Attention}(Q_t, K_{1:t-1}, V_{1:t-1}) &#x3D; \text{softmax}\left(\frac{Q_t K_{1:t-1}^T}{\sqrt{d_k}}\right) V_{1:t-1}$$</p><p>其中 $Q_t$ 是当前token的query（形状 $1 \times d_k$），$K_{1:t-1}$ 和 $V_{1:t-1}$ 是所有历史token的key和value矩阵（形状 $(t-1) \times d_k$）。</p><p>如果每次生成一个新token，都重新计算整个序列的K和V，那生成长度为 $n$ 的序列所需的总计算量是 $\sum_{t&#x3D;1}^{n} O(t \cdot d_k) &#x3D; O(n^2 d_k)$。</p><p>$n &#x3D; 2048$，$d_k &#x3D; 128$，层数32，全部重算一遍是多少次乘法？算出来你会想哭的。</p><h2 id="KV-Cache的思路"><a href="#KV-Cache的思路" class="headerlink" title="KV Cache的思路"></a>KV Cache的思路</h2><p>解决方法很直接：历史token的K和V，算完一次就缓存下来，不要重算。</p><p>每次生成新token，只需要：</p><ol><li>计算新token的Q、K、V（三次线性变换，$O(d)$）</li><li>把新token的K和V追加到缓存里</li><li>用新token的Q，对全部缓存的K做attention，得到当前位置的输出</li></ol><p>这样，生成第 $t$ 个token的计算量从 $O(t \cdot d_k)$ 降到 $O(d_k)$（只算新token那一个位置），总复杂度从 $O(n^2 d_k)$ 降到 $O(n \cdot d_k)$。</p><p>咲夜如果每次下午茶都要重新从零备齐所有食材，那她每天光备下午茶就要花无穷的时间。但她实际上是这么干的：把已经备好的材料放在储物柜里，下次只需要补充当天新增的那一样。KV Cache就是这个储物柜。</p><p>不同的是，咲夜的储物柜是有限大的，这引出了KV Cache最核心的工程问题。</p><h2 id="内存占用：seq-len是个定时炸弹"><a href="#内存占用：seq-len是个定时炸弹" class="headerlink" title="内存占用：seq_len是个定时炸弹"></a>内存占用：seq_len是个定时炸弹</h2><p>KV Cache的大小很好算：</p><p>$$\text{KV Cache size} &#x3D; 2 \times N_{\text{layers}} \times L \times d_{\text{model}} \times B \times \text{bytes_per_element}$$</p><p>其中 $N_{\text{layers}}$ 是层数，$L$ 是当前序列长度，$d_{\text{model}}$ 是模型维度，$B$ 是batch size，2是因为K和V各一份。</p><p>以LLaMA-2 7B为例：$N_{\text{layers}} &#x3D; 32$，$d_{\text{model}} &#x3D; 4096$，fp16精度（2 bytes）。单条序列长度1k的KV Cache大小：</p><p>$$2 \times 32 \times 1024 \times 4096 \times 2 \approx 512 \text{ MB}$$</p><p>单条序列1k的token，KV Cache就要占512MB。如果seq_len增加到32k呢？16GB，一张A100全给你吃了，还没算模型权重本身。</p><p>这就是为什么长上下文是大模型推理的核心瓶颈。模型权重的大小是固定的，但KV Cache会随序列长度线性增长，在高并发场景下会迅速把显存压爆。</p><h2 id="GQA：让多个Q头共享KV"><a href="#GQA：让多个Q头共享KV" class="headerlink" title="GQA：让多个Q头共享KV"></a>GQA：让多个Q头共享KV</h2><p>标准的多头注意力（MHA）是：$h$ 个注意力头，每个头各自有独立的 $K_i$ 和 $V_i$。KV Cache大小正比于头数 $h$。</p><p>Multi-Query Attention（MQA）把这个推到极端：所有Q头共享同一组K和V。KV Cache压缩为原来的 $1&#x2F;h$，代价是注意力多样性的降低——所有头学的是同一种关系模式。</p><p>Grouped-Query Attention（GQA，Ainslie et al., 2023）是两者之间的折中：把 $h$ 个Q头分成 $g$ 组，每组共享一对K和V。</p><p>$$\text{GQA}(Q, K, V) &#x3D; \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O$$</p><p>其中每个组内的头共享 $K_j, V_j$（$j$ 是组索引）。</p><p>KV Cache的减少比例是 $g&#x2F;h$。LLaMA-2 70B用了GQA，$g&#x3D;8$，$h&#x3D;64$，KV Cache是MHA的八分之一。代价几乎可以忽略——实验上GQA在Grouped数量合理的情况下和MHA的质量差距很小（Ainslie et al. 的论文里报告的性能下降在0.5个点以内）。这是目前主流大模型几乎都在用的做法。</p><h2 id="PagedAttention：vLLM的核心思路"><a href="#PagedAttention：vLLM的核心思路" class="headerlink" title="PagedAttention：vLLM的核心思路"></a>PagedAttention：vLLM的核心思路</h2><p>即使有GQA，在高并发服务场景里KV Cache的管理依然很头疼，原因是请求的序列长度是不确定的。</p><p>传统做法是为每个请求预先分配最大可能长度的连续显存块。如果最大长度是2048，但实际生成了300个token就停止了，剩下1748个位置的显存就白占了。多个请求同时运行，这种碎片化问题会导致显存利用率很低。</p><p>vLLM（Kwon et al., 2023）引入了PagedAttention：借鉴操作系统的虚拟内存和分页机制，把KV Cache切成固定大小的”页”，按需分配，不要求物理上连续。</p><p>逻辑上，每个请求看到的是一段连续的KV序列；物理上，这些KV可能分散在显存的不同页里，通过一张页表（block table）做映射。</p><p>好处是显存利用率从传统方案的约20%-30%提升到了接近95%，在相同显存下可以服务更多并发请求，或者支持更长的序列。这也是为什么vLLM能成为目前最流行的开源推理框架之一——不是模型改了，是显存管理的工程做得更好。</p><h2 id="一些边界情况"><a href="#一些边界情况" class="headerlink" title="一些边界情况"></a>一些边界情况</h2><p>KV Cache在某些场景下会失效或者需要特殊处理：</p><p>投机采样（Speculative Decoding）里，草稿模型的KV Cache和目标模型的是分开管理的，验证阶段要处理token被拒绝后的Cache回滚。</p><p>动态温度采样或者beam search里，同一前缀可能对应多条不同的生成路径，Cache共享需要处理前缀树（prefix tree）结构，不然要么缓存爆炸，要么重复计算。</p><p>Prompt Caching（OpenAI、Anthropic都在做的功能）是把KV Cache的思路往前推了一步：用户多次发送有相同system prompt的请求，把公共前缀的KV Cache存下来，下次直接复用，节省计算费用。本质上是把session级别的Cache变成了跨请求级别的Cache。</p><hr><p>总结一下：KV Cache是推理阶段最重要的优化技巧，把自回归生成的计算复杂度从 $O(n^2)$ 降到 $O(n)$，代价是正比于序列长度的显存占用。GQA通过共享KV减少Cache大小，PagedAttention通过分页管理提升显存利用率。这三件事放在一起，构成了现代LLM推理系统的基础架构。</p><p>咲夜的储物柜没有无限大，所以她要定期清理过期的材料，还要在多个小姐的茶会同时进行时合理分配储物空间。这和推理服务里的KV Cache管理是一回事。</p><hr><p><em>参考文献：Ainslie et al., “GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints”, 2023. Kwon et al., “Efficient Memory Management for Large Language Model Serving with PagedAttention”, SOSP 2023.</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+            <tag> KV Cache </tag>
+            
+            <tag> 推理优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最大流：图论里最好玩的问题</title>
+      <link href="/2026/03/11/max-flow/"/>
+      <url>/2026/03/11/max-flow/</url>
+      
+        <content type="html"><![CDATA[<p>网络流是图论里我最喜欢的一块。不是因为它有多难，而是因为它的建模能力特别强——很多看起来和流量毫无关系的问题，转化成网络流之后就变得清晰了。最大流最小割定理也是图论里少数几个让我觉得”这个定理本身就是艺术”的东西。</p><h2 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h2><p>给一张有向图 $G &#x3D; (V, E)$，每条边 $(u, v)$ 有容量 $c(u, v) \geq 0$。指定一个源点 $s$ 和一个汇点 $t$，流 $f$ 满足：</p><ul><li>容量约束：$0 \leq f(u, v) \leq c(u, v)$</li><li>流量守恒：对于除 $s$ 和 $t$ 之外的每个节点，流入量等于流出量</li></ul><p>最大流问题就是求从 $s$ 到 $t$ 的最大流量 $|f|$。</p><p>用咲夜的下午茶供应链来理解。咲夜要把茶叶从博丽神社的仓库（源点）送到永远亭的茶室（汇点），中间经过一些中转站。每段路线有运输容量限制（一次最多搬几箱），最大流问题就是问：在所有路线容量的约束下，最多能运多少箱茶叶过去。就算咲夜停止时间批量预处理，每段路的物理容量是绕不开的。</p><h2 id="Ford-Fulkerson-算法"><a href="#Ford-Fulkerson-算法" class="headerlink" title="Ford-Fulkerson 算法"></a>Ford-Fulkerson 算法</h2><p>最经典的最大流算法，基于一个直觉上正确的想法：只要还存在从 $s$ 到 $t$ 的增广路，就沿着它增加流量。</p><p>关键概念是残差网络（Residual Graph）。对于每条边 $(u, v)$，残差网络里有：</p><ul><li>正向边 $(u, v)$，残差容量 $c_f(u, v) &#x3D; c(u, v) - f(u, v)$（还能增加多少流）</li><li>反向边 $(v, u)$，残差容量 $c_f(v, u) &#x3D; f(u, v)$（可以反悔多少流）</li></ul><p>反向边的存在允许算法”撤销”之前不好的选择，这是 Ford-Fulkerson 正确性的核心。</p><p>算法流程：</p><ol><li>初始化所有流为 0</li><li>在残差网络中用 DFS&#x2F;BFS 找 $s$ 到 $t$ 的增广路</li><li>沿增广路增加流量 $\delta &#x3D; \min$ 路径上的残差容量</li><li>更新残差网络</li><li>重复直到没有增广路</li></ol><p>时间复杂度是 $O(EF)$，其中 $F$ 是最大流量。如果容量是整数，每次增广至少增加 1，复杂度有界。但如果用 DFS 且容量是无理数，Ford-Fulkerson 可能不终止——这是一个真实存在的理论问题，不是竞赛里的考点，但值得知道。</p><h2 id="最大流最小割定理"><a href="#最大流最小割定理" class="headerlink" title="最大流最小割定理"></a>最大流最小割定理</h2><p>这是整个网络流理论最核心的定理。</p><p>割（Cut）的定义：将 $V$ 分成两个集合 $S$ 和 $T &#x3D; V \setminus S$，其中 $s \in S$，$t \in T$，割的容量是所有从 $S$ 到 $T$ 的边的容量之和：</p><p>$$c(S, T) &#x3D; \sum_{u \in S, v \in T} c(u, v)$$</p><p>最小割就是使 $c(S, T)$ 最小的划分。</p><p>定理：最大流等于最小割。</p><p>$$\max|f| &#x3D; \min c(S, T)$$</p><p>证明思路如下。首先，任何流的量都不超过任何割的容量（因为所有从 $s$ 到 $t$ 的流量必须通过割边），所以最大流 $\leq$ 最小割。其次，当算法结束时（没有增广路），从 $s$ 能到达的节点集合 $S$ 和剩余节点集合 $T$ 构成一个割，此时从 $S$ 到 $T$ 的边都已满载，流量恰好等于这个割的容量。两个不等式合并，得到等号。</p><p>这个定理的妙处在于它把一个”最大化流量”的问题和一个”最小化某个截面”的问题等价了——两个看起来完全不同的优化方向，答案相同。这在算法里不常见。</p><h2 id="Dinic-算法"><a href="#Dinic-算法" class="headerlink" title="Dinic 算法"></a>Dinic 算法</h2><p>Ford-Fulkerson 的问题是找增广路用 DFS，效率不稳定。Dinic 通过两个改进大幅提升了效率：</p><ol><li>分层图（Level Graph）：用 BFS 对残差网络中的节点按照到 $s$ 的距离分层，只保留层次递增的边</li><li>多路增广（Blocking Flow）：在分层图中找阻塞流（blocking flow），而不是一次只找一条增广路</li></ol><p>时间复杂度：$O(V^2 E)$，在单位容量图（每条边容量为 1）上是 $O(E\sqrt{V})$，后者对二部图匹配非常高效。</p><p>完整 Dinic 实现（链式前向星存图）：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span> &#123;</span><br><span class="line">    <span class="type">int</span> to, rev;</span><br><span class="line">    <span class="type">int</span> cap;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Dinic</span> &#123;</span><br><span class="line">    vector&lt;vector&lt;Edge&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; level, iter;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Dinic</span>(<span class="type">int</span> n) : <span class="built_in">n</span>(n), <span class="built_in">graph</span>(n), <span class="built_in">level</span>(n), <span class="built_in">iter</span>(n) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add_edge</span><span class="params">(<span class="type">int</span> from, <span class="type">int</span> to, <span class="type">int</span> cap)</span> </span>&#123;</span><br><span class="line">        graph[from].<span class="built_in">push_back</span>(&#123;to, (<span class="type">int</span>)graph[to].<span class="built_in">size</span>(), cap&#125;);</span><br><span class="line">        graph[to].<span class="built_in">push_back</span>(&#123;from, (<span class="type">int</span>)graph[from].<span class="built_in">size</span>() - <span class="number">1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">fill</span>(level.<span class="built_in">begin</span>(), level.<span class="built_in">end</span>(), <span class="number">-1</span>);</span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">        level[s] = <span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(s);</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="type">int</span> v = q.<span class="built_in">front</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; e : graph[v]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (e.cap &gt; <span class="number">0</span> &amp;&amp; level[e.to] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    level[e.to] = level[v] + <span class="number">1</span>;</span><br><span class="line">                    q.<span class="built_in">push</span>(e.to);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level[t] &gt;= <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> t, <span class="type">int</span> f)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (v == t) <span class="keyword">return</span> f;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; i = iter[v]; i &lt; (<span class="type">int</span>)graph[v].<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            Edge&amp; e = graph[v][i];</span><br><span class="line">            <span class="keyword">if</span> (e.cap &gt; <span class="number">0</span> &amp;&amp; level[v] &lt; level[e.to]) &#123;</span><br><span class="line">                <span class="type">int</span> d = <span class="built_in">dfs</span>(e.to, t, <span class="built_in">min</span>(f, e.cap));</span><br><span class="line">                <span class="keyword">if</span> (d &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    e.cap -= d;</span><br><span class="line">                    graph[e.to][e.rev].cap += d;</span><br><span class="line">                    <span class="keyword">return</span> d;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">max_flow</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> flow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">bfs</span>(s, t)) &#123;</span><br><span class="line">            <span class="built_in">fill</span>(iter.<span class="built_in">begin</span>(), iter.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">            <span class="type">int</span> d;</span><br><span class="line">            <span class="keyword">while</span> ((d = <span class="built_in">dfs</span>(s, t, INF)) &gt; <span class="number">0</span>)</span><br><span class="line">                flow += d;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p><code>iter[v]</code> 是当前弧优化（current arc optimization），避免在 DFS 里重复遍历已经确定无法增广的边，是 Dinic 实现里必须有的优化。</p><h2 id="二部图最大匹配"><a href="#二部图最大匹配" class="headerlink" title="二部图最大匹配"></a>二部图最大匹配</h2><p>最大流的经典应用之一。二部图 $G &#x3D; (X \cup Y, E)$ 里，$X$ 和 $Y$ 是两个独立节点集，边只存在于 $X$ 和 $Y$ 之间。最大匹配是选出尽可能多的边，使得每个节点至多被一条选出的边覆盖。</p><p>转化：增加超级源点 $s$ 连接所有 $X$ 中的节点（容量 1），增加超级汇点 $t$ 被所有 $Y$ 中的节点连接（容量 1），原图中 $X$ 到 $Y$ 的边容量设为 1。跑最大流，结果就是最大匹配数。</p><p>König 定理告诉我们，二部图的最大匹配数等于最小顶点覆盖数——这又是一个最大&#x3D;最小的优美定理，和最大流最小割是同一类型的结论。</p><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><ol><li>建图：源点汇点是什么？边的容量怎么设置？有没有需要拆点的情况（点有容量限制时）</li><li>反向边容量初始化为 0，不要忘记</li><li>用 Dinic 模板，不要自己重新发明轮子</li><li>建图后检查：边数对不对？有没有重边需要合并？</li><li>注意流量可能很大时用 <code>long long</code></li><li>想不清楚建图方向时，画一个小例子手动验证</li></ol><p>最大流的难点永远不在算法本身，而在把实际问题映射成网络的建模步骤。能建出正确的图，算法就是套模板的事。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 网络流 </tag>
+            
+            <tag> 最大流 </tag>
+            
+            <tag> 图论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>读英文技术博客一年后</title>
+      <link href="/2026/03/11/reading-eng-blogs/"/>
+      <url>/2026/03/11/reading-eng-blogs/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章不是要劝你”要多读英文资料”。这种话我听过太多，说的人通常是把结论当理由——“英文资料更权威更全面”，然后就完了，没有进一步解释为什么，也没有说清楚哪里不一样。</p><p>我想说的是读了大概一年之后，真正改变了我什么认知，以及哪些地方让我觉得被高估了。</p><h2 id="技术讨论的文化差异"><a href="#技术讨论的文化差异" class="headerlink" title="技术讨论的文化差异"></a>技术讨论的文化差异</h2><p>这是让我感触最深的一点。中文技术社区和英文技术社区在讨论问题的方式上有明显的文化差异，不是质量差异，是风格差异。</p><p>中文社区更实用导向。大多数讨论的核心是”怎么做”：怎么用 Redis 实现限流，怎么配置 Nginx，怎么解决这个报错。这不是坏事，能快速解决问题，对工程师来说直接有效。</p><p>英文社区更喜欢系统性思考，问”为什么”和”在什么条件下”的比例更高。同样讨论 Redis 限流，英文博客更可能会写一篇文章先问”你真的需要限流吗””在哪个层面做限流最合适””不同算法的 tradeoff 是什么”。这类文章读完之后，你对问题的整体认知更清晰，但如果你只是想快速解决手头的问题，这类文章反而没效率。</p><p>没有哪种更好，取决于你需要什么。但意识到这个差异本身是有价值的——当你意识到你在找”怎么做”的时候，去中文社区效率更高；当你想搞清楚”为什么这样做”的时候，英文博客更合适。</p><h2 id="一些中文圈相对少见的视角"><a href="#一些中文圈相对少见的视角" class="headerlink" title="一些中文圈相对少见的视角"></a>一些中文圈相对少见的视角</h2><p>有几个具体的例子让我印象深刻。</p><p>CAP 定理是分布式系统的经典内容，中文资料基本上把它当公理讲：一致性、可用性、分区容忍性三选二。但英文社区有相当多对 CAP 的批判性讨论，比如 Martin Kleppmann 的文章 “A Critique of the CAP Theorem”，指出 CAP 的定义其实很不精确，”一致性”在这里指的是线性一致性（linearizability），不是 ACID 里的 C；”可用性”的定义也非常严格，实际系统很少满足 CAP 意义上的可用性。这些讨论让你意识到 CAP 更多是一个思维框架，不是严格的工程指导原则。</p><p>还有一个是 BASE（Basically Available, Soft state, Eventually consistent）这个词的由来。BASE 是 eBay 的 Dan Pritchett 在 2008 年提出的，是对 ACID 的一种对立姿态，用来描述大规模分布式系统的设计哲学。这个词的设计本身就是一个彩蛋：ACID 是酸，BASE 是碱，用化学里的对立来类比数据库设计的两种哲学。这种背景如果不了解，只记住”最终一致性”四个字，其实少了很多语境。</p><h2 id="语言和认知框架"><a href="#语言和认知框架" class="headerlink" title="语言和认知框架"></a>语言和认知框架</h2><p>这里我想说一个可能有点争议的观点：某些技术概念在英文里确实更精确。</p><p>不是因为英语更高级，而是因为这些概念本来就是用英文创造和演化的，中文翻译在某些地方会丢失信息。比如”consistency”在分布式语境下可以指 linearizability、sequential consistency、causal consistency、eventual consistency 这四种不同的东西，中文都叫”一致性”，没有直接对应的词区分它们。再比如 “liveness” 和 “safety” 这对形式系统里的概念，中文通常翻译成”活性”和”安全性”，但直接读英文原文时那种”一个系统不卡死”vs”一个系统不做坏事”的直觉更强。</p><p>这不是在说英文更好，而是说对于这些概念，读英文的原始讨论能减少翻译造成的信息损耗。</p><h2 id="被高估的部分"><a href="#被高估的部分" class="headerlink" title="被高估的部分"></a>被高估的部分</h2><p>英文博客质量参差不齐，这句话是认真的，不是客气话。</p><p>Medium 上大量质量一般的文章，写了几百字全是废话，实际内容不如一篇认真写的 CSDN 博客。很多英文的”系统设计教程”是专门为了面试准备的，depth 很有限，只是包装得比较”国际范”。</p><p>中文有很多被低估的好资源。极客时间的一些专栏内容做得相当深，MIT6.824 的中文学习笔记里不乏质量很高的整理，国内做数据库和存储的工程师写的博客在 internals 层面非常扎实，因为这些系统他们真的在生产环境里跑过。</p><p>所以”多读英文博客”这个建议需要加限定词：多读好的英文博客，这些好的来源通常是：特定作者的个人博客（Aphyr、Martin Fowler、Dan Luu 等）、顶级公司的 engineering blog（Cloudflare、Stripe、Discord）、以及会议论文的 summary 和 explanation。泛泛地”多读英文”帮助有限，你会在噪音里浪费大量时间。</p><h2 id="重要的是内容本身"><a href="#重要的是内容本身" class="headerlink" title="重要的是内容本身"></a>重要的是内容本身</h2><p>语言是一个筛选器，影响你能接触到的内容集合，但不决定内容的质量。</p><p>读英文博客改变我的，不是因为它们是英文的，而是因为我通过英文接触到了一些中文圈没有或者被忽视的讨论。如果这些讨论有朝一日都有了高质量的中文版本，语言就完全不重要了。</p><p>现在的现实是：确实有一批内容，在中文圈覆盖得不够好，或者讨论的深度不够，读英文是目前接触它们的最短路径。就这样，没有更玄的东西。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 学习方法 </tag>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>御坂美琴为什么是史上最完美的傲娇</title>
+      <link href="/2026/03/11/misaka-tsundere/"/>
+      <url>/2026/03/11/misaka-tsundere/</url>
+      
+        <content type="html"><![CDATA[<p>我想认真讨论一下御坂美琴的角色设计，不是那种”啊她好可爱傲娇好萌”的夸法，而是从叙事结构的角度说说她为什么成立——为什么她的傲娇不让人觉得做作，反而让人觉得是真实人物应有的样子。</p><h2 id="先定义”傲娇”是什么"><a href="#先定义”傲娇”是什么" class="headerlink" title="先定义”傲娇”是什么"></a>先定义”傲娇”是什么</h2><p>傲娇在角色设计上是一种防御机制：外表强硬甚至攻击性，内心脆弱或温柔。这种设计的目的是制造张力——观众看到表面的强硬，又隐约感知到内部的柔软，这种反差带来情感上的满足感。</p><p>但很多傲娇角色有个问题：她们的”傲”是人为设置的性格 quirk，和她们的实际处境不匹配。一个普通女高中生因为害羞所以表现得很凶，这说得通，但这种傲娇本质上是一种社交障碍，不是人物弧光。观众享受的是”萌”，不是角色本身。</p><p>美琴不是这样。</p><h2 id="美琴的”傲”是合理的"><a href="#美琴的”傲”是合理的" class="headerlink" title="美琴的”傲”是合理的"></a>美琴的”傲”是合理的</h2><p>御坂美琴是学园都市排名第三的超能力者，Level 5，七人中的三位。她能用电磁力控制金属、发射超高速的钢铁弹丸、还能生成雷霆。在学园都市，绝大多数人对她的评价是”能力强、不好惹”。</p><p>一个从小就比周围所有人都强得多的人，会形成什么样的性格？傲慢是合理结果，不是性格缺陷。当你的能力足以碾压大多数挑战，你自然会对很多事情表现出轻视或者不在乎，因为你有这个资本。美琴的傲不是害羞，不是社恐，是一个强者基于真实实力建立起来的自信边界。这是有根基的，不是硬贴上去的 tag。</p><h2 id="上条当麻做了什么"><a href="#上条当麻做了什么" class="headerlink" title="上条当麻做了什么"></a>上条当麻做了什么</h2><p>傲娇结构里，”娇”的部分需要一个触发条件。美琴的触发条件是上条当麻，一个拥有”幻想杀手”右手的普通人，他的能力可以消除任何超自然力量。</p><p>对美琴来说，这意味着她的核心竞争力对上条完全失效。她的电磁能力——那个她建立整个自我认知体系的东西——在他面前变成零。更重要的是，上条对她的”强”没有任何反应，不害怕、不崇拜、不刻意讨好，他就是正常对待她，甚至经常嫌她麻烦。</p><p>这是美琴从没遇到过的情况。一个习惯了被仰视的人，突然遇到一个对她的能力毫无反应的人，而且这个人还莫名其妙地经常出现在她的生活里——这种情况下产生复杂情感是完全符合心理逻辑的。她的傲娇不是”喜欢他但不好意思说”这么简单，而是”我的整个力量体系对他无效，我不知道怎么定位我们的关系”。</p><h2 id="妹妹们剧情的意义"><a href="#妹妹们剧情的意义" class="headerlink" title="妹妹们剧情的意义"></a>妹妹们剧情的意义</h2><p>如果说美琴和上条的关系让她的性格有了裂缝，妹妹们剧情则是把这个裂缝彻底撕开。</p><p>美琴发现自己的基因被用来克隆了两万多个”妹妹”，这些妹妹被设计用于学园都市最强超能力者一方通行的能力进化实验——也就是被杀掉。而这件事本身，她无论如何都阻止不了：她的能力不够强，她的身份不足以对抗整个学园都市的研究体制，她甚至没法让实验完全停止。</p><p>这是美琴第一次真正面对”用实力解决不了”的问题。之前她遇到的所有挑战，努力+能力总是够用的。妹妹们剧情告诉她：有些事情不是能力问题，是体制和利益结构的问题，个人的强大有边界。</p><p>这段剧情让美琴的人物弧光完成了从”强者的自信”到”强者的脆弱与成长”的转变，而这一切是在她的性格内部生长出来的，不是外部强加的。</p><h2 id="和千早爱音的比较"><a href="#和千早爱音的比较" class="headerlink" title="和千早爱音的比较"></a>和千早爱音的比较</h2><p>同样是”表面强势内心脆弱”，千早爱音是另一种类型。爱音的强势来自外部压力——她需要用锋芒来应对那个时刻会否定她的世界，她的脆弱是因为她怕被拒绝、怕不被需要。她的傲娇是防御性的，对外的。</p><p>美琴的脆弱不来自外部，来自内部道德困境。她不怕别人不喜欢她，她怕的是自己的存在造成了伤害、自己的无力使她无法保护需要她保护的人。这是两种完全不同的脆弱：爱音的脆弱是”我够不够好”，美琴的脆弱是”我能不能承担我应该承担的责任”。</p><p>后者在叙事深度上更难写，因为它要求角色的行动和内心完全一致，不能有逻辑漏洞。某科学的超电磁炮在这方面做得相当扎实，美琴的每一个决定都能用她的性格逻辑推导出来，不需要剧情强行推着她走。</p><h2 id="为什么说她”最完美”"><a href="#为什么说她”最完美”" class="headerlink" title="为什么说她”最完美”"></a>为什么说她”最完美”</h2><p>不是说她没有缺点，而是说她的设计里，傲娇这个特征不是独立存在的，它和她的能力设定、她的成长背景、她的叙事弧光完全整合在一起。拆掉任何一块，人物都不再完整。</p><p>很多傲娇角色是傲娇壳子里装了一个角色，美琴是角色本身生长出了傲娇。这个区别，是角色能不能让人记住的核心原因。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 角色分析 </tag>
+            
+            <tag> 御坂美琴 </tag>
+            
+            <tag> 某科学的超电磁炮 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>高并发系统的限流：四种算法的选择逻辑</title>
+      <link href="/2026/03/10/rate-limiting/"/>
+      <url>/2026/03/10/rate-limiting/</url>
+      
+        <content type="html"><![CDATA[<p>限流是每个做后端的人绕不开的话题。它不难理解，但选哪种算法、在哪个层面做、怎么在分布式环境下实现原子性，这些细节搞清楚之前，坑踩起来很疼。</p><h2 id="为什么需要限流"><a href="#为什么需要限流" class="headerlink" title="为什么需要限流"></a>为什么需要限流</h2><p>先说动机。系统有处理能力上限，超过这个上限，要么响应时间飙升，要么直接崩溃。更危险的是雪崩效应：上游流量洪峰打垮 A 服务，A 服务超时导致 B 服务积压，B 服务崩溃触发 C 服务重试……整条链路全垮。</p><p>限流的本质是在系统入口做流量整形，把超出处理能力的请求拒绝掉或排队等待，而不是让它们全部涌进来把系统压死。代价是部分请求会被拒绝，但这比全部请求都超时或者系统直接崩掉要好得多。</p><h2 id="四种算法"><a href="#四种算法" class="headerlink" title="四种算法"></a>四种算法</h2><h3 id="固定窗口"><a href="#固定窗口" class="headerlink" title="固定窗口"></a>固定窗口</h3><p>最简单的实现：把时间划分成固定大小的窗口（比如每秒一个窗口），每个窗口内维护一个计数器，超过阈值就拒绝。</p><p>实现简单，Redis 里一个 INCR 加 EXPIRE 就能搞定。但有个著名的边界问题：如果阈值是 100 req&#x2F;s，在第 0.9 秒来了 100 个请求（没超限），在第 1.1 秒又来了 100 个请求（新窗口，也没超限），但从 0.9s 到 1.1s 这 0.2 秒内实际上有 200 个请求通过了。边界突刺可以达到阈值的两倍，对下游来说是个冲击。</p><h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><p>解决边界突刺问题的方案。不再是固定的时间格，而是以当前时刻为终点，往前看固定长度的窗口，统计这个窗口内的请求数。</p><p>实现上可以用 Redis 的 Sorted Set，以时间戳为 score 存储请求记录，查询时用 ZRANGEBYSCORE 统计时间窗口内的请求数，过期的记录用 ZREMRANGEBYSCORE 清除。准确，但比固定窗口消耗更多内存，每次请求都要做 set 操作而不是单纯的 INCR。</p><h3 id="漏桶"><a href="#漏桶" class="headerlink" title="漏桶"></a>漏桶</h3><p>把请求想象成往桶里倒水，桶底有一个固定速率的出口。无论入口的流量多么不均匀，出口总是以恒定速率放行请求。桶满了就溢出（拒绝请求）。</p><p>优点是输出极度平滑，对下游非常友好。缺点是即使系统当前完全空闲，也不能利用突发流量——桶里的水只能按固定速率流出。对于允许短时高并发的场景（比如秒杀活动的预热期），漏桶不是好选择。</p><h3 id="令牌桶"><a href="#令牌桶" class="headerlink" title="令牌桶"></a>令牌桶</h3><p>令牌以固定速率放入桶中，每个请求消耗一个令牌，桶满时令牌不再累积。请求到来时，有令牌就处理，没有令牌就拒绝（或等待）。</p><p>关键区别在于令牌可以积累。系统空闲时，桶里攒满令牌；流量突发时，可以瞬间消耗积累的令牌，允许短时超过平均速率的流量通过，只要总量不超过桶容量。这对于有正常流量基线但偶尔有合理突发的场景非常合适。</p><p>用咲夜举个例子。咲夜可以停止时间，在主观上静止的那段时间里，她在悄悄地往令牌桶里放令牌——摆好下午茶的茶杯、准备好瓷器、把茶壶摆在恰当的位置。时间恢复之后，可以瞬间接待远超平时数量的客人，因为准备工作已经提前做完了。令牌桶就是这个逻辑：平静期积累处理能力，突发期集中释放。漏桶没有这个能力，不管之前多空闲，每秒只能接待固定数量的客人。</p><h2 id="分布式环境下的额外麻烦"><a href="#分布式环境下的额外麻烦" class="headerlink" title="分布式环境下的额外麻烦"></a>分布式环境下的额外麻烦</h2><p>单机限流简单，分布式集群就复杂了。每个实例独立维护状态，全局限流就需要中心化存储，Redis 是最常用的方案。</p><p>但 Redis 的多步操作不是原子的，比如”判断是否超限 → 计数加一”两步之间可能有竞争条件。解决方案是用 Lua 脚本，Redis 保证 Lua 脚本执行的原子性：</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> key = KEYS[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">local</span> limit = <span class="built_in">tonumber</span>(ARGV[<span class="number">1</span>])</span><br><span class="line"><span class="keyword">local</span> expire = <span class="built_in">tonumber</span>(ARGV[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> current = redis.call(<span class="string">&#x27;GET&#x27;</span>, key)</span><br><span class="line"><span class="keyword">if</span> current <span class="keyword">and</span> <span class="built_in">tonumber</span>(current) &gt;= limit <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">local</span> newval = redis.call(<span class="string">&#x27;INCR&#x27;</span>, key)</span><br><span class="line"><span class="keyword">if</span> newval == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">    redis.call(<span class="string">&#x27;EXPIRE&#x27;</span>, key, expire)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><p>这段脚本实现的是固定窗口限流，<code>KEYS[1]</code> 是限流 key，<code>ARGV[1]</code> 是阈值，<code>ARGV[2]</code> 是窗口时间（秒）。返回 1 表示放行，返回 0 表示拒绝。令牌桶和滑动窗口也可以类似地用 Lua 实现。</p><h2 id="Nginx-Gateway-层-vs-应用层"><a href="#Nginx-Gateway-层-vs-应用层" class="headerlink" title="Nginx&#x2F;Gateway 层 vs 应用层"></a>Nginx&#x2F;Gateway 层 vs 应用层</h2><p>限流可以做在不同的层面，逻辑不同：</p><p>Nginx&#x2F;Gateway 层限流的优势是在请求进入应用之前就拦截，节省应用服务器资源。Nginx 的 <code>limit_req_zone</code> 模块直接支持漏桶算法，配置简单。缺点是粒度粗，只能基于 IP 或 URL 粒度，无法感知业务语义（比如按用户等级设置不同的限流阈值）。</p><p>应用层限流可以做到更细粒度：特定用户、特定接口、特定资源类型分别设置不同的策略。代价是每个请求都要有额外的 Redis 查询开销，以及代码复杂度增加。</p><p>实际项目里两层都做是合理的：Nginx&#x2F;Gateway 处理明显的流量攻击和全局保护，应用层做业务级别的精细控制。不要想着只做一层就万事大吉。</p><h2 id="选哪个"><a href="#选哪个" class="headerlink" title="选哪个"></a>选哪个</h2><p>没有万能答案，看场景：</p><ul><li>实现简单、对突刺不敏感：固定窗口</li><li>需要精确控制、可以接受内存开销：滑动窗口</li><li>下游对流量平滑有严格要求：漏桶</li><li>允许合理突发、最接近真实业务需求：令牌桶（大多数场景的推荐选择）</li></ul><p>分布式场景下记得用 Lua 保证原子性，别让竞争条件悄悄绕过你的限流逻辑。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分布式系统 </tag>
+            
+            <tag> 限流 </tag>
+            
+            <tag> 高并发 </tag>
+            
+            <tag> 工程实践 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>树形DP：当动态规划遇上树结构</title>
+      <link href="/2026/03/10/tree-dp/"/>
+      <url>/2026/03/10/tree-dp/</url>
+      
+        <content type="html"><![CDATA[<p>树形 DP 是竞赛里的经典题型，看起来变化多端，但核心就一句话：在树上做后序遍历，用子节点的状态推父节点的状态。理解了这一点，大多数树形 DP 题就只是状态设计的问题了。</p><h2 id="从一个类比开始"><a href="#从一个类比开始" class="headerlink" title="从一个类比开始"></a>从一个类比开始</h2><p>芙宁娜的审判体系是三层的：陪审团评议 → 法庭裁决 → 最终判决。下级的结果汇总之后才能做出上层的裁决，任何一级都不能越级直接影响最终结果。树形 DP 的逻辑和这个完全一样：叶节点先算，然后一层层往上汇总，根节点的答案最后得出。这就是后序遍历的本质。</p><h2 id="经典问题1：树上最大独立集"><a href="#经典问题1：树上最大独立集" class="headerlink" title="经典问题1：树上最大独立集"></a>经典问题1：树上最大独立集</h2><p>给定一棵 $n$ 个节点的带权树，选一个点集使得总权重最大，且集合中任意两个点不相邻（即不存在直接连边）。</p><p>状态定义：</p><p>$$dp[u][0] &#x3D; \text{不选节点 } u \text{ 时，} u \text{ 子树内的最大权重}$$</p><p>$$dp[u][1] &#x3D; \text{选节点 } u \text{ 时，} u \text{ 子树内的最大权重}$$</p><p>转移方程：</p><p>$$dp[u][1] &#x3D; w_u + \sum_{v \in \text{children}(u)} dp[v][0]$$</p><p>$$dp[u][0] &#x3D; \sum_{v \in \text{children}(u)} \max(dp[v][0],\ dp[v][1])$$</p><p>逻辑很直接：选了 $u$，它的所有儿子就不能选；不选 $u$，每个儿子可以自由选择最优的。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">100005</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; g[MAXN];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> dp[MAXN][<span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> w[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> fa)</span> </span>&#123;</span><br><span class="line">    dp[u][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    dp[u][<span class="number">1</span>] = w[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v : g[u]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v == fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(v, u);</span><br><span class="line">        dp[u][<span class="number">0</span>] += <span class="built_in">max</span>(dp[v][<span class="number">0</span>], dp[v][<span class="number">1</span>]);</span><br><span class="line">        dp[u][<span class="number">1</span>] += dp[v][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) cin &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        g[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        g[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">max</span>(dp[<span class="number">1</span>][<span class="number">0</span>], dp[<span class="number">1</span>][<span class="number">1</span>]) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="经典问题2：树的直径"><a href="#经典问题2：树的直径" class="headerlink" title="经典问题2：树的直径"></a>经典问题2：树的直径</h2><p>树的直径是树中最长的路径（边权之和最大的简单路径）。</p><p>一种做法是两次 BFS&#x2F;DFS，但树形 DP 的做法更直接：在 DFS 过程中，对每个节点 $u$，维护从 $u$ 出发往下走的最长链 $\text{dep}[u]$，经过 $u$ 的最长路径就是两个儿子最长链之和。</p><p>$$\text{ans} &#x3D; \max_{u}\ \max_{v_1 \neq v_2 \in \text{children}(u)} (\text{dep}[v_1] + w(u,v_1) + \text{dep}[v_2] + w(u,v_2))$$</p><p>实现时只需要在 DFS 里维护当前节点的最长和次长链，更新全局答案。</p><h2 id="换根-DP"><a href="#换根-DP" class="headerlink" title="换根 DP"></a>换根 DP</h2><p>换根 DP 是树形 DP 的进阶，用来解决”以每个节点为根，求某个值”的问题。</p><p>朴素做法是以每个节点为根分别 DFS，复杂度 $O(n^2)$，无法接受。换根 DP 的做法是两次 DFS：</p><ul><li>第一次 DFS（下行）：以节点 1 为根，计算每个节点往子树方向的信息</li><li>第二次 DFS（上行）：将根从父节点”传递”给子节点，利用已有信息 $O(1)$ 更新</li></ul><p>以”每个节点到其余所有节点的距离之和”为例：</p><p>$$\text{sum}[u] &#x3D; \text{subtree_sum}[u] + \text{up_sum}[u]$$</p><p>其中 $\text{subtree_sum}[u]$ 是 $u$ 往子树方向的贡献，$\text{up_sum}[u]$ 是 $u$ 往父节点方向的贡献。</p><p>当根从 $u$ 换到其儿子 $v$ 时，$v$ 子树里的所有节点距离减少 1，$v$ 子树外的所有节点距离增加 1：</p><p>$$\text{up_sum}[v] &#x3D; \text{up_sum}[u] + \text{subtree_sum}[u] - \text{subtree_sum}[v] + (n - \text{size}[v])$$</p><p>换根 DP 的关键是找到父子之间状态转移的增量关系，一旦推出这个公式，整个算法就是两次线性 DFS，复杂度 $O(n)$。</p><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><p>树形 DP 有几个容易错的地方，每次做题可以对照检查：</p><ol><li>状态定义够不够清晰？”以 $u$ 为根的子树”是标准的状态范围，不要混入子树外的信息</li><li>转移顺序对不对？必须是后序（先处理子节点，再处理当前节点），用递归自动保证</li><li>换根时有没有重复计算？从 $u$ 推 $v$ 时，要把 $v$ 原本对 $u$ 的贡献减掉</li><li>树的根是否影响答案？如果不影响，任取一个节点作根；如果影响，需要换根</li><li>有没有处理根节点的边界？根节点没有父节点，初始化时要注意</li></ol><p>树形 DP 本质上只是”把 DP 的数组换成树节点”，难点都在状态设计和转移的推导，而不是代码实现。一旦方程推出来，代码基本是模板。多做几道题，自然就有感觉了。</p><p>如果你做过芙宁娜相关的审判线剧情，你会发现每一级证据链都需要下级充分证明才能往上推进——这和树形 DP 的逻辑几乎是同构的。当然，游戏里允许情感 override 逻辑，算法里不行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 树形DP </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>找工作这件事没有你想的那么玄</title>
+      <link href="/2026/03/10/job-hunting-thoughts/"/>
+      <url>/2026/03/10/job-hunting-thoughts/</url>
+      
+        <content type="html"><![CDATA[<p>找工作这件事，被说烂了，又没说清楚。攻略满天飞，实际上大多数人还是一头雾水。我不打算再写一篇”面经”，而是想说一些关于求职本质的事情。</p><h2 id="你在做的事是信号传递"><a href="#你在做的事是信号传递" class="headerlink" title="你在做的事是信号传递"></a>你在做的事是信号传递</h2><p>经济学里有个”信号传递”理论，大意是：雇主无法直接观察你的能力，所以你要做一些成本高到低能力者无法模仿的事情来证明自己。学历是信号，实习经历是信号，竞赛奖项是信号。算法题也是信号。</p><p>理解了这点，很多事情就想通了。算法题的目的不是测试你真正的编程能力，而是筛选出愿意花时间刷题的人。能坚持刷几百道题的人，起码说明他有一定的自律能力和追求目标的动力。仅此而已。</p><p>所以对算法题最正确的态度是：它是门槛，不是天花板。过了这个门槛，面试才真正开始。那些认为”刷题好就能拿到好 offer”的人，和认为”我代码写得好但不刷题凭什么过不了”的人，都没理解游戏规则。</p><h2 id="算法题的实际价值"><a href="#算法题的实际价值" class="headerlink" title="算法题的实际价值"></a>算法题的实际价值</h2><p>说算法题没用是不对的。核心数据结构和算法——动态规划、图论、二分、堆——这些东西在实际工程里真的用得到，只是不像 OJ 题那么纯粹。更重要的是，刷题的过程会让你对时间复杂度有直觉，写代码时自然会考虑边界，这是很多”工程经验丰富但没刷过题”的人缺乏的。</p><p>但 LeetCode Hard 的技巧题，说真的，大多数工作里遇不到。那些考线段树、计算几何的题，更多是在测试”你最近有没有专门练习过这些”，而不是你的核心竞争力。AI 时代这个问题更明显：LLM 刷题变容易了，你背几个模板就能过，含金量其实在下降。</p><p>现在面试更看重的是：你能不能把一个模糊的问题建模成可以解决的形式？你能不能清晰解释你的思路？你遇到困难时是死磕还是换思路？这些是 LLM 帮不上忙的部分。</p><h2 id="内推的作用"><a href="#内推的作用" class="headerlink" title="内推的作用"></a>内推的作用</h2><p>内推被高估了，也没有被高估。</p><p>内推的核心价值是：让你的简历被真人看到，而不是被 ATS（简历筛选系统）直接过滤掉。如果你的简历质量过硬，内推只是节省了等待时间。如果简历一般，内推也只是让 HR 多看你一眼，不会让一个不够格的候选人通过。</p><p>投简历石沉大海的时候，找内推是理性的选择。但为了内推去拼命维系关系、付费买内推码，就有点本末倒置了。你认识的人不一定在目标公司，即使认识，内推之后该自己展示的东西一点没少。</p><p>顺带一提，LinkedIn 和脉脉上主动联系的成本很低，很多人不敢发消息是因为怕拒绝，但最坏的结果就是对方不回，这没什么大不了的。</p><h2 id="Offer-选择没有标准答案"><a href="#Offer-选择没有标准答案" class="headerlink" title="Offer 选择没有标准答案"></a>Offer 选择没有标准答案</h2><p>平台、钱、技术、发展空间，这四个维度不可能同时最优，你需要想清楚自己目前最需要什么。</p><p>应届生最大的误区是把薪资当做唯一指标。钱很重要，但 20% 的薪资差距在两三年后可能完全被成长速度抹平。另一个误区是迷信”大厂品牌”，但大厂里做边缘业务和小公司做核心业务，对你简历的增益可能完全反过来。</p><p>我自己的判断框架：第一，这里能不能让我做我真正想做的方向？第二，我能不能在这里遇到比我强的人？第三，这份工作对我下一份工作有没有帮助？薪资在这三个问题都有不错答案的前提下，当然越高越好。</p><p>没有”最好的选择”，只有”当下最合适的选择”，以及你有没有认真想过为什么选这个。</p><h2 id="AI-对求职的影响"><a href="#AI-对求职的影响" class="headerlink" title="AI 对求职的影响"></a>AI 对求职的影响</h2><p>短期内，AI 让刷题变容易了，让写简历变容易了，让投简历变容易了。但同时，所有人都在用同样的工具，你的优势不在于用了 AI，而在于用得比别人好。</p><p>长期来看，面试越来越看重系统设计和实际经验。你能不能设计一个合理的架构？你遇到过什么实际的工程问题？你有没有独立完成过一个有影响力的项目？这些问题 AI 答不了，只有真正做过的人才有说服力的回答。</p><p>所以 AI 时代求职变容易了，也变难了——容易的部分是那些准备层面的事情，难的部分是面试里你真正需要展示的东西更难造假了。</p><p>最后一句废话：求职是一个有终点的过程，不值得让它占据你生活的全部。尽力准备，接受结果，然后开始下一件事。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 思考 </tag>
+            
+            <tag> 实习 </tag>
+            
+            <tag> 求职 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用进化论理解Vtuber生态</title>
+      <link href="/2026/03/09/vtuber-evolution/"/>
+      <url>/2026/03/09/vtuber-evolution/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么用生物学类比"><a href="#为什么用生物学类比" class="headerlink" title="为什么用生物学类比"></a>为什么用生物学类比</h2><p>Vtuber 圈子在过去几年里发生了太多变化：事务所扩张、个人势崛起、主播毕业、AI Vtuber 登场、观众的消费习惯迁移。用”娱乐行业竞争”或者”内容创作者市场”这类框架来分析，其实缺少一个视角——这个圈子里的各个角色之间，存在非常完整的生态位关系，用生物学的进化论框架反而能说清楚很多东西。</p><p>当然，类比终究是类比。下面的内容是一个思维框架，不是严格的生物学论证。</p><hr><h2 id="大型事务所：顶级捕食者还是大型植食者？"><a href="#大型事务所：顶级捕食者还是大型植食者？" class="headerlink" title="大型事务所：顶级捕食者还是大型植食者？"></a>大型事务所：顶级捕食者还是大型植食者？</h2><p>Hololive 和 Nijisanji 是 Vtuber 生态里的顶级生物，毫无疑问。但它们更接近顶级捕食者（猛虎）还是大型植食者（大象）？</p><p>我倾向于大型植食者。它们不靠”捕食”其他 Vtuber 为生，而是靠大量消耗资源（运营成本、制作成本、IP 维护成本）来维持规模优势。它们的竞争力来源于体量：更多的成员、更完善的运营体系、更广泛的品牌认知。</p><p>大型植食者的特点是生态位宽，占据大量资源，对周围的小型物种产生巨大的生态压力。对个人势来说，Hololive 的存在就是这种压力：观众的注意力是有限的，大型事务所的高产出内容占据了大量时间，个人势只能在大型事务所覆盖不到的缝隙里生存。</p><p>两家事务所之间的竞争，更接近两个大型草食者在同一片草原上竞争——不是你死我活的捕食，而是资源竞争。Hololive 偏向更封闭的运营（强调成员协作和整体品牌感），Nijisanji 更开放（接近”给主播提供工具和平台”的模式，个人风格空间更大），这本质上是两种不同的生态位策略，各自吸引不同偏好的观众群体。</p><hr><h2 id="个人势：特化物种"><a href="#个人势：特化物种" class="headerlink" title="个人势：特化物种"></a>个人势：特化物种</h2><p>个人势（没有事务所背书的独立 Vtuber）在这个生态里扮演高度特化物种的角色。</p><p>特化物种的生存策略是：不和通用型物种竞争，而是找到一个足够小、足够深的生态位，把这个生态位占满。在一个大型事务所根本不会去的细分领域，个人势可以活得很好：极硬核的某类小众游戏受众、某个特定的语言&#x2F;地区社群、某个极其细分的内容风格（比如纯音乐向、编程教学向、ASMR 极度细分的某个方向）。</p><p>这类特化物种的脆弱性在于：一旦这个细分生态位的资源减少（受众流失、流量平台算法变化），它们缺少大型物种的缓冲能力，生存风险更高。个人势的毕业率远高于大型事务所的主播，这在生态学上是预期内的——特化物种的局部灭绝概率更高。</p><p>但特化物种也有一个优势：适应速度更快。个人势不需要经过事务所的多重审批流程，可以在几天内试验新的内容方向，对平台规则变化和受众需求变化的响应速度比大型事务所快得多。这种灵活性在环境快速变化时是生存优势。</p><hr><h2 id="观众的角色：寄生还是共生？"><a href="#观众的角色：寄生还是共生？" class="headerlink" title="观众的角色：寄生还是共生？"></a>观众的角色：寄生还是共生？</h2><p>观众在这个生态里的角色比看起来更复杂。</p><p>从经济关系上看，观众是共生的：他们提供的打赏、订阅、周边消费是整个生态的能量来源，没有观众的输入，整个生态系统的能量供给断绝。Vtuber 和观众之间是真正的互惠共生，不是寄生。</p><p>但从内容消费模式来看，有一类观众更接近寄生关系：他们消费内容但几乎不参与经济贡献（只看免费直播，不打赏不订阅），同时对主播的情绪状态产生较大影响（发弹幕、参与互动、形成舆论压力）。这类”寄生”本身不一定是坏的，它提供了内容的传播和人气的基础，但对主播来说它带来的成本有时不小。</p><p>还有一种分类是”养成系”和”消费系”。养成系观众把和主播的关系理解为一种长期陪伴，关注成长轨迹，愿意投入大量情感；消费系观众把 Vtuber 当作内容服务消费，主播对他们来说是可替换的娱乐产品。前者的粘性更高、经济贡献更大，但对主播的期待也更强，处理不好容易造成心理压力。大型事务所通常会试图培养养成系受众，因为这是更稳定的生态能量来源。</p><hr><h2 id="毕业：物种灭绝的三种原因"><a href="#毕业：物种灭绝的三种原因" class="headerlink" title="毕业：物种灭绝的三种原因"></a>毕业：物种灭绝的三种原因</h2><p>Vtuber “毕业”（退出）的原因，在生态学框架里对应三类物种灭绝：</p><p>环境变化导致的灭绝。平台规则变化（Youtube 算法调整、直播限制收紧）、粉丝群体的代际更替、游戏内容的版权问题，这类外部环境变化对所有类型的 Vtuber 都构成压力，但抗压能力不同。大型事务所有资源缓冲，个人势没有。</p><p>竞争失败导致的灭绝。生态位被更有竞争力的个体占据。有时候不是因为自己变差了，而是因为来了一个更强的竞争者。这类情况在 Nijisanji 旗下极多成员的情况下特别明显——数百个频道同时运营，内部竞争激烈，长期低人气的频道更新频率下降最终到停播，这就是竞争压力下的局部灭绝。</p><p>自然死亡。主播本人到了想做别的事的时候，选择毕业。这是最正常的原因，但往往被过度解读——观众有时候会把”自然死亡”解读成某种外部压力造成的，其实未必。</p><hr><h2 id="AI-Vtuber：外来入侵物种"><a href="#AI-Vtuber：外来入侵物种" class="headerlink" title="AI Vtuber：外来入侵物种"></a>AI Vtuber：外来入侵物种</h2><p>这是当前最有趣的生态扰动。</p><p>AI Vtuber（使用语言模型驱动角色，不依赖固定的人类主播）的出现，在生态学上相当于外来入侵物种：它们消耗同样的资源（观众注意力、平台流量），但有生物学上不存在的优势——不需要休息、可以同时出现在多个平台、心理状态高度稳定、可以根据观众反馈快速迭代风格。</p><p>外来入侵物种的标准剧本是：最开始被本地物种当作新奇事物，随后因为不受”原生限制”而快速扩张，最终改变整个生态的能量流动。</p><p>AI Vtuber 目前还处于早期阶段，很多方向还不成熟（交互深度不够、个性化程度有限、情感连接的真实感不足），但轨迹已经很清晰了。它不会消灭人类主播驱动的 Vtuber，但会占据相当一部分对”内容本身”的需求，迫使人类主播向”不可被 AI 替代的维度”转移——真实的情感互动、不可预测的人格魅力、现场性和在场感。</p><hr><h2 id="初音未来：初级生产者"><a href="#初音未来：初级生产者" class="headerlink" title="初音未来：初级生产者"></a>初音未来：初级生产者</h2><p>这是整个框架里最特殊的位置。</p><p>初音未来不是 Vtuber。她没有直播，没有实时互动，没有事务所运营，没有毕业的可能。但她对整个 Vtuber 文化生态的贡献比任何一个具体的 Vtuber 都重要——她创造的是这个生态得以存在的底层文化土壤。</p><p>生态学里，初级生产者（植物）是通过光合作用把太阳能转化成有机物，为整个食物网提供能量基础的生物。它们不是任何东西的猎物，也不捕食任何东西，但没有它们整个生态系统就不存在。</p><p>初音未来是这个意义上的初级生产者：她验证了一件事——虚拟的、没有真实人类面孔的二次元角色，可以成为大量人类情感投射和文化创作的对象，这件事在文化上是可能的。没有她奠定的这个文化可能性，虚拟主播在观众心理层面的接受度不会有今天这么高。</p><p>所以在用进化论分析 Vtuber 生态时，初音未来的位置不在这个生态内，她是这个生态存在的前提条件之一。</p><hr><p>最后的观点：这个生态还在快速演化，AI Vtuber 带来的扰动才刚刚开始，大型事务所的体量优势和个人势的灵活性之间的张力还没有到达新的均衡点。值得持续观察，不值得过早下定论。</p><hr><p><em>本文是思维框架性的讨论，不构成对任何主播或机构的商业评价。</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 文化 </tag>
+            
+            <tag> Vtuber </tag>
+            
+            <tag> 进化论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LoRA：用0.1%的参数微调LLM，不是玄学是线代</title>
+      <link href="/2026/03/09/lora-finetuning/"/>
+      <url>/2026/03/09/lora-finetuning/</url>
+      
+        <content type="html"><![CDATA[<h2 id="先说一个类比"><a href="#先说一个类比" class="headerlink" title="先说一个类比"></a>先说一个类比</h2><p>十六夜咲夜管理着整个红魔馆的时间流和日程。如果蕾米莉亚今天突然有新的要求——比如”下午茶改在花园而不是大厅”——咲夜不需要重新组织整个红魔馆的运转系统，她只需要在原有的日程表上做一个小小的调整：把”大厅”这一项改成”花园”，其他一切照常。</p><p>LoRA 干的就是这件事：不改动预训练模型的全部参数，而是给每一层的权重矩阵附加一个”小小的调整量”，用这个调整量来承载新任务的信息。</p><p>这听起来很简单，但为什么它能 work？这背后有一个具体的数学依据。</p><hr><h2 id="全参数微调的问题"><a href="#全参数微调的问题" class="headerlink" title="全参数微调的问题"></a>全参数微调的问题</h2><p>一个典型的 LLM（比如 LLaMA-7B）有 70 亿个参数。对它做全参数微调（Full Fine-tuning）意味着在训练过程中所有 70 亿个参数都在更新，需要存储梯度、优化器状态（Adam 的话需要一阶矩和二阶矩，参数量 ×3），显存消耗大致是模型本身的 4 倍以上。一个 7B 模型的全参数微调，在 float32 下需要超过 100GB 显存，这对绝大多数人来说是不可能的。</p><p>LoRA 的参数量是什么量级？如果对所有 Transformer 层的 Q、K、V、O 矩阵都加 LoRA，rank 取 8，7B 模型的可训练参数大约是 4-40M，也就是总参数量的 0.05%-0.5%。显存降低到可以在消费级 GPU 上跑。</p><p>但参数少了这么多，效果怎么样？很多任务上 LoRA 微调的效果和全参数微调接近，有些任务上甚至更好（因为参数约束起到了一定的正则化效果，防止过拟合）。这就是它值得深入理解的地方。</p><hr><h2 id="低秩分解：数学上到底在做什么"><a href="#低秩分解：数学上到底在做什么" class="headerlink" title="低秩分解：数学上到底在做什么"></a>低秩分解：数学上到底在做什么</h2><p>LoRA 的核心假设是：模型在适配新任务时，权重矩阵的变化量 $\Delta W$ 是低秩的（low-rank）。</p><p>形式化地写，对于原始权重矩阵 $W_0 \in \mathbb{R}^{d \times k}$，LoRA 的参数化方式是：</p><p>$$W &#x3D; W_0 + \Delta W &#x3D; W_0 + BA$$</p><p>其中 $B \in \mathbb{R}^{d \times r}$，$A \in \mathbb{R}^{r \times k}$，$r \ll \min(d, k)$。$r$ 就是所谓的 rank。</p><p>原始 $\Delta W$ 有 $d \times k$ 个参数。拆成 $B$ 和 $A$ 之后，参数量变成 $r(d+k)$。当 $r&#x3D;8$，$d&#x3D;k&#x3D;4096$ 时，参数量从 16M 降到约 65K，降了两个数量级。</p><p>训练时 $W_0$ 冻结（frozen），只训练 $A$ 和 $B$。初始化时 $A$ 用高斯随机初始化，$B$ 全零初始化，这样训练开始时 $\Delta W &#x3D; BA &#x3D; 0$，保证微调起点和原始模型相同。</p><hr><h2 id="为什么更新矩阵是低秩的：内在维度假说"><a href="#为什么更新矩阵是低秩的：内在维度假说" class="headerlink" title="为什么更新矩阵是低秩的：内在维度假说"></a>为什么更新矩阵是低秩的：内在维度假说</h2><p>这是 LoRA 能 work 的理论基础。</p><p>Aghajanyan et al., 2021（《Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning》）在 LoRA 之前做了一个实验：他们用随机投影把梯度更新约束到一个低维子空间里，然后看在不同维度下微调能达到什么效果。结论是：对于大多数 NLP 任务，模型微调所需的”内在维度”（intrinsic dimension）远远小于参数总量——很多任务的内在维度在几十到几百的量级，而参数量是几十亿。</p><p>直觉解释：预训练模型已经在大规模数据上学到了丰富的表示，适配一个具体的下游任务，本质上是在已有表示空间里做一个小的”转向”，而不是从零开始学一个新的方向。这个转向所需的自由度很少，因此权重更新的有效信息可以被一个低秩矩阵近似捕获。</p><p>换句话说：模型在预训练后，参数空间里大部分方向已经是”有意义的”，微调需要移动的只是其中一个低维的流形。</p><hr><h2 id="Rank-的选择"><a href="#Rank-的选择" class="headerlink" title="Rank 的选择"></a>Rank 的选择</h2><p>rank $r$ 是 LoRA 的核心超参数，选多大是有讲究的。</p><p>原始论文（Hu et al., 2022）里的发现是：在很多任务上 $r&#x3D;4$ 或 $r&#x3D;8$ 就已经足够好，继续增大 rank 边际收益递减，而且过大的 rank 会失去低秩约束的正则化效果，在小数据集上反而更容易过拟合。</p><p>经验规则：</p><ul><li>简单的指令跟随任务（格式、风格调整）：$r&#x3D;4$ 或 $r&#x3D;8$</li><li>领域适应（让模型了解特定领域的知识和术语）：$r&#x3D;16$ 或 $r&#x3D;32$</li><li>复杂任务（代码、数学推理这类需要学习新技能的任务）：$r&#x3D;64$ 或更高</li></ul><p>但这些都是经验性的，最终还是要在你的数据集上做消融实验。</p><hr><h2 id="QLoRA：量化-LoRA"><a href="#QLoRA：量化-LoRA" class="headerlink" title="QLoRA：量化 + LoRA"></a>QLoRA：量化 + LoRA</h2><p>QLoRA（Dettmers et al., 2023）在 LoRA 的基础上加了一步：把冻结的基础模型参数用 4-bit 量化（NF4 量化，专门为正态分布设计的量化格式）存储，只有可训练的 LoRA 参数保持 float16 精度。</p><p>这把内存消耗进一步压缩，让 65B 参数的模型可以在单张 48GB GPU 上微调。代价是计算时需要把 4-bit 权重反量化回 float16 做前向传播，有一定的额外计算开销，但这个开销通常是可接受的。</p><hr><h2 id="工程上的坑"><a href="#工程上的坑" class="headerlink" title="工程上的坑"></a>工程上的坑</h2><p>合并权重时的精度损失。训练完成后，LoRA 权重可以合并回基础模型：$W \leftarrow W_0 + BA$。这个加法操作如果在 float16 下进行，对于基础权重数值很大而 $BA$ 很小的情况，会有一定的精度损失。推荐在 float32 下做合并，然后再转回 float16 存储。</p><p>不同任务的 rank 需求差异很大。一个为代码生成微调的 LoRA 和一个为情感分类微调的 LoRA，最优 rank 可能相差 10 倍。跨任务复用同一套 LoRA 超参数不一定合适，需要针对任务做调整。</p><p>LoRA 加在哪些层。原始论文只对 Attention 的 Q 和 V 矩阵加 LoRA。后续研究发现对 Q、K、V、O 以及 FFN 的 up_proj 和 down_proj 都加 LoRA，效果更好，但参数量也更大。没有通用答案，看任务和资源预算。</p><p>学习率比全参数微调高。LoRA 的参数量小，如果用全参数微调的学习率（比如 1e-5），更新量太小收敛很慢。通常 LoRA 的学习率要调到 1e-4 甚至更高。</p><hr><h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>LoRA 不是参数压缩的黑魔法，它的有效性有具体的理论支撑：预训练模型的权重更新有内在低秩结构，只要用低秩矩阵近似这个更新，参数量可以大幅降低而不损失太多表达能力。</p><p>具体参数怎么选，还是要做实验。没有万能的 $r&#x3D;8$，但 $r&#x3D;8$ 是一个合理的起点。</p><hr><p><em>参考：Hu et al., LoRA: Low-Rank Adaptation of Large Language Models, ICLR 2022 · Aghajanyan et al., Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning, ACL 2021 · Dettmers et al., QLoRA: Efficient Finetuning of Quantized LLMs, NeurIPS 2023</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> LLM </tag>
+            
+            <tag> LoRA </tag>
+            
+            <tag> 微调 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最短路三兄弟：Dijkstra、Bellman-Ford、Floyd</title>
+      <link href="/2026/03/09/shortest-path/"/>
+      <url>/2026/03/09/shortest-path/</url>
+      
+        <content type="html"><![CDATA[<p>图论题里最高频的考点之一。很多人三个算法都会背，但上了真题分不清楚该用哪个，或者想当然地用了错的那个然后WA到怀疑人生。这篇文章的目标是把三个算法的适用边界说清楚，不只是”会背”。</p><hr><h2 id="Dijkstra：贪心-优先队列"><a href="#Dijkstra：贪心-优先队列" class="headerlink" title="Dijkstra：贪心 + 优先队列"></a>Dijkstra：贪心 + 优先队列</h2><h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>Dijkstra 解决的是单源最短路（Single Source Shortest Path, SSSP）问题：给定源点 $s$，求 $s$ 到图中所有其他点的最短距离。</p><p>算法核心是贪心：维护一个集合 $S$，初始只含源点 $s$，$dist[s] &#x3D; 0$，其他点 $dist[v] &#x3D; +\infty$。每次从未确定的点里找 $dist$ 最小的点 $u$，把 $u$ 加入 $S$，然后用 $u$ 的出边对邻居做松弛（Relaxation）操作：</p><p>$$\text{if } dist[u] + w(u, v) &lt; dist[v]: \quad dist[v] \leftarrow dist[u] + w(u, v)$$</p><p>这个贪心选择的正确性依赖一个前提：边权非负。</p><p>用御坂美琴找最省电路线做类比：她每次选择”当前已知路径里，到达费电最少的那个节点”去探索，因为电量不能是负数，一旦找到某条路是当前最省电的，就不可能有更省电的路被后来发现。如果某条线路可以”充电”（负权边），这个贪心选择就会失效——你以为当前最省电的路就是最优的，但走了一圈充了电之后发现另一条路更好。</p><p>朴素 Dijkstra 是 $O(V^2)$，用优先队列（二叉堆）优化后是 $O((V+E)\log V)$，用 Fibonacci 堆是 $O(E + V \log V)$（理论最优但实现复杂，竞赛里不用）。</p><h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C++ 实现"></a>C++ 实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; adj[MAXN];  <span class="comment">// adj[u] = &#123;(v, w), ...&#125;</span></span><br><span class="line"><span class="type">int</span> dist[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">fill</span>(dist + <span class="number">1</span>, dist + n + <span class="number">1</span>, INF);</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 优先队列：&#123;dist, node&#125;，最小堆</span></span><br><span class="line">    priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;, greater&lt;&gt;&gt; pq;</span><br><span class="line">    pq.<span class="built_in">push</span>(&#123;<span class="number">0</span>, s&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span> [d, u] = pq.<span class="built_in">top</span>(); pq.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (d &gt; dist[u]) <span class="keyword">continue</span>;  <span class="comment">// 过期节点，跳过</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> [v, w] : adj[u]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dist[u] + w &lt; dist[v]) &#123;</span><br><span class="line">                dist[v] = dist[u] + w;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;dist[v], v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>if (d &gt; dist[u]) continue;</code> 这行不能漏。优先队列里可能有同一个节点的多个过期版本（之前入队后又被松弛了），不跳过会重复处理，虽然结果正确但复杂度会退化。</p><hr><h2 id="Bellman-Ford：动态松弛，能检测负环"><a href="#Bellman-Ford：动态松弛，能检测负环" class="headerlink" title="Bellman-Ford：动态松弛，能检测负环"></a>Bellman-Ford：动态松弛，能检测负环</h2><h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><p>Bellman-Ford 的思路不是贪心，而是重复松弛。核心定理：在一个 $V$ 个节点的图里，如果存在最短路，最短路最多经过 $V-1$ 条边。所以做 $V-1$ 轮松弛，每轮对所有边做一次松弛操作，就能保证找到所有最短路。</p><p>时间复杂度 $O(VE)$，比 Dijkstra 慢，但可以处理负权边，而且可以检测负环：做完 $V-1$ 轮之后再做第 $V$ 轮，如果还有边能被松弛，说明图中存在负环（因为负环可以让路径长度无限减小）。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span> &#123; <span class="type">int</span> u, v, w; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回true表示存在负环</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">bellman_ford</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> n, vector&lt;Edge&gt;&amp; edges, vector&lt;<span class="type">int</span>&gt;&amp; dist)</span> </span>&#123;</span><br><span class="line">    dist.<span class="built_in">assign</span>(n + <span class="number">1</span>, INF);</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [u, v, w] : edges) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dist[u] != INF &amp;&amp; dist[u] + w &lt; dist[v])</span><br><span class="line">                dist[v] = dist[u] + w;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检测负环</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [u, v, w] : edges) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dist[u] != INF &amp;&amp; dist[u] + w &lt; dist[v])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;  <span class="comment">// 存在负环</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="SPFA：Bellman-Ford-的队列优化，以及它被-hack-的历史"><a href="#SPFA：Bellman-Ford-的队列优化，以及它被-hack-的历史" class="headerlink" title="SPFA：Bellman-Ford 的队列优化，以及它被 hack 的历史"></a>SPFA：Bellman-Ford 的队列优化，以及它被 hack 的历史</h3><p>SPFA（Shortest Path Faster Algorithm）是 Bellman-Ford 的队列优化版本：把”已经被松弛过的点”放进队列，下一轮只处理队列里的点而不是全部边，平均情况下复杂度接近 $O(kE)$（$k$ 是一个较小的常数）。</p><p>在 2010 年代之前的国内竞赛里，SPFA 几乎是单源最短路的万金油写法——比 Dijkstra 好写，还能处理负权边，平均速度也不慢。</p><p>然而 SPFA 的最坏情况复杂度还是 $O(VE)$，和普通 Bellman-Ford 一样。出题人发现这一点之后开始专门构造菊花图（一个中心节点连接大量叶子节点，再绕回来）来卡 SPFA，导致 SPFA 频繁 TLE。现在稍微正式一点的比赛，如果 checker 专门卡 SPFA，这个算法就是 TLE 的等价物。</p><p>现在的竞赛标准是：能用 Dijkstra 就用 Dijkstra，不能用（有负权边但没有负环）再考虑 Bellman-Ford&#x2F;SPFA。用 SPFA 之前先看看数据范围和题目来源，如果是近年的 Codeforces 题或者有”卡 SPFA”声誉的出题人，趁早换。</p><hr><h2 id="Floyd-Warshall：全源最短路，O-V³-的-DP"><a href="#Floyd-Warshall：全源最短路，O-V³-的-DP" class="headerlink" title="Floyd-Warshall：全源最短路，O(V³) 的 DP"></a>Floyd-Warshall：全源最短路，O(V³) 的 DP</h2><h3 id="基本思路-2"><a href="#基本思路-2" class="headerlink" title="基本思路"></a>基本思路</h3><p>Floyd 解决的是全源最短路（All-Pairs Shortest Path, APSP）：求图中所有点对 $(i, j)$ 之间的最短距离。</p><p>算法是 DP。定义 $dp[k][i][j]$ 为”只允许通过节点集合 ${1, 2, \ldots, k}$ 中的节点作为中间节点时，从 $i$ 到 $j$ 的最短距离”。状态转移：</p><p>$$dp[k][i][j] &#x3D; \min(dp[k-1][i][j],\ dp[k-1][i][k] + dp[k-1][k][j])$$</p><p>初始状态 $dp[0][i][j] &#x3D; w(i,j)$（直接相连）或 $+\infty$（不相连），$dp[0][i][i] &#x3D; 0$。</p><p>由于 $dp[k]$ 只依赖 $dp[k-1]$，可以用滚动数组压缩到 $O(V^2)$ 空间，也就是常见的三重循环写法：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">505</span>;</span><br><span class="line"><span class="type">int</span> dp[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">floyd</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化：dp[i][j] 由输入边决定，dp[i][i] = 0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">                <span class="keyword">if</span> (dp[i][k] != INF &amp;&amp; dp[k][j] != INF)</span><br><span class="line">                    dp[i][j] = <span class="built_in">min</span>(dp[i][j], dp[i][k] + dp[k][j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意 <code>if (dp[i][k] != INF &amp;&amp; dp[k][j] != INF)</code> 这个判断，防止 INF + INF 溢出成负数导致错误。</p><p>Floyd 可以处理负权边，但不能有负环（负环上的 $dp[i][i]$ 会被更新成负数，可以用 $dp[i][i] &lt; 0$ 来检测负环是否存在）。</p><p>$O(V^3)$ 的复杂度，$V \leq 500$ 是上限，超过就 TLE。</p><hr><h2 id="三者对比"><a href="#三者对比" class="headerlink" title="三者对比"></a>三者对比</h2><table><thead><tr><th>算法</th><th>时间复杂度</th><th>空间复杂度</th><th>负权边</th><th>负环检测</th><th>用途</th></tr></thead><tbody><tr><td>Dijkstra（堆优化）</td><td>$O((V+E)\log V)$</td><td>$O(V+E)$</td><td>不支持</td><td>不支持</td><td>单源，无负权</td></tr><tr><td>Bellman-Ford</td><td>$O(VE)$</td><td>$O(V)$</td><td>支持</td><td>支持</td><td>单源，有负权&#x2F;需检测负环</td></tr><tr><td>SPFA</td><td>$O(kE)$ 均摊，最坏 $O(VE)$</td><td>$O(V)$</td><td>支持</td><td>支持</td><td>慎用，容易被卡</td></tr><tr><td>Floyd</td><td>$O(V^3)$</td><td>$O(V^2)$</td><td>支持</td><td>可检测</td><td>全源，$V \leq 500$</td></tr></tbody></table><hr><h2 id="竞赛选择策略"><a href="#竞赛选择策略" class="headerlink" title="竞赛选择策略"></a>竞赛选择策略</h2><ol><li>题目问单源最短路，边权全为非负 → 优先队列 Dijkstra，不用想</li><li>题目有负权边但 $V$ 不大（$\leq 10^4$） → Bellman-Ford</li><li>题目需要检测负环 → Bellman-Ford 第 $V$ 轮检测，或 Floyd 看对角线</li><li>题目要求所有点对之间的最短距离，$V \leq 500$ → Floyd</li><li>看到”SPFA可以做这题” → 想想会不会被卡，如果不确定，改写 Dijkstra</li></ol><p>一个经验：很多题貌似有负权边，但仔细读题发现是差分约束或者边权可以转化，最终还是能用 Dijkstra。读题时要确认到底是”边权真的为负”还是”只是题面描述看起来有减法”。</p><hr><h2 id="做题-Checklist"><a href="#做题-Checklist" class="headerlink" title="做题 Checklist"></a>做题 Checklist</h2><ol><li>单源还是多源？多源可以建虚拟超级源点，连到所有真实源点，距离设为0，转化成单源</li><li>有负权边吗？有的话 Dijkstra 直接排除</li><li>需要检测负环吗？需要的话用 Bellman-Ford 第 $V$ 轮，或者用 Floyd 之后看 $dp[i][i]$</li><li>图的规模？$V \leq 500$ 可以考虑 Floyd；$V, E$ 很大 → 必须 Dijkstra</li><li>dist 数组初始化成 INF 了吗？没有就全局 bug</li><li>Floyd 里三重循环的顺序对了吗？必须是 k 在最外层，i、j 在内层。顺序错了结果是错的而且很难发现</li></ol><p>第6条是 Floyd 的经典坑，k 在内层时相当于没有完成”允许通过前 k 个节点”的递推，答案会偏大。</p><hr><p><em>练习题：<a href="https://www.luogu.com.cn/problem/P4779">洛谷P4779 Dijkstra单源最短路</a> · <a href="https://www.luogu.com.cn/problem/P3385">洛谷P3385 Bellman-Ford&#x2F;SPFA负环检测</a> · <a href="https://www.luogu.com.cn/problem/B3647">洛谷B3647 Floyd全源最短路</a></em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ACM-ICPC </tag>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 最短路 </tag>
+            
+            <tag> Dijkstra </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在香港读研这半年，我观察到的一些东西</title>
+      <link href="/2026/03/08/hku-observations/"/>
+      <url>/2026/03/08/hku-observations/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章不是攻略。网上关于HKU的攻略已经足够多了，宿舍怎么申请、课程怎么选、粤语怎么学，搜一下都有。我想写的是一些观察性的内容——那些不会出现在攻略里、但你在这里待够了自然会注意到的东西。</p><hr><h2 id="HKU的节奏感和内地不一样"><a href="#HKU的节奏感和内地不一样" class="headerlink" title="HKU的节奏感和内地不一样"></a>HKU的节奏感和内地不一样</h2><p>这是来了之后第一个明显的感受，但很难精确描述。</p><p>不是说HKU更轻松——大量的reading、group project、presentation，绝对不算少。而是一种底层节奏感的差异。内地高校更接近一种”密集推进”的节奏：ddl集中、考试周压力集中、节点清晰，你在某个时间段里高度紧绷，然后过了这个节点可以暂时松一口气。</p><p>HKU更接近一种持续低强度的分散张力。没有期中期末的集中爆发，作业从开学第一周就开始交，课程安排在整个学期里分布得很均匀。表面上看起来更松弛，但”松弛”实际上是用来换取”持续在做事”的。如果你习惯了冲刺-松弛-冲刺的节律，这种持续低张力的模式反而更难适应——因为你永远不知道什么时候可以真正放松。</p><p>还有一个节奏差异来自课堂形式。很多课是以discussion和presentation为主的，不是在听教授讲完课然后回去做题，而是要在课堂上持续产出观点。这对习惯被动学习的内地学生有一定的适应成本。</p><hr><h2 id="香港的矛盾感"><a href="#香港的矛盾感" class="headerlink" title="香港的矛盾感"></a>香港的矛盾感</h2><p>待久了会发现香港是一个有趣的矛盾体：它同时是一个极度成熟的金融城市，和一个仍然在摸索定位的科技城市。</p><p>金融属性渗透在这个城市的方方面面。街道上走着的人、咖啡馆里谈的话题、招聘市场上的需求分布，都带有浓厚的金融业气质。CS背景在这里不是就业市场的天花板，金融科技（FinTech）和量化是最明显的出口，纯做tech产品的机会比北京上海少很多。</p><p>科技属性在快速追赶，但仍然有落差。HKU和HKUST在AI方向有一批不错的组，但和内地一线互联网公司的工程环境还有距离。如果你来是为了做大规模系统、跑大规模训练，在香港能接触到的资源和内地大厂比还是有差距的。</p><p>这不是香港的失败，而是一个城市的功能定位问题。香港的优势在于国际化的视野、对接全球金融的位置、相对宽松的信息环境。这些优势对某些目标很有价值，对另一些目标意义就没那么大。来之前想清楚你要的是什么，这决定了香港对你的价值几何。</p><hr><h2 id="内地来的CS学生在HKU的普遍状态"><a href="#内地来的CS学生在HKU的普遍状态" class="headerlink" title="内地来的CS学生在HKU的普遍状态"></a>内地来的CS学生在HKU的普遍状态</h2><p>这是一个观察性的描述，不是评判。</p><p>很多从内地顶校来的CS学生，刚来的时候有一种隐隐的落差感。这很正常：内地竞赛背景、实习经历、工程经验往往比本地生或者其他国际学生更扎实，但语言劣势和对本地就业市场的不熟悉，让这些优势在短期内很难转化成清晰的机会。</p><p>有一类人的应对方式是”卷成绩”：花大量时间在 GPA 上，因为这是最熟悉的语言。这不一定是坏选择，但在 MSc CS 项目里纯靠 GPA 能撬动的空间是有限的——很少有雇主在看 MSc 候选人的时候第一眼看 GPA，他们更看项目经历和面试表现。</p><p>另一类人的应对方式是花大量时间在社交网络里找机会，活跃在各种学生组织和行业活动里。香港作为国际金融中心，这类活动密度很高，人脉资源确实可以积累得很快，但投入和产出的比例因人而异，这条路对于性格内向或目标是技术岗位的人来说不那么顺畅。</p><p>还有一类人来了之后发现香港不是他们想要的环境，半年之内就想清楚了下一步要去哪，把 MSc 当成一个跳板节点。这类人是我观察到的里面状态最平稳的一类——目标清晰之后，对周围的信息噪声免疫力更强。</p><hr><h2 id="MSc-CS项目本质上是什么"><a href="#MSc-CS项目本质上是什么" class="headerlink" title="MSc CS项目本质上是什么"></a>MSc CS项目本质上是什么</h2><p>这个问题值得直说，避免不必要的预期落差。</p><p>HKU MSc CS（以及绝大多数顶校的 MSc CS）本质上是授课型学位（Taught Programme），不是研究型学位（Research Programme）。这意味着它的核心价值是：课程体系、学校背景带来的就业信号、以及人际网络。它不是一个帮你训练做研究的项目，也不是一个系统性提升工程能力的项目。</p><p>很多人来的时候期望”在港大学到很多东西”，这个期望能不能实现，高度依赖你自己去主动创造条件——找教授合作项目、自己做工程实践、参加比赛。课堂本身给你的，是一个基本的知识框架，不是一个深度打磨的机会。</p><p>研究型 MPhil 或 PhD 是另一回事。但 MSc 课程里有多少人转到了研究方向？比例很小，而且大多数在来之前就已经有明确的研究兴趣和对应的联系教授。</p><hr><h2 id="“读研值不值”这个问题的当下回答"><a href="#“读研值不值”这个问题的当下回答" class="headerlink" title="“读研值不值”这个问题的当下回答"></a>“读研值不值”这个问题的当下回答</h2><p>这是一个每隔一段时间答案会变的问题。以当下的状态来看。</p><p>值的地方：一个额外的校名背书，在找工作时增加了一定的简历通过率；给了一段不在内地就业市场全力冲刺的时间窗口，可以想清楚接下来要做什么；香港的信息获取环境有一些独特价值，尤其是如果你目标是出海方向。</p><p>不值的地方：如果你的目标是国内互联网大厂，这一年的机会成本很高，本科直接实习能积累的经验在很多场景下比 MSc 学历更值钱；项目本身的技术深度有限，不会帮你在技术能力上产生质变；学费不便宜。</p><p>所以”值不值”这个问题本身问得不够精确，应该问”对谁、在什么目标下、值”。对于方向清晰、目标是国际化或学术路径的人，价值明显。对于目标是国内技术岗位的人，这笔账并不好算。</p><p>在这个问题上我没有一个推广给所有人的答案，也不打算有。</p><hr><p>以上是半年里观察到的一些东西，没有特别的结论。待久了自然会有更多的更新。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HKU </tag>
+            
+            <tag> 香港 </tag>
+            
+            <tag> 研究生 </tag>
+            
+            <tag> 观察 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开放世界游戏为什么这么上瘾：从心理学到设计哲学</title>
+      <link href="/2026/03/08/open-world-games/"/>
+      <url>/2026/03/08/open-world-games/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一个值得认真回答的问题"><a href="#一个值得认真回答的问题" class="headerlink" title="一个值得认真回答的问题"></a>一个值得认真回答的问题</h2><p>为什么有人能在原神枫丹的海底一个人走两个小时，没有战斗，没有剧情，就是在看水母？</p><p>理性上这件事毫无意义。现实里的两小时可以做很多事。但你就是走了。</p><p>这不是什么道德问题，也不是”沉迷游戏”这个简单标签能概括的。我觉得这背后有几个值得说清楚的心理机制，以及开放世界游戏设计者是怎么利用（或者利用好）这些机制的。</p><hr><h2 id="变比强化：赌场在游戏里开了分店"><a href="#变比强化：赌场在游戏里开了分店" class="headerlink" title="变比强化：赌场在游戏里开了分店"></a>变比强化：赌场在游戏里开了分店</h2><p>心理学里有一个概念叫变比强化（Variable Ratio Reinforcement），来自 Skinner 的操作性条件反射实验。实验结论是：如果奖励以不可预测的频率出现（而不是固定次数后必然出现），被试会表现出最强的持续行为和最高的消退抵抗力。</p><p>赌博机器就是这个原理：你不知道下一把会不会赢，所以停不下来。</p><p>开放世界游戏里最核心的上瘾机制同样是这个。原神里你不知道下一个宝箱打开是精致宝箱还是华丽宝箱，不知道下一个秘境深处有没有特殊剧情，不知道翻过这座山会不会有一个隐藏神像。这种不确定性本身比固定奖励更能驱动探索行为。</p><p>关键是开放世界游戏把这个机制和”空间探索”绑定在了一起。赌博机器的变比强化是在时间维度上的（不知道下一把），开放世界是在空间维度上的（不知道下一个地方有什么）。后者更难被意志力抵抗，因为”再走一步看看”在认知上比”再来一把”显得更无害。</p><hr><h2 id="塞尔达-vs-原神：两种截然不同的探索哲学"><a href="#塞尔达-vs-原神：两种截然不同的探索哲学" class="headerlink" title="塞尔达 vs 原神：两种截然不同的探索哲学"></a>塞尔达 vs 原神：两种截然不同的探索哲学</h2><p>旷野之息和原神都是开放世界，但对探索的设计哲学几乎相反。</p><p>旷野之息的设计原则是：玩家站在高处能看到什么，大概率就有什么。林克看到山那边有个奇怪的颜色，走过去大概率有个神庙或者科洛格。游戏在培养一种”我能读懂这个世界的语言”的信任感，探索欲来自”这个世界是可解读的”这个前提。这叫发现感设计（Discovery Design）——不是给你惊喜，而是让你有能力预测惊喜的位置。</p><p>原神不是这样。原神的探索奖励很多时候不是靠玩家的主动解读发现的，而是靠覆盖地图来触发的。你走到某个地方，系统弹出”发现新区域”或者解锁了一段隐藏对话。这个机制更接近奖励稠密的任务驱动，而不是真正的开放世界探索。两者都有效，但旷野之息给的是一种”我征服了这个世界”的自主感，原神给的更接近”这个世界给了我一个惊喜”的受动感。</p><p>艾尔登法环的模式和旷野之息更接近，但加了一个额外维度：遮蔽感。遗忘之地的入口你可能走过去三次才发现，因为它被刻意设计成不显眼。艾尔登法环的探索欲来源于”这个世界对我有所隐藏，而我有能力找到隐藏物”——比旷野之息还多一层主动博弈的张力。</p><hr><h2 id="旅行者：历史上最失败的主角，最成功的探索载体"><a href="#旅行者：历史上最失败的主角，最成功的探索载体" class="headerlink" title="旅行者：历史上最失败的主角，最成功的探索载体"></a>旅行者：历史上最失败的主角，最成功的探索载体</h2><p>原神的主角旅行者是一个有趣的设计失败案例。</p><p>从角色塑造角度，旅行者几乎是失败的：没有鲜明的性格特点，对话时你可以选择不同的回答但最终都走向相同的结果，情感弧线单薄，和每个国家的剧情主角比，旅行者的存在感极弱——枫丹剧情的真正主角是芙宁娜，须弥的真正主角是纳西妲，旅行者在整个过程里更像一个见证者而不是参与者。</p><p>但从探索载体的角度，旅行者是聪明的设计。正是因为旅行者没有强烈的个人意志，玩家才能把自己投射进去。你在枫丹的海底看水母，那不是旅行者在看，是你在看。旅行者的”弱存在感”是代入感的前提。</p><p>这是开放世界游戏的一个普遍设计原则：主角越”空”，玩家的代入越强。林克同理——他没有声音，动机简单，玩家眼中的旷野之息其实是玩家自己在旷野里的故事，不是林克的。</p><p>代价是角色的可爱程度和剧情深度的让步。原神选择了在旅行者之外设计强烈的剧情主角（芙宁娜、纳西妲、阿贝多……），让旅行者作为”观察视角”，让剧情角色承担情感深度。这个策略大体上是成功的，但也造成了一个奇怪的局面：玩家和旅行者的羁绊，往往不如玩家和芙宁娜的羁绊来得真实。</p><hr><h2 id="芙宁娜和枫丹：开放世界叙事的实验"><a href="#芙宁娜和枫丹：开放世界叙事的实验" class="headerlink" title="芙宁娜和枫丹：开放世界叙事的实验"></a>芙宁娜和枫丹：开放世界叙事的实验</h2><p>枫丹在原神各个国家里有一个特别的地方：它的地图设计和剧情叙事是配合得最好的。</p><p>具体说：枫丹的大部分地图是在你开始枫丹主线剧情之后才逐渐解锁的（海底世界、水库内部等），而不是像璃月那样你在做主线之前就可以漫无目的地乱跑。这意味着你对枫丹空间的探索和你对枫丹故事的了解是同步推进的。</p><p>这是一个叙事和空间的双向构建。你每次解锁新区域，不只是在获得新地图，也是在理解枫丹的历史。海底世界的存在不是装饰性的，它是”枫丹人与水神之间有一个秘密约定”这个叙事的空间显现。</p><p>从设计哲学上说，这让枫丹更接近《极乐迪斯科》或者《饥荒》这类”空间即叙事”的设计，而不是原神其他地区那种”先有地图再填故事”的做法。</p><p>结论是：当探索欲和叙事欲被绑定在同一个机制里时，开放世界最上瘾。你想知道芙宁娜的秘密，所以你去探索枫丹的海底；探索海底的过程又反过来让秘密的揭示更有重量。</p><hr><h2 id="结尾的话：上瘾和享受不是同一件事"><a href="#结尾的话：上瘾和享受不是同一件事" class="headerlink" title="结尾的话：上瘾和享受不是同一件事"></a>结尾的话：上瘾和享受不是同一件事</h2><p>开放世界游戏令人着迷，但值得分清楚的是：你在这里得到的是上瘾感还是享受感。</p><p>上瘾感是”我停不下来，但停下来之后有点空”。享受感是”我可以随时停，但在里面的时候真的好玩”。两者都有，但比例因人因游戏而异。</p><p>原神的变比强化机制和稀缺性设计（限时角色、限时活动）更多制造的是前者。旷野之息和艾尔登法环的探索机制更多给的是后者，因为它们是买断制——没有限时压力，你和游戏世界之间的关系更接近”我在探索”而不是”我在打卡”。</p><p>这不是什么好坏判断，只是一个区分。知道你在哪种状态里，比无意识地待着要好一些。</p><hr><p><em>参考：Skinner, B. F. (1938). The Behavior of Organisms · Nintendo EPD, The Legend of Zelda: Breath of the Wild (2017) · FromSoftware, Elden Ring (2022)</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漫谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动漫 </tag>
+            
+            <tag> 原神 </tag>
+            
+            <tag> 游戏设计 </tag>
+            
+            <tag> 心理学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>推荐系统双塔模型：工业界最常用的召回架构</title>
+      <link href="/2026/03/08/two-tower-model/"/>
+      <url>/2026/03/08/two-tower-model/</url>
+      
+        <content type="html"><![CDATA[<h2 id="先从芙宁娜的审判庭说起"><a href="#先从芙宁娜的审判庭说起" class="headerlink" title="先从芙宁娜的审判庭说起"></a>先从芙宁娜的审判庭说起</h2><p>枫丹的审判庭有一个不那么明显的工程问题：每次开庭，法官需要快速从大量候选证人里匹配出和案件最相关的那几位。候选证人可能有几百个，全部问一遍不可能，你需要一个机制先快速筛出来最相关的一批，再精细审查。</p><p>推荐系统的召回层干的就是这件事。</p><p>全量商品可能有几千万，你不可能对每个用户-商品对都跑一个精排模型（那代价是灾难级别的）。召回层的任务是从几千万里快速筛出几千个候选，再交给精排和重排去细化。双塔模型（Two-Tower Model）是这个环节目前工业界用得最广的架构。</p><hr><h2 id="双塔结构：把用户和物品分开建模"><a href="#双塔结构：把用户和物品分开建模" class="headerlink" title="双塔结构：把用户和物品分开建模"></a>双塔结构：把用户和物品分开建模</h2><p>双塔的核心思路非常直接：用两个独立的神经网络（”塔”）分别给用户和物品生成 embedding 向量，然后用向量相似度来衡量匹配程度。</p><p>形式化地写：</p><p>$$\hat{y}(u, i) &#x3D; \cos(f_\theta(u),\ g_\phi(i)) &#x3D; \frac{f_\theta(u) \cdot g_\phi(i)}{|f_\theta(u)||\ g_\phi(i)|}$$</p><p>其中 $f_\theta$ 是用户塔，$g_\phi$ 是物品塔，两者独立参数化，不共享权重。</p><p>用户侧特征通常包括：用户历史行为序列、人口统计属性（年龄、地区）、实时上下文（时间、设备）等。物品侧特征包括：物品 ID、类别、标签、统计特征（点击率、完播率）等。每一侧各自经过若干层 MLP 或 Transformer，最终输出一个固定维度的 embedding（通常 64 或 128 维）。</p><p>这个设计的工程价值在后面说，先理解为什么要把两侧分开而不合并成一个大网络。</p><hr><h2 id="为什么不能直接用一个大网络"><a href="#为什么不能直接用一个大网络" class="headerlink" title="为什么不能直接用一个大网络"></a>为什么不能直接用一个大网络</h2><p>直接把用户特征和物品特征拼在一起输入一个网络（Cross-network），理论上表达能力更强，但在工业级召回场景里根本跑不动。</p><p>原因是系统延迟约束。一次召回请求进来，要在几十毫秒内从几千万物品里选出几千个候选。如果用 Cross-network，每对用户-物品都要做一次前向传播，几千万次前向传播串行跑根本不可能在 deadline 之内完成。</p><p>双塔的关键设计是离线&#x2F;在线分离：</p><ul><li>物品塔可以离线跑，提前把所有物品的 embedding 算好，存到向量数据库（Faiss、Milvus 等）。</li><li>线上来了请求，只跑一次用户塔，得到用户 embedding。</li><li>然后在向量数据库里做 ANN（Approximate Nearest Neighbor）检索，找最近的 Top-K 物品 embedding。</li></ul><p>整个线上过程只有用户塔推理 + ANN 检索，延迟可以控制在几十毫秒以内。这就是双塔的核心工程优势：把计算量大的物品侧推到离线，线上只需要轻量的检索。</p><hr><h2 id="负样本采样：最容易踩坑的地方"><a href="#负样本采样：最容易踩坑的地方" class="headerlink" title="负样本采样：最容易踩坑的地方"></a>负样本采样：最容易踩坑的地方</h2><p>双塔用对比学习训练。正样本是用户实际点击&#x2F;购买的物品，负样本是用户没有互动的物品。训练目标是让正样本对的相似度高、负样本对的相似度低。</p><p>听起来简单，但负样本的采样策略极其重要，错了模型上线效果会很差。</p><p>最常见的方案是 In-batch Negative Sampling（批内负采样）：在一个 batch 里，对于用户 $u_i$，把同 batch 内其他用户的正样本物品 ${i_j : j \neq i}$ 当作负样本。这样不需要额外采样，计算开销很小。</p><p>损失函数通常用 Softmax Loss：</p><p>$$\mathcal{L} &#x3D; -\frac{1}{|B|} \sum_{i \in B} \log \frac{\exp(s(u_i, i_i) &#x2F; \tau)}{\sum_{j \in B} \exp(s(u_i, i_j) &#x2F; \tau)}$$</p><p>其中 $s(u, i) &#x3D; \cos(f(u), g(i))$，$\tau$ 是温度系数，$B$ 是 batch。</p><p>但 In-batch Negative Sampling 有一个系统性的偏差问题：流行物品在 batch 里出现的概率正比于它的曝光频率，所以它作为负样本被学到”更难”的次数更多，最终导致流行物品的 embedding 被系统性地压低，召回时流行物品的分数会偏低——这和真实情况相反（流行物品本来用户就更可能点）。</p><p>Google 在 Sampling-Bias-Corrected Neural Modeling（Yi et al., 2019）里给出了修正方案：对每个负样本按物品的曝光概率 $p_j$ 做修正：</p><p>$$s_{\text{corrected}}(u_i, i_j) &#x3D; s(u_i, i_j) - \log p_j$$</p><p>减去 $\log p_j$ 相当于对高频物品的分数做降权惩罚，把采样偏差从分数层面修正掉。这个修正在实际系统里效果很明显，是工程实践里的标准操作。</p><p>另一个坑是曝光偏差（Exposure Bias）：没有曝光的物品不一定是用户不喜欢的，也可能只是系统从来没把它推出去过。如果把所有未曝光物品都当负样本，等于在训练一个”用户对没见过的东西不感兴趣”的模型，这在冷启动场景下会严重伤害新物品。部分系统会加一个”硬负样本”采样策略：从曝光但未点击的物品里采样负样本，而非从全量物品里随机采。</p><hr><h2 id="工程上的其他注意点"><a href="#工程上的其他注意点" class="headerlink" title="工程上的其他注意点"></a>工程上的其他注意点</h2><p>ANN检索的精度&#x2F;召回权衡。工业上常用 Faiss 的 IVFPQ（倒排+乘积量化），量化会引入一定精度损失，ANN 的 Recall@K 通常在 95% 以上就算可以了，追求 100% recall 在工程上不合算（需要用精确检索，代价高得多）。</p><p>Embedding 更新频率。物品侧 embedding 是离线算的，但物品的热度和特征是在变的。如果物品 embedding 几天才更新一次，系统对近期热点物品的召回会滞后。实际做法是对”高热度物品”做增量更新（每小时一次），对长尾物品做日级别更新，分频率处理。</p><p>冷启动的天坑。新物品没有历史交互数据，物品塔的行为序列特征是空的，embedding 质量很差。常见解法：用物品的内容特征（标题、图片）初始化 embedding，或者用聚类把新物品映射到最近的已有物品 embedding 附近作为初始值。这些都是 heuristic，都不完美，冷启动是推荐系统永远的遗留问题。</p><hr><h2 id="双塔之后：架构的演化方向"><a href="#双塔之后：架构的演化方向" class="headerlink" title="双塔之后：架构的演化方向"></a>双塔之后：架构的演化方向</h2><p>双塔的局限在于用户和物品的交互只在最后的点积层发生，中间没有特征交叉。这在精度上是有损失的。</p><p>一个改进方向是 DCN（Deep &amp; Cross Network）：在生成 embedding 之前显式地做特征交叉，提升表达能力。另一个方向是在 Rerank 阶段用更重的 Cross Attention 模型弥补召回层的交互不足。</p><p>但在实际系统里，召回层对响应时间的要求决定了它不能太重，双塔的工程效率优势在短期内很难被替代。权衡不可能三角（精度、效率、可扩展性）是推荐系统工程永远的主旋律。</p><hr><p>召回层的价值常常被低估，大家的注意力都在精排。但召回率（相关物品有多少比例被召回了）决定了精排的天花板——你召不上来的物品，精排再强也看不到。双塔是这个环节目前工程上最可靠的选择，不是因为它最精妙，而是因为它简单、稳定、好 debug。</p><hr><p><em>参考：Covington et al., Deep Neural Networks for YouTube Recommendations, RecSys 2016 · Yi et al., Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations, RecSys 2019 · Faiss 官方文档 <a href="https://faiss.ai/">https://faiss.ai/</a></em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> 推荐系统 </tag>
+            
+            <tag> 双塔模型 </tag>
+            
+            <tag> 召回 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>芙宁娜到底审判了什么</title>
       <link href="/2026/03/07/furina-character-analysis/"/>
       <url>/2026/03/07/furina-character-analysis/</url>
@@ -22,11 +948,11 @@
             
             <tag> 动漫 </tag>
             
+            <tag> 角色分析 </tag>
+            
             <tag> 原神 </tag>
             
             <tag> 芙宁娜 </tag>
-            
-            <tag> 角色分析 </tag>
             
         </tags>
       
@@ -233,9 +1159,9 @@
             
             <tag> ACM-ICPC </tag>
             
-            <tag> 并查集 </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> 并查集 </tag>
             
             <tag> 路径压缩 </tag>
             
@@ -266,9 +1192,9 @@
             
             <tag> 动漫 </tag>
             
-            <tag> 初音未来 </tag>
-            
             <tag> VOCALOID </tag>
+            
+            <tag> 初音未来 </tag>
             
         </tags>
       
@@ -355,9 +1281,9 @@
             
             <tag> LLM </tag>
             
-            <tag> RAG </tag>
-            
             <tag> 工程实践 </tag>
+            
+            <tag> RAG </tag>
             
             <tag> 搜索 </tag>
             
